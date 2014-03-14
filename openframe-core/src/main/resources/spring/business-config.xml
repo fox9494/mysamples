@@ -15,7 +15,7 @@
     <import resource="transaction.xml"/>
 		
 	
-    <!--spring2.5加在property文件  -->
+    <!--spring2加在property文件  -->
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 	    <description>属性配置文件加载</description>
 		<property name="locations">  
@@ -29,10 +29,10 @@
         </property>  
 	</bean>
 	
-	<!--spring3加载properties文件方式  -->
+	<!--spring2.5以后加载properties文件方式，多个文件逗号分离  -->
 	<!-- <context:property-placeholder location="classpath:frame.properties"/> -->
 
-    
+    <bean class="com.openframe.emb.EMBInit" init-method="init"/>
     
     <bean class="com.openframe.utils.BeanHolder"/>
     
@@ -56,6 +56,8 @@
 	<bean id="testService" class="com.openframe.sysmanager.service.impl.TestServiceImpl">
 	   <property name="name" value="${fileUpload.home}"></property>
 	</bean>
+	
+	
 	
     
   <!--   <bean id="userController" class="com.zte.ums.web.controller.UserController">

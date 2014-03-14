@@ -46,7 +46,8 @@ public class RoleController extends PageController{
 	
 	
     @RequestMapping(value="frame/sys/roleList.do")
-	public String queryPage(HttpServletRequest request,HttpServletResponse response,Role role,Map<String, Object> model){
+	public String queryPage(HttpServletRequest request,HttpServletResponse response,Role role,Map<String, Object> model) {
+    	
     	PageBean pageBean = roleService.queryPageUser(this.getPageBean(role, request));
 		model.put("pageBean", pageBean);
     	return "sysmanager/rolelist";

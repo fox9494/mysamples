@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<emb-service name="test-service"   i18n-file="test-embaction-i18n.xml">
+    <mailbox>TESTLV_MAILBOX</mailbox>   
+    <handler impl="com.openframe.emb.TestMessageHandler" ppuName="cn" pmuName="cn-test" pmuFunc="emf" singleton="true">
+    
+    <action code="20001406" desc-key="Report Alarm Restore" priority="5" log-enabled="true" version="4.0.0"/>
+	<action code="20001407" desc-key="Report SNMP Event" priority="5" log-enabled="true" version="4.0.0"/>	
+    <action code="20001408" desc-key="GetAlarm" priority="5" log-enabled="true" version="4.0.0"/>
+    <action code="20001409" desc-key="Position" priority="5" log-enabled="true" version="4.0.0"/>
+	</handler>
+</emb-service>

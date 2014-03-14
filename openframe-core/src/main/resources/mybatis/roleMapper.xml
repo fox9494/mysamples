@@ -50,5 +50,12 @@
   		</where>
   </select>
   
+   <select id="selectDynamic" parameterType="hashmap" resultType="long">
+  		select count(*) from t_role 
+  		<where>
+  			<if test="role_name != null and role_name!=''">role_name like  CONCAT('%',#{roleName,jdbcType=VARCHAR},'%' )</if>
+  		</where>
+  </select>
+  
 
 </mapper>

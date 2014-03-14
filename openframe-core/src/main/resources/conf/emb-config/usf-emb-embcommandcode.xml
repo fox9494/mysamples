@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="GB2312"?>
+<actions package="com.zte.ums.uep.pfl.emb.transport" i18nfile="usf-emb-i18n.xml" app="emb" ignorecase="true">
+    <actiontype desc="emb" >
+        <action code="10001013" pseudo="ACK RESET LIMITSIZE" desc="RESET LIMITSIZE" remark="">
+        </action>
+        <action code="10001012" pseudo="RESET LIMITSIZE" desc="RESET LIMITSIZE" remark="">
+	    <block desc="">
+                <param name="limitSize" type="1" option="0" desc="limitSize" remark=""/>
+	    </block>
+        </action>
+        <action code="10001009" pseudo="ACK QUERY MAILBOX" desc="ACK Query MailBox" remark="">
+        </action>
+        <action code="10001008" pseudo="QUERY MAILBOX" desc="Query MailBox" remark="">
+	    <block desc="">
+                <param name="mailBoxName" type="19" option="0" desc="mailBoxName" remark=""/>
+	    </block>
+		<block desc="">
+                <param name="transferType" type="1" option="3" desc="transferType" remark=""/>
+	    </block>
+		<block desc="">
+                <param name="destpath" type="19" option="3" desc="destpath" remark=""/>
+	    </block>
+        </action>
+        <action code="10001007" pseudo="ACK UNREGISTER MAILBOX" desc="ACK UnregisterMailBox" remark="">
+        </action>
+        <action code="10001006" pseudo="UNREGISTER MAILBOX" desc="UnregisterMailBox" remark="">
+	    <block desc="">
+                <param name="mailBoxName" type="19" option="0" desc="mailBoxName" remark=""/>
+	    </block>
+        </action>
+        <action code="10001005" pseudo="ACK REGISTER MAILBOX" desc="ACK RegisterMailBox" remark="">
+        </action>
+        <action code="10001004" pseudo="REGISTER MAILBOX" desc="registerMailBox" remark="">
+	    <block desc="">
+                <param name="mailBoxName" type="19" option="0" desc="mailBoxName" remark=""/>
+	    </block>
+        <block desc="">
+                <param name="limitSize" type="1" option="3" desc="limitSize" remark=""/>
+	    </block>
+		<block desc="">
+                <param name="destpath" type="19" option="3" desc="destpath" remark=""/>
+	    </block>
+		<block desc="">
+                <param name="transferType" type="1" option="3" desc="transferType" remark=""/>
+	    </block>
+        </action>
+        <action code="10001002" pseudo="HEARTBEAT" desc="heartBeat" remark="">
+            <block ref="HearBeatObject" isarray="false" name="heartbeat" option="0" desc="heartBeat" remark=""/>
+        </action>
+        <action code="10001003" pseudo="ACK HEARTBEAT" desc="ACK_HeartBeat" remark="">
+            <block ref="HearBeatAckObject" isarray="false" name="heartbeatAck" option="0" desc="ACK_HeartBeat" remark=""/>
+        </action>
+        <action code="10001001" pseudo="NULLMSG" desc="NULLMSG" remark="">
+        </action>
+        <action code="10001000" pseudo="ASYN RESPONSE END" desc="ASYN_RESPONSE_END" remark="">
+        </action>
+    </actiontype>
+    <eobjects>
+   	<eobject name="HearBeatObject" desc="heartBeat">
+            <param name="RemoteURL" type="19" option="0" desc="RemoteIP" remark=""/>
+            <param name="CmdIDArray" type="20" option="0" desc="CmdIDArray" remark=""/>
+        </eobject>
+   	<eobject name="HearBeatAckObject" desc="ACK_HeartBeat">
+            <param name="RemoteURL" type="19" option="0" desc="RemoteIP" remark=""/>
+            <param name="FinishedCmdIDArray" type="20" option="0" desc="CmdIDArray" remark=""/>
+        </eobject>
+    </eobjects>
+</actions>

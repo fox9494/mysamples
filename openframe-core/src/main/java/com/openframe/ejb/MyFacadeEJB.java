@@ -1,4 +1,4 @@
-package com.openframe.ejb;
+/*package com.openframe.ejb;
 
 import javax.ejb.Stateless;
 import javax.interceptor.Interceptors;
@@ -22,3 +22,4 @@ public class MyFacadeEJB   implements MyFacadeLocal {
 	}
 
 }
+*/

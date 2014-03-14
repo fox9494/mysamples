@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="GB2312"?>
+<mml>
+    <!-- 对于一维数组压缩比例 -->
+    <reduce_tonken_1>100</reduce_tonken_1>
+    <reduce_tonken_1_size>50</reduce_tonken_1_size>
+    <!-- 对于二维数组压缩比例 -->
+    <reduce_tonken_2>100</reduce_tonken_2>
+    <!-- 特定的分隔符 -->
+    <reduce_token_regex>@^$</reduce_token_regex>
+    <!-- 性能监控打印字节数组长度阈值 -->
+    <mml_bytearray>100000</mml_bytearray>
+</mml>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+		
+		
+	
+	
+	<!-- 以下2个bean用于jax-ws的webservice客户端测试用的，服务器启动的时候需要注释掉,因为启动的时候要连接 -->
+	<bean id="helloWorldService" class="org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean">
+		<property name="serviceInterface" value="com.openframe.webservice.HelloWorld"></property>
+		<property name="wsdlDocumentUrl" value="http://localhost:8080/openframe-core/hello?wsdl"></property>
+		<property name="namespaceUri" value="http://webservice.openframe.com/"></property>
+		<property name="serviceName" value="HelloWorldImplService"></property>
+		<property name="portName" value="HelloWorldImplPort"></property>
+	</bean>
+	<bean id="webserviceClient" class="com.openframe.webservice.HelloWorldClient">
+		<property name="service" ref="helloWorldService"></property>
+	</bean>
+	
+	
+	<!-- 用于hessian客户端调用 -->
+	<bean id="helloServiceHessian" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+		<property name="serviceUrl" value="http://localhost:8080/openframe-core//HelloService"></property>
+		<property name="serviceInterface" value="com.openframe.webservice.hessian.HelloService"></property>
+	</bean>
+	
+</beans>

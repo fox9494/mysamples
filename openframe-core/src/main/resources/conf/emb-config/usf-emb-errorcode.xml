@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="GB2312"?>
+<locales>
+    <locale language-country="zh_CN">
+	<pair code="1014000" level="INFO" label="未知异常。"/>
+	<pair code="1014001" level="INFO" label="系统负荷太大，命令被拒绝。"/>
+	<pair code="1014002" level="INFO" label="链路问题，无法连接。"/>
+	<pair code="1014003" level="INFO" label="发生异常，命令被丢弃。"/>
+	<pair code="1014004" level="INFO" label="链路异常，发送失败。"/>
+	<pair code="1014005" level="INFO" label="命令执行超时，无返回结果。"/>
+	<pair code="1014006" level="INFO" label="无法确定命令{0}对应的处理类({1}：{2})。"/>
+	<pair code="1014007" level="INFO" label="无法建立网络连接。"/>
+	<pair code="1014008" level="INFO" label="会话已经关闭。"/>
+	<pair code="1014009" level="INFO" label="无知的消息类型。"/>
+	<pair code="1014010" level="INFO" label="邮箱不存在。"/>
+	<pair code="1014011" level="INFO" label="不支持的命令。"/>
+	<pair code="1014012" level="INFO" label="重复订阅。"/>
+	<pair code="1014013" level="INFO" label="尚未订阅监听。"/>
+	<pair code="1014014" level="INFO" label="尚未设置发送的目标邮箱。"/>
+	<pair code="1014015" level="INFO" label="消息格式错误。"/>
+	<pair code="1014016" level="INFO" label="没有空闲的网络连接（socket）端口。"/>
+	<pair code="1014017" level="INFO" label="服务器正在启动。"/>
+    <pair code="1014018" level="INFO" label="发送的消息超过限制，拒绝发送。"/>
+    <pair code="1014019" level="INFO" label="EMB文件加载失败。"/>
+	<pair code="1014020" level="INFO" label="EMB消息处理类配置错误。"/>
+    <pair code="1014021" level="INFO" label="通知处理类正则表达式错误。"/>
+    <pair code="1014022" level="INFO" label="EMB命令处理配置文件(*-embaction.xml)中标签{0}配置错误。"/>
+    <pair code="1014023" level="INFO" label="不能获取目的地址，可能由于对应进程没有启动，请联系管理员。"/>
+	<pair code="1014024" level="INFO" label="发送异步回应失败。"/>
+	<pair code="1014025" level="INFO" label="命令分发线程挂起时间超过{0}，系统重新启动。"/>
+	<pair code="1014026" level="INFO" label="接收的消息超过限制，拒绝接收。"/>
+	<pair code="1014027" level="INFO" label="系统EMB启动失败，请联系管理员"/>
+	<pair code="1014028" level="INFO" label="超过最大批量发送限制"/>
+    </locale>
+    <locale language-country="en_US">
+	<pair code="1014000" level="INFO" label="Unknown Exception."/>
+	<pair code="1014001" level="INFO" label="Command is refused by system,because of too heavy burden."/>
+	<pair code="1014002" level="INFO" label="Link is broken down."/>
+	<pair code="1014003" level="INFO" label="Command is diposed,because of some unknown exception."/>
+	<pair code="1014004" level="INFO" label="Link error."/>
+	<pair code="1014005" level="INFO" label="Timeout."/>
+	<pair code="1014006" level="INFO" label="Can not find the handler of command: {0} ({1}:{2})."/>
+	<pair code="1014007" level="INFO" label="Can not establish network connection."/>
+	<pair code="1014008" level="INFO" label="The session is closed."/>
+	<pair code="1014009" level="INFO" label="Unknown message type."/>
+	<pair code="1014010" level="INFO" label="The mailbox does not exist."/>
+	<pair code="1014011" level="INFO" label="Unsupported command."/>
+	<pair code="1014012" level="INFO" label="Duplicated register."/>
+	<pair code="1014013" level="INFO" label="Haven't register mailbox listen."/>
+	<pair code="1014014" level="INFO" label="Haven't set destination mailbox."/>
+	<pair code="1014015" level="INFO" label="Message format is wrong."/>
+	<pair code="1014016" level="INFO" label="No idle socket port."/>
+	<pair code="1014017" level="INFO" label="Server is starting."/>
+    <pair code="1014018" level="INFO" label="the size of message is too big and refuse to send."/>
+    <pair code="1014019" level="INFO" label="fail to load EMB file."/>
+	<pair code="1014020" level="INFO" label="EMB's handler config error."/>
+    <pair code="1014021" level="INFO" label="EMB Notification Listener regex error."/>
+    <pair code="1014022" level="INFO" label="the label of {0} is wrong in file(*-embaction.xml)."/>
+    <pair code="1014023" level="INFO" label="Can not obtain the destination address, may be due to the corresponding process does not start, please contact the administrator."/>
+	<pair code="1014024" level="INFO" label="send async response error."/>
+	<pair code="1014025" level="INFO" label="cmd dispatch thread block {0},must restart."/>
+	<pair code="1014026" level="INFO" label="the size of message is too big and refuse to receive."/>
+	<pair code="1014027" level="INFO" label="Emb start failed, please contact administrator"/>
+	<pair code="1014028" level="INFO" label="Exceeds the maximum limit of batch notifications"/>
+    </locale>
+		<locale language-country="ru_RU">
+				<pair code="1014000" level="INFO" label="Неизвестное исключение." />
+				<pair code="1014001" level="INFO" label="Командование отказалось от системы, из-за слишком тяжелым бременем." />
+				<pair code="1014002" level="INFO" label="Ссылка разбита." />
+				<pair code="1014003" level="INFO" label="Командование diposed, поскольку некоторые неизвестные исключение." />
+				<pair code="1014004" level="INFO" label="Ошибка соед.." />
+				<pair code="1014005" level="INFO" label="Время истекло" />
+				<pair code="1014006" level="INFO" label="Не удалось найти обработчик команды: {0} ({1} {2})." />
+				<pair code="1014007" level="INFO" label="не удалось установить сетевое соединение." />
+				<pair code="1014008" level="INFO" label="Сессия закрыта." />
+				<pair code="1014009" level="INFO" label="Неизвестный тип сообщения." />
+				<pair code="1014010" level="INFO" label="Почтовый ящик не существует." />
+				<pair code="1014011" level="INFO" label="Неподдерживаемые команды." />
+				<pair code="1014012" level="INFO" label="Дублированный регистре." />
+				<pair code="1014013" level="INFO" label="Не зарегистрировать почтовый ящик слушать." />
+				<pair code="1014014" level="INFO" label="Не установлен почтовый ящик назначения." />
+				<pair code="1014015" level="INFO" label="Сообщение формат не так." />
+				<pair code="1014016" level="INFO" label="Нет простоя порта сокета." />
+				<pair code="1014017" level="INFO" label="Сервер начинается." />
+				<pair code="1014018" level="INFO" label="размер сообщения слишком велик и отказываются посылать." />
+				<pair code="1014019" level="INFO" label="не удалось загрузить файл EMB." />
+				<pair code="1014020" level="INFO" label="Обработчик конфигурации EMB по ошибке." />
+				<pair code="1014021" level="INFO" label="EMB Уведомление слушателей регулярных выражений ошибки." />
+				<pair code="1014022" level="INFO" label="метку {0} неверен в файл (*-embaction.xml)." />
+				<pair code="1014023" level="INFO" label="Не удалось получить адрес назначения, м/быть связано с соответствующим процесс не начнется,   обратитесь к администратору." />
+				<pair code="1014024" level="INFO" label="Написать асинхронных ошибке." />
+				<pair code="1014025" level="INFO" label="CMD отправки нить блок {0}, необходимо перезагрузить." />
+				<pair code="1014026" level="INFO" label="размер сообщения слишком велик и отказаться от получения." />
+				<pair code="1014027" level="INFO" label="Наб начала не удалась,   свяжитесь с администратором" />
+				<pair code="1014028" level="INFO" label="Превышает Max предел партия уведомления" />
+		</locale>
+</locales>
