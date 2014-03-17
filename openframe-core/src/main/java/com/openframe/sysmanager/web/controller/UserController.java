@@ -7,10 +7,15 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.jmock.auto.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -21,6 +26,7 @@ import com.openframe.sysmanager.domain.User;
 import com.openframe.sysmanager.service.UserService;
 
 @Controller
+@RequestMapping()
 public class UserController extends PageController{
 
 	@Autowired
@@ -65,6 +71,7 @@ public class UserController extends PageController{
 	 * @throws IOException 
 	 */
 	@RequestMapping(value="/frame/sys/adduser.do")
+	
 	public String addUser(Map<String, Object> model,@RequestParam("pictureFile") MultipartFile[] files,@RequestParam("idCard") MultipartFile idcard,User user) throws IOException{
 	    for (MultipartFile file : files) {
 			if (!file.isEmpty()){
@@ -78,8 +85,16 @@ public class UserController extends PageController{
 		return "add";
 	}
 	
+	
+	@RequestMapping(value="/owners/{ownerId}", method=RequestMethod.GET)
+	public String findOwner(@PathVariable String ownerId, Model model) {
+//	  Owner owner = ownerService.findOwner(ownerId);
+//	  model.addAttribute("owner", owner);
+	  return "displayOwner";
+	}
+	
 	@RequestMapping(value="/frame/sys/listone.do")
-	public String queryUser(Map<String, Object> model,@RequestParam String userId){
+	public String queryUser(Map<String, Object> model,@RequestParam("userId") String userId){
 		User user = userService.queryOne(userId);
 		model.put("user", user);
 		return "add";

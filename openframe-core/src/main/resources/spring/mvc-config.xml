@@ -31,7 +31,7 @@
     <!--拦截器配置  -->
     <!-- <mvc:interceptors>
 		<mvc:interceptor >
-			<mvc:mapping path="/sys/manager/role/saveRoleAndType.htm"/> 
+			<mvc:mapping path="/sys/*.htm"/> 
 			<bean class="com.soarsky.boteng.common.web.interceptors.TokenInterceptor"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors> -->

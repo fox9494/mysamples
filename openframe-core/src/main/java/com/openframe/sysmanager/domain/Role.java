@@ -2,7 +2,9 @@ package com.openframe.sysmanager.domain;
 
 import java.util.Date;
 
+
 public class Role {
+	
 	
 	private int roleId;
 	

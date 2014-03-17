@@ -27,7 +27,7 @@ public class RoleController extends PageController{
 	
 	@Autowired
 	@Qualifier("testService")
-	private TestService testService;
+	private TestService testService ;
 	
 	
 	@Autowired
@@ -63,7 +63,7 @@ public class RoleController extends PageController{
 	public String addForm(@ModelAttribute("role")Role role,BindingResult result){
 		new RoleValidator().validate(role, result);
         if (result.hasErrors()) {
-            return "sysmanager/roleAdd";
+            return "sysmanager/roleadd";
         }
 		if (role!=null){
 			role.setCreateDate(new Date());
