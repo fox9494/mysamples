@@ -7,7 +7,7 @@ public class HelloWorldClient {
 	
 	
 	public String printHello(){
-		return service.getHelloWorld("from client");
+		return service.getHelloWorld("test",new TestEntity("jon",78));
 	}
 
 	public HelloWorld getService() {

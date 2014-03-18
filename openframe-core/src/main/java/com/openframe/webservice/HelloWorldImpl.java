@@ -7,8 +7,8 @@ import javax.jws.WebService;
 public class HelloWorldImpl implements HelloWorld {
 
 	@Override
-	public String getHelloWorld(String param) {
-		return "Hello World JAX-WS,"+param;
+	public String getHelloWorld(String param,TestEntity entity) {
+		return "Hello World JAX-WS:"+param+",object:"+entity.toString();
 	}
 
 }

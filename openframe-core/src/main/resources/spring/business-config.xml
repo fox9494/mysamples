@@ -13,6 +13,7 @@
 		
 	<import resource="datasource-config.xml"/>
     <import resource="transaction.xml"/>
+    <import resource="jms-config.xml"/>
 		
 	
     <!--spring2加在property文件  -->
@@ -40,6 +41,8 @@
 
     <context:component-scan base-package="com.openframe.**.service"/>
     
+    <context:component-scan base-package="com.openframe.**.jms"/>
+    
     <context:component-scan base-package="com.openframe.**.dao"/>
 
     <context:property-placeholder location="classpath:spring/data-access.properties"/>
@@ -56,6 +59,8 @@
 	<bean id="testService" class="com.openframe.sysmanager.service.impl.TestServiceImpl">
 	   <property name="name" value="${fileUpload.home}"></property>
 	</bean>
+	
+	
 	
 	
 	

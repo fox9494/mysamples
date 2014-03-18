@@ -11,6 +11,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.openframe.webservice.TestEntity;
 import com.openframe.webservice.hessian.HelloService;
 
 /**
@@ -34,7 +35,7 @@ public class HessianServiceTest {
 		String start = df.format(new Date());
 		
 		for (int i = 0; i < 10000; i++) {
-			System.out.println(client.getHello("what.."));
+			System.out.println(client.getHello("test",new TestEntity("test", 24)));
 		}
 		
 		System.out.println("start time:"+start);

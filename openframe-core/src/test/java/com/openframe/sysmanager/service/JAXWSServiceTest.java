@@ -22,7 +22,7 @@ import com.openframe.webservice.HelloWorldClient;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations={"classpath:/spring/business-config.xml","classpath:/spring/webservice-config.xml"})
 @Transactional//执行完数据库的操作会自动回滚
-public class WebServiceTest {
+public class JAXWSServiceTest {
 	
 	@Autowired
 	@Qualifier("webserviceClient")

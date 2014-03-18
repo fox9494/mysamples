@@ -11,6 +11,6 @@ import javax.jws.soap.SOAPBinding.Style;
 public interface HelloWorld {
 	
 	@WebMethod
-	public String getHelloWorld(String param);
+	public String getHelloWorld(String param,TestEntity entity);
 
 }
