@@ -8,15 +8,17 @@
 	<packaging>war</packaging>
 	<name>openframe Maven Webapp</name>
 
+
 	<description>web项目框架</description>
+
 
 	<developers>
 		<developer>
 			<email>cll219@qq.com</email>
-			<name>chenlile</name>
+			<name>chenlile1</name>
 			<organization>mycompany</organization>
 			<roles>
-				<role>project leader</role>
+				<role>project leader--</role>
 			</roles>
 		</developer>
 	</developers>
