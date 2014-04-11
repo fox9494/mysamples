@@ -36,10 +36,11 @@ public class JMSProducerTest {
     private ProducerService producerService;  
       
     @Test
-    public void sendTest() {  
+    public void sendTest() throws InterruptedException {  
     	SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS");//设置日期格式
 		String start = df.format(new Date());
     	for (int i = 0; i < 3; i++) {
+    		Thread.sleep(10000);
     		producerService.sendMessage(destination, new TestEntity("joy",i));  
 		}
     	System.out.println("start time:"+start);

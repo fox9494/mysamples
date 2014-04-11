@@ -32,13 +32,13 @@
 			<value>com.mysql.jdbc.Driver</value>
 		</property>
 		<property name="jdbcUrl">
-			<value>jdbc:mysql://localhost:3306/test?useUnicode=true&amp;characterEncoding=utf8</value>
+			<value>jdbc:mysql://10.74.165.7:3306/test?useUnicode=true&amp;characterEncoding=utf8</value>
 		</property>
 		<property name="user">
 			<value>root</value>
 		</property>
 		<property name="password">
-			<value>mysql</value>
+			<value>123456</value>
 		</property>
 		<property name="maxPoolSize">
 			<value>15</value>
