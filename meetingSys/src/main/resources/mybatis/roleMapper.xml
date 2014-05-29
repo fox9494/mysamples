@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.openframe.sysmanager.dao.RoleDAO">
+
+   <resultMap type="com.openframe.sysmanager.domain.Role" id="resultRole">
+	    <id  property="roleId" column="role_id"/>
+	    <result property="roleName" column="role_name"/>
+	    <result property="createDate" column="create_date"/>
+  </resultMap>
+
+  <!--useGeneratedKeys自动返回数据库自增主键到keyProperty中  -->
+  <!-- 对于类的映射建议写类路径全名 -->
+  <insert id="insert" parameterType="com.openframe.sysmanager.domain.Role" useGeneratedKeys="true" keyProperty="roleId">
+      <!-- 不同数据库执行不同sql语句例子 -->
+	  <if test="_databaseId == 'oracle'">
+         <!--不同数据库sql语句  -->
+      </if>		
+      <if test="_databaseId == 'mysql'">
+         INSERT INTO t_role (role_id, role_name,create_date) 
+      	VALUES (#{roleId},#{roleName}, #{createDate})
+      </if>
+  </insert>
+  
+  <select id="selectById" parameterType="_int" resultType="com.openframe.sysmanager.domain.Role">
+  	  select * from t_role where role_id=#{roleId}
+  </select>
+  
+  <delete id="deleteById" parameterType="_int">
+  	   delete from t_role where role_id=#{roleId}
+  </delete>
+  
+  <update id="updateById" parameterType="com.openframe.sysmanager.domain.Role">
+  		update t_role set role_name=#{roleName} where role_id=#{roleId}
+  </update>
+  
+   <select id="selectcount" parameterType="hashmap" resultType="long">
+  		select count(*) from t_role 
+  		<where>
+  			<if test="role_name != null and role_name!=''">role_name like  CONCAT('%',#{roleName,jdbcType=VARCHAR},'%' )</if>
+  		</where>
+  </select>
+  
+  
+   <select id="pagequery" parameterType="hashmap" resultMap="resultRole">
+  		select role_id,role_name,create_date from t_role 
+  		<where>
+  			<if test="role_name != null and role_name!=''">role_name like  CONCAT('%',#{roleName,jdbcType=VARCHAR},'%' )</if>
+  		</where>
+  </select>
+  
+   <select id="selectDynamic" parameterType="hashmap" resultType="long">
+  		select count(*) from t_role 
+  		<where>
+  			<if test="role_name != null and role_name!=''">role_name like  CONCAT('%',#{roleName,jdbcType=VARCHAR},'%' )</if>
+  		</where>
+  </select>
+  
+
+</mapper>

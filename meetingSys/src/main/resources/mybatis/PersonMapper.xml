@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lile.frame.persistence.PersonMapper">
+
+   
+
+  <!-- mybatis关联查询例子
+  <resultMap type="merchantPO" id="resultMerchant">
+	    <id  property="merchantId" column="MERCHANT_ID"/>
+	    <result property="merchantName" column="MERCHANT_NAME"/>
+	    <collection property="users" ofType="user"  >
+	    	<id property="user_id" column="USER_ID"/>
+	    	<result property="username" column="USERNAME"/>
+	    </collection>
+  </resultMap> -->
+  
+  <!-- <select id="selectById" parameterType="string" resultMap="resultMerchant">
+		select t1.MERCHANT_ID,t1.MERCHANT_NAME,t2.user_id,t2.username 
+		from T_MERCHANT t1,T_USER t2 where t1.merchant_id=t2.merchant_id and t1.MERCHANT_ID in ('001','201308291717')
+	</select>
+  
+  <insert id="add" parameterType="com.lile.frame.domain.Person">
+      INSERT INTO PERSON (id,NAME, money,create_date)
+       VALUES (#{id},#{name}, #{money},#{create_date})
+  </insert>
+  
+  <select id="getById" parameterType="Integer" resultType="com.lile.frame.domain.Person">
+      select Person.id,Person.name,Person.age from Person where Person.id=#{id}
+  </select>
+  
+  
+   <select id="listAll"  resultType="com.lile.frame.domain.Person">
+      select id,name,age from person
+  </select>
+   -->
+  
+
+</mapper>

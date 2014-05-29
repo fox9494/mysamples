@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="GB2312"?>
+<emb-alone>
+    <pe>
+        <path>EMS/main/cn/cn-test/emf</path>
+        <ip>localhost</ip>
+        <port>30008</port>
+    </pe>
+</emb-alone>

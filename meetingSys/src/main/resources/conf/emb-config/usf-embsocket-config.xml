@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="GB2312"?>
+<socket>
+    <connect_port>
+	<begin>28889</begin>
+	<end>28899</end>
+    </connect_port>
+	
+    <!--每一个会话的缓冲区大小，当缓冲区大于该值时系统会暂停对该会话的读取,单位：MB-->
+    <session_buffer>20</session_buffer>
+	<!--在最大缓存满的状态下，处理完该长度的缓存后开始继续接受,单位：MB-->
+	<session_buffer_restart_process_length>1</session_buffer_restart_process_length>
+    <!--当解析消息出错时，是否把错误的详细信息打印到临时文件中-->
+    <dump_error>true</dump_error>
+    <!-- 当消息的长度超过指定值时，把消息压缩传送。单位K  -->
+    <mml_zip_size>500</mml_zip_size>
+    <!-- Socket 接收缓存。单位K  -->
+    <receive_buffer>128</receive_buffer>
+    <!-- Socket 发送缓存。单位K  -->
+    <send_buffer>128</send_buffer>
+    <!-- 命令分发缓存  -->
+    <!-- 每一个处理类＋来源作为key的缓存队列 -->
+    <max_cmd_buffer>1000</max_cmd_buffer>
+    <!-- 每一个处理类＋来源作为key的缓存队列限制 -->
+    <cmd_buffer_limit>800</cmd_buffer_limit>
+    <cmd_discard_policy>1</cmd_discard_policy>
+    <!-- 通知分发缓存  -->
+    <!-- 通知线程池中最大待处理的个数  -->
+    <max_notify_buffer>500</max_notify_buffer>
+    
+    <!--消息丢弃策略-->
+    <notify_discard_policy>1</notify_discard_policy>
+    <!-- 通知线程 -->
+    <notify_thread>50</notify_thread>
+    <!-- 批量处理通知  -->
+    <batch_operate_notify>100</batch_operate_notify>
+    
+    <!--每个邮箱的队列最大值 -->
+    <notify_every_buffer_size>5000</notify_every_buffer_size>
+    <!--每个邮箱的队列极限值 -->
+    <notify_every_buffer_limit>4000</notify_every_buffer_limit>
+    <!-- 存储线程的个数  -->
+    <store_pool_thread>10</store_pool_thread>
+    
+    <!--通知消息丢弃监听处理线程-->
+    <notify_discardthread_count>10</notify_discardthread_count>
+    <!--邮箱队列事件监听处理线程-->
+    <notify_listeventthread_count>10</notify_listeventthread_count>    
+    <!-- 通知性能监控点打印阈值  -->
+    <notify_count>200</notify_count>
+    <notify_buffer_count>1000</notify_buffer_count>
+    <!--命令性能监控点打印阈值  -->
+    <cmd_count>100</cmd_count>
+    <cmd_buffer_count>200</cmd_buffer_count>
+    <!--回应性能监控点打印阈值  -->
+    <resp_count>200</resp_count>
+    <resp_buffer_count>200</resp_buffer_count>
+    
+    <!--大消息阈值  -->
+    <big_message_size_1>100</big_message_size_1>
+    <big_message_size_2>10240</big_message_size_2>
+    <big_message_size_3>20480</big_message_size_3>
+    
+	
+	<!--大消息发送阈值 -->
+	<emb_big_message_length_send_1>100</emb_big_message_length_send_1>
+	<emb_big_message_length_send_2>10240</emb_big_message_length_send_2>
+	<emb_big_message_length_send_3>20480</emb_big_message_length_send_3>
+	
+	<!--大消息接收阈值 -->
+	<emb_big_message_length_receive_1>100</emb_big_message_length_receive_1>
+	<emb_big_message_length_receive_2>10240</emb_big_message_length_receive_2>
+	<emb_big_message_length_receive_3>20480</emb_big_message_length_receive_3>
+	
+	
+    <!--回调超时处理类-->
+    <callback_listener>100</callback_listener>
+    <callback_handler>100</callback_handler>
+    
+    <!--回应线程数-->
+    <async_thread_count>20</async_thread_count>
+    <!--回应最大空闲数-->
+    <async_thread_idle>15</async_thread_idle>
+    <!--命令线程数-->
+    <!--cmd_thread_count>50</cmd_thread_count-->
+    <!--过滤线程数-->
+    <filter_thread_count>30</filter_thread_count>
+    
+    <!-- 单个线程解析大消息阈值 -->
+    <big_msg_queue_length>100</big_msg_queue_length>
+    <big_msg_limit>5120</big_msg_limit>
+    <log_info_limit>2000</log_info_limit>
+	
+	<!-- 单个handler最多使用的线程个数 -->
+	<!-- max_signle_handler>5</max_signle_handler -->
+	<!-- 每个命令线程处理时间阈值 单位分钟-->
+	<max_signle_handler_time>15</max_signle_handler_time>
+	<!-- 命令线程检测周期，单位10s -->
+	<check_cmd_status>30</check_cmd_status>
+	<!-- 所有命令分发线程都挂起超过120min 则重启 -->
+	<exit_delay_time>120</exit_delay_time>
+	
+	<!--远程分发缓存-->
+	<remote_dispatch_buffer>2000</remote_dispatch_buffer>
+	<!--远程分发每次等待时间-->
+	<remote_dispatch_sleep_time>500</remote_dispatch_sleep_time>
+	<!--EMB详细日志开关-->
+	<emb_transport_log>false</emb_transport_log>
+	
+	<!-- 多线程解析配置项,后续几个配置项只有在开关为true时才有效 -->
+	<!-- 启动多线程解析开关 -->
+	<multi_parser_on>false</multi_parser_on>
+	<!-- 单个通道最大线程个数 -->
+	<multi_thread_count>3</multi_thread_count>
+	<!-- 单个通道最大缓存消息个数 -->
+	<multi_buffer_max>200</multi_buffer_max>
+	<!-- 线程池最大可用线程数 -->
+	<multi_pool_size>30</multi_pool_size>
+	
+	<layer_on>false</layer_on>
+</socket>

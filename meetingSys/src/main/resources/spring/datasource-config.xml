@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Application context definition for PetClinic Datasource.
+-->
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans.xsd
+         http://www.springframework.org/schema/context
+         http://www.springframework.org/schema/context/spring-context.xsd
+         http://www.springframework.org/schema/jdbc
+         http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
+
+    <!-- ========================= DATASOURCE DEFINITION ========================= -->
+
+    <!--spring3加载properties文件方式  -->
+    <context:property-placeholder location="classpath:spring/data-access.properties" ignore-unresolvable="true"/>
+    
+
+    <!-- DataSource configuration for the tomcat jdbc connection pool 
+    See here for more details on commons-dbcp versus tomcat-jdbc: 
+    http://blog.ippon.fr/2013/03/13/improving-the-performance-of-the-spring-petclinic-sample-application-part-3-of-5/-->
+   <!--  <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+          p:driverClass="${jdbc.driverClass}" p:url="${jdbc.jdbcUrl}"
+          p:username="${jdbc.user}" p:password="${jdbc.password}"/> -->
+          
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close" abstract="false" lazy-init="default" autowire="default">
+		<property name="driverClass">
+			<value>com.mysql.jdbc.Driver</value>
+		</property>
+		<property name="jdbcUrl">
+			<value>jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&amp;characterEncoding=utf8</value>
+		</property>
+		<property name="user">
+			<value>root</value>
+		</property>
+		<property name="password">
+			<value>root</value>
+		</property>
+		<property name="maxPoolSize">
+			<value>15</value>
+		</property>
+		<property name="minPoolSize">
+			<value>2</value>
+		</property>
+		<property name="initialPoolSize">
+			<value>10</value>
+		</property>
+		<property name="maxIdleTime">
+			<value>1800</value>
+		</property>
+	</bean>
+	
+	
+	<!-- <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close" abstract="false" lazy-init="default" autowire="default">
+		<property name="driverClass">
+			<value>oracle.jdbc.driver.OracleDriver</value>
+		</property>
+		<property name="jdbcUrl">
+		 	<value>jdbc:oracle:thin:@boteng.xicp.cn:15210:orcl</value>
+		</property>
+		<property name="user">
+			<value>boteng</value>
+		</property>
+		<property name="password">
+			<value>boteng</value>
+		</property>
+		<property name="maxPoolSize">
+			<value>50</value>
+		</property>
+		<property name="minPoolSize">
+			<value>2</value>
+		</property>
+		<property name="initialPoolSize">
+			<value>10</value>
+		</property>
+		<property name="maxIdleTime">
+			<value>60</value>
+		</property>
+		
+	</bean> -->
+	
+
+    <!-- 查找mapper，并自动为mapper创建MapperFactoryBean -->
+    <!-- <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.lile.frame.persistence" />
+        使用一个以上的datasource需要指明 ,否则会自动为mapper装配sqlSessionFactory
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+    </bean> -->
+    
+    
+	<!-- 使mybatis适配多种数据库 -->    
+    <bean id="databaseIdProvider" class="org.apache.ibatis.mapping.VendorDatabaseIdProvider">
+         <property name="properties" ref="vendorProperties"/>
+    </bean>
+    <bean id="vendorProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+        <property name="properties">
+            <props>
+                <prop key="SQL Server">sqlserver</prop>
+                <prop key="DB2">db2</prop>
+                <prop key="Oracle">oracle</prop>
+                <prop key="MySQL">mysql</prop>
+            </props>
+        </property>
+    </bean>
+    
+    <!-- mybatis sqlsessionFactoyr配置 -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <!-- 配置需要的domain路径 -->
+        <!-- <property name="typeAliasesPackage" 
+                value="com.lile.frame.domain;
+                      com.lile.frame.sysmanager.domain" /> -->
+        <!-- 配置需要的扫描的xml路径 -->
+        <property name="mapperLocations" value="classpath*:mybatis/*.xml" />
+        <property name="configurationProperties">
+			<props>
+				<prop key="cacheEnabled">false</prop>
+				<prop key="lazyLoadingEnabled">true</prop>
+				<prop key="aggressiveLazyLoading">false</prop>
+				<prop key="multipleResultSetsEnabled">true</prop>
+				<prop key="defaultExecutorType">SIMPLE</prop>
+				<prop key="defaultStatementTimeout">25000</prop>
+				<prop key="logImpl">LOG4J</prop>
+			</props>
+		</property>
+		<property name="databaseIdProvider" ref="databaseIdProvider"/> 
+		<property name="plugins">
+			<list>
+				<bean class="com.openframe.common.page.PaginationInterceptor" >
+					<property name="dialect" value="MYSQL" />
+				</bean>
+			</list>
+		</property>
+    </bean>
+    
+    <!-- mybatis 批处理模式 -->
+    <bean id="sqlSessionTemplateBatch" class="org.mybatis.spring.SqlSessionTemplate">
+	  <constructor-arg index="0" ref="sqlSessionFactory" />
+	  <constructor-arg index="1" value="BATCH" />
+	</bean>
+	
+	<!-- mybatis 重用预处理模式 -->
+	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+	  <constructor-arg index="0" ref="sqlSessionFactory" />
+	  <constructor-arg index="1" value="REUSE" />
+	</bean>
+	
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+</beans>
