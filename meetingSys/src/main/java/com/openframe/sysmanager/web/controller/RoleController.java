@@ -18,16 +18,12 @@ import com.openframe.common.controller.PageController;
 import com.openframe.common.page.PageBean;
 import com.openframe.sysmanager.domain.Role;
 import com.openframe.sysmanager.service.RoleService;
-import com.openframe.sysmanager.service.TestService;
 import com.openframe.sysmanager.web.validator.RoleValidator;
 
 @Controller
 public class RoleController extends PageController{
 	
 	
-	@Autowired
-	@Qualifier("testService")
-	private TestService testService ;
 	
 	
 	@Autowired
@@ -40,7 +36,6 @@ public class RoleController extends PageController{
 	 */
 	@RequestMapping(value="/frame/sys/initRoleAdd.do")
 	public String initAdd(Model model){
-		testService.print();
 		return "sysmanager/roleadd";
 	}
 	

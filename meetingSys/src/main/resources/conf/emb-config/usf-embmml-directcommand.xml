@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="GB2312"?>
-<!--如果应用采用透传的方式，则配置此文件，不用再配置embcommandcode.xml文件和emb的action文件。
-app 表示使用的人机命令的格式类型，应该是在登录到emb的时候传入的，缺省是emb。
-ignorecase 表示在输入助记符的情况下，是否大小写敏感。
-code 命令码，整数型的
-pseudo 助记符
-handler 处理此命令码的handler，与emb中的handler意义是一样的 -->
-<actions app="emb" ignorecase="true">
-</actions>

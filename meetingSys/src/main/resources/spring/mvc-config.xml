@@ -101,13 +101,5 @@
     
     
     
-    <!-- hessian使用 -->
-    <bean name="/HelloService" class="org.springframework.remoting.caucho.HessianServiceExporter">
-    	<property name="service" ref="helloService"></property>
-    	<property name="serviceInterface" value="com.openframe.webservice.hessian.HelloService"></property>  
-    
-    </bean>
-    
-    <bean id="helloService" class="com.openframe.webservice.hessian.HelloServiceImpl" />
 
 </beans>
