@@ -12,6 +12,7 @@
 		
 		
 	<import resource="datasource-config.xml"/>
+	<import resource="spring-shiro.xml"/>
     <import resource="transaction.xml"/>
 		
 	
@@ -42,6 +43,8 @@
     <context:component-scan base-package="com.openframe.**.dao"/>
 
     <context:property-placeholder location="classpath:spring/data-access.properties"/>
+    
+    
 
     <!-- 支持事务注解 -->
     <tx:annotation-driven transaction-manager="transactionManager"/>
