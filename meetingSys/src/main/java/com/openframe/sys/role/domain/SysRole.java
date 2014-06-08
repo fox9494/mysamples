@@ -4,22 +4,22 @@ import java.util.Date;
 
 public class SysRole {
 	
-	private int id;
+	private int roleId;
 	
 	private String name;
 	
 	private String remark;
 	
-	private Date insertDate;
+	private Date insertDate = new Date();
 	
-	private Date updateDate;
+	private Date updateDate = new Date();
 
-	public int getId() {
-		return id;
+	public int getRoleId() {
+		return roleId;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setRoleId(int roleId) {
+		this.roleId = roleId;
 	}
 
 	public String getName() {

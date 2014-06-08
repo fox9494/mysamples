@@ -36,7 +36,7 @@ public class PageController {
 	    if(currentPageNumber <1){//防止负数和0 的出现
 	    	currentPageNumber = FIRSTPAGE;
 	    }
-	    pageBean.setCurrentPage(currentPageNumber);
+//	    pageBean.setCurrentPage(currentPageNumber);
 		return pageBean;
 	}
 }

@@ -99,14 +99,14 @@ public abstract class BaseMybatisDAOImpl<T> implements  BaseMybatisDAO<T> {
 	  long count = sqlSessionTemplate.selectOne(this.getStatement(SELECTCOUNT),pageObj.getCondition());
 	  
 	  //查询数据	
-	  List<T> resultList = sqlSessionTemplate.selectList(this.getStatement(SELECTPAGE), pageObj.getCondition(), new RowBounds(PageBean.countOffset(pageObj.getPageSize(), pageObj.getCurrentPage()),pageObj.getPageSize()));
+	  List<T> resultList = sqlSessionTemplate.selectList(this.getStatement(SELECTPAGE), pageObj.getCondition(), new RowBounds(PageBean.countOffset(pageObj.getPageSize(), pageObj.getPageNum()),pageObj.getPageSize()));
 	
 	  PageBean result = new PageBean();
 	  result.setList(resultList);
-	  result.setRowCount(count);
+	  result.setTotalCount(count);
 	  result.setCondition(pageObj.getCondition());
 	  result.setPageSize(pageObj.getPageSize());
-	  result.setCurrentPage(pageObj.getCurrentPage());
+//	  result.setCurrentPage(pageObj.getCurrentPage());
 	  return result;
 		
 	}

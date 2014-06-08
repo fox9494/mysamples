@@ -70,6 +70,7 @@ $(function(){
 					<div class="accordionContent">
 						<ul class="tree treeFolder">
 							<li><a href="<c:url value='/management/user'/>" target="navTab" rel="userLiNav">用户管理</a></li>
+							<li><a href="<c:url value='/sys/role/roleList.do'/>" target="navTab" rel="sysRoleLiNav">角色管理</a></li>
 						</ul>
 					</div>
 					

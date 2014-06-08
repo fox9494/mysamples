@@ -12,7 +12,7 @@
 		
 		
 	<import resource="datasource-config.xml"/>
-	<import resource="spring-shiro.xml"/>
+	<!-- <import resource="spring-shiro.xml"/> -->
     <import resource="transaction.xml"/>
 		
 	
@@ -55,9 +55,9 @@
 	</bean>
 	
 	
-	<bean id="testService" class="com.openframe.sysmanager.service.impl.TestServiceImpl">
+	<!-- <bean id="testService" class="com.openframe.sysmanager.service.impl.TestServiceImpl">
 	   <property name="name" value="${fileUpload.home}"></property>
-	</bean>
+	</bean> -->
 	
 	
 	

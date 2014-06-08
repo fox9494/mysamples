@@ -12,22 +12,59 @@ public class PageBean {
 	
 	public static int DEFAULTPAGESIZE = 10;
 	private List list;// 数据列表
-	private long rowCount; // 总条数
+	private long totalCount;//总条数
 	private long totalPage;// 总页数
-	private int currentPage = 1;// 当前页码
-	private int pageSize = 10;// 每页条数
-
-	private boolean isFirstPage;// 是否是第一页
-	private boolean isLastPage;// 是否是最后一页
-	private boolean hasPreviousPage;//是否有上一页
-	private boolean hasNextPage;// 是否有下一页
+	private int pageNum = 1;
 	
+	private int pageSize=0;
 	
+	private String targetType;
+	
+	private int pageNumShown=10;//页标数字显示多少个
 	
 	/**
 	 * 查询条件,用户组装需要输入的查询条件
 	 */
 	private Map condition;
+	
+	private String orderField;
+	private String orderDirection;
+	
+	public int getPageSize() {
+		return pageSize > 0 ? pageSize : DEFAULTPAGESIZE;
+	}
+	public void setPageSize(int pageSize) {
+		this.pageSize = pageSize;
+	}
+	
+	public String getTargetType() {
+		return targetType;
+	}
+
+	public void setTargetType(String targetType) {
+		this.targetType = targetType;
+	}
+
+	
+
+	public String getOrderField() {
+		return orderField;
+	}
+
+	public void setOrderField(String orderField) {
+		this.orderField = orderField;
+	}
+
+	public String getOrderDirection() {
+		return orderDirection;
+	}
+
+	public void setOrderDirection(String orderDirection) {
+		this.orderDirection = orderDirection;
+	}
+
+	
+	
 
 	public List getList() {
 		return list;
@@ -38,8 +75,8 @@ public class PageBean {
 	}
 
 	public long getTotalPage() {
-		long totalPage=rowCount/pageSize;
-		if(rowCount%pageSize!=0){
+		long totalPage=totalCount/pageSize;
+		if(totalCount%pageSize!=0){
 			totalPage++;
 		}
 		return totalPage;
@@ -49,48 +86,10 @@ public class PageBean {
 		this.totalPage = totalPage;
 	}
 
-	public int getCurrentPage() {
-		return currentPage;
-	}
-
-	public void setCurrentPage(int currentPage) {
-		this.currentPage = currentPage;
-	}
-
-	public int getPageSize() {
-		return pageSize;
-	}
-
-	public void setPageSize(int pageSize) {
-		this.pageSize = pageSize;
-	}
-
-	/**
-	 * 初始化
-	 */
-	public void init() {
-		this.isFirstPage = isFirstPage();
-		this.isLastPage = isLastPage();
-		this.hasPreviousPage = isHasPreviousPage();
-		this.hasNextPage = isHasNextPage();
-	}
 
 
-	public boolean isFirstPage() {
-		return currentPage == 1;
-	}
 
-	public boolean isLastPage() {
-		return currentPage == totalPage;
-	}
 
-	public boolean isHasPreviousPage() {
-		return currentPage != 1;//不是第一页则都有上一页
-	}
-
-	public boolean isHasNextPage() {
-		return currentPage != totalPage;//
-	}
 
 	/**
 	 * 计算总页数
@@ -134,12 +133,30 @@ public class PageBean {
 		this.condition = condition;
 	}
 
-	public long getRowCount() {
-		return rowCount;
+	public long getTotalCount() {
+		return totalCount;
 	}
 
-	public void setRowCount(long rowCount) {
-		this.rowCount = rowCount;
+	public void setTotalCount(long totalCount) {
+		this.totalCount = totalCount;
 	}
+
+
+	public int getPageNumShown() {
+		return pageNumShown;
+	}
+
+	public void setPageNumShown(int pageNumShown) {
+		this.pageNumShown = pageNumShown;
+	}
+
+	public int getPageNum() {
+		return pageNum;
+	}
+
+	public void setPageNum(int pageNum) {
+		this.pageNum = pageNum;
+	}
+
 
 }
