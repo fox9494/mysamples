@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="json" extends="json-default">
+	
+	    <action name="login" class="android_login" method="login">
+	    	<result name="success" type="json">
+				<param name="root">resultMap</param>
+			</result>
+	    </action>
+	    <!-- 用户应用列表 -->
+	    <action name="userapplist" class="android_userapplist" method="userapplist">
+	           <result name="success" type="json">
+				<param name="root">TAppList</param>
+		     	</result>    
+	    </action>
+	     <!-- 显示详细应用信息 -->
+	     <action name="appdetail" class="android_userapplist" method="appdetail">
+	           <result name="success" type="json">
+				<param name="root">resultMap</param>
+		     	</result>    
+	    </action>
+	    <!-- 分类列表 -->
+	    <action name="category" class="android_category" method="category">
+	            <result name="success" type="json">
+				<param name="root">TCagoryList</param>
+		     	</result> 
+	    </action>
+	    <!-- 用户信息列表 -->
+	    <action name="userinfo" class="android_userinfo" method="findCustomer">
+	             <result name="success" type="json">
+				<param name="root">resultMap</param>
+		     	</result>        
+	    </action>  	    
+	    <!-- 前台用户密码修改 --> 
+		<action name="modifypassword" class="android_modifypassword" method="modifypassword">
+		<result name="success" type="json">	
+		</result>
+		</action>
+		<!-- 搜索 -->
+		<action name="search" class="android_search" method="search">
+		<result name="success" type="json">	
+		<param name="root">resultMap</param>
+		</result>
+		</action>
+		
+		
+		<!-- 版本更新 -->
+		<action name="updateclient" class="android_localversion" method="execute">
+			<result name="success" type="json">	
+			<param name="root">resulMap</param>
+		</result>
+		</action>
+		
+		<!-- 版本检测 -->
+		<action name="applimit" class="android_applimit" method="applimit">	
+			<result name="success" type="json">	
+		    </result>
+		</action>
+		<!-- 应用更新 -->
+		<action name="appsupdatenum" class="android_applimit" method="appsupdatenum">
+		  <result  type="json"></result>
+		</action>
+		<!-- 应用版本更新检测 -->	
+		<action name="appversionupdate" class="android_applimit" method="appversionupdate">
+		  <result name="success"  type="json">
+		  <param name="root">resultMap</param>
+		  </result>
+		</action>
+	</package>
+	
+</struts>    

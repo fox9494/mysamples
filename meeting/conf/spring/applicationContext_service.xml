@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="adminUserService" class="com.institute.meeting.adminuser.service.impl.AdminUserServiceImpl">
+		<property name="adminUserDao" ref="adminUserDao"></property>
+		<property name="adminRoleDao" ref="adminRoleDao"></property>
+	</bean>
+	
+	<bean id="adminRoleService" class="com.institute.meeting.adminuser.service.impl.AdminRoleServiceImpl">
+		<property name="adminRoleDao" ref="adminRoleDao"></property>
+	</bean>	
+	
+	<bean id="adminRightService" class="com.institute.meeting.adminuser.service.impl.AdminRightServiceImple">
+		<property name="adminRightDao" ref="adminRightDao"></property>
+	</bean>	
+	
+	<bean id="localVersionService" class="com.institute.meeting.localversion.service.impl.LocalVersionServiceImpl">
+		<property name="localVersionDao" ref="localVersionDao"></property>
+	</bean>
+	
+	
+	<bean id="modelService" class="com.institute.meeting.adminuser.service.impl.ModelServiceImpl">
+		<property name="modelDao" ref="modelDao"></property>
+	</bean>	
+	
+	<bean id="applicationService" class="com.institute.meeting.app.service.impl.ApplicationServiceImpl">
+		<property name="applicationDao" ref="applicationDao"></property>
+		<property name="rightDao" ref="rightDao"></property>
+		<property name="customerDao" ref="customerDao"></property>
+		<property name="hotappDao" ref="hotappDao"></property>
+	</bean>
+	
+	<bean id="customerService" class="com.institute.meeting.customer.service.impl.CustomerServiceImpl">
+		<property name="customerDao" ref="customerDao"></property>
+	</bean>	
+	
+	<bean id="hotappService" class="com.institute.meeting.hotapp.service.impl.HotappServiceImpl">
+		<property name="hotappDao" ref="hotappDao"></property>
+	</bean>	
+	
+	<bean id="rightService" class="com.institute.meeting.right.service.impl.RightServiceImpl">
+		<property name="rightDao" ref="rightDao"></property>
+	</bean>
+	
+	<bean id="roleService" class="com.institute.meeting.role.service.impl.RoleServiceImpl">
+		<property name="roleDao" ref="roleDao"></property>
+	</bean>
+	
+	<bean id="typeService" class="com.institute.meeting.type.service.impl.TypeServiceImpl">
+		<property name="typeDao" ref="typeDao"></property>
+	</bean>
+	
+	<bean id="versionService" class="com.institute.meeting.version.service.impl.VersionServiceImpl">
+		<property name="versionDao" ref="versionDao"></property>
+	</bean>
+</beans>

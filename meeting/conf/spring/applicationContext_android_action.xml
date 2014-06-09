@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<!-- 后台用户管理 -->
+	<bean id="android_login" class="com.soarsky.guoxin.customer.action.CustomerInterfaceAction" scope="request">
+		<property name="customerService" ref="customerService"></property>
+	</bean>
+	
+	<!-- 用户应用列表 -->
+	<bean id="android_userapplist" class="com.soarsky.guoxin.app.action.CAppListInterfaceAction" scope="request">
+		<property name="applicationService" ref="applicationService"></property>
+		<property name="customerService" ref="customerService"></property>
+		<property name="roleService" ref="roleService"></property>		
+		<property name="rightService" ref="rightService"></property>		
+	</bean>
+	
+	<!-- 分类列表 -->
+	<bean id="android_category" class="com.soarsky.guoxin.type.action.TypeInterfaceAction" scope="request">
+		 <property name="typeService" ref="typeService"></property>	
+	</bean>
+	
+	<!-- 用户信息 -->
+	<bean id="android_userinfo" class="com.soarsky.guoxin.customer.action.CustomerInterfaceAction" scope="request">
+		<property name="customerService" ref="customerService"></property>
+	</bean>
+	
+	<!-- 前台用户修改密码 -->
+	<bean id="android_modifypassword" class="com.soarsky.guoxin.customer.action.CustomerInterfaceAction" scope="request">
+		<property name="customerService" ref="customerService"></property>
+	</bean>
+	
+	<!-- 搜索 -->
+	<bean id="android_search" class="com.soarsky.guoxin.app.action.CSearchListInterfaceAction" scope="request">
+		<property name="applicationService" ref="applicationService"></property>
+		<property name="customerService" ref="customerService"></property>
+		<property name="roleService" ref="roleService"></property>		
+		<property name="rightService" ref="rightService"></property>	
+		<property name="hotappService" ref="hotappService"></property>	
+	</bean>
+	
+	<!-- 版本更新 -->
+	<bean id="android_localversion" class="com.soarsky.guoxin.localversion.action.LocalVersionInterfaceAction" scope="request">
+		<property name="localVersionService" ref="localVersionService"></property>	
+	</bean>
+	
+	<!-- 新版检测 -->
+	<bean id="android_applimit" class="com.soarsky.guoxin.version.action.VersionInterfaceAction" scope="request">
+	<property name="applicationService" ref="applicationService"></property>
+	<property name="customerService" ref="customerService"></property>
+	<property name="versionService" ref="versionService"></property>
+	<property name="rightService" ref="rightService"></property>
+	</bean>
+	
+	
+</beans>
