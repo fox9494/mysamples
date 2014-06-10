@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	
+	
+	<bean id="spring_login_LoginAction" class="com.soarsky.octopus.manager.action.LoginAction" scope="request">
+		<property name="tManagerInfoService" ref="tManagerInfoService"></property>
+	</bean>
+	
+	<!-- 客户管理 -->
+	<bean id="spring_company_CompanyListAction" class="com.soarsky.octopus.task.action.CompanyListAction" scope="request">
+		<property name="tCompanyService" ref="tCompanyService"></property>
+		<property name="tChannelIndustryService" ref="tChannelIndustryService"></property>
+	</bean>
+	
+	<bean id="spring_company_CompanyAddAction" class="com.soarsky.octopus.task.action.CompanyAddAction" scope="request">
+		<property name="tCompanyService" ref="tCompanyService"></property>
+		<property name="tChannelIndustryService" ref="tChannelIndustryService"></property>
+	</bean>
+	
+	<bean id="spring_company_CompanyEditAction" class="com.soarsky.octopus.task.action.CompanyEditAction" scope="request">
+		<property name="tCompanyService" ref="tCompanyService"></property>
+		<property name="tChannelIndustryService" ref="tChannelIndustryService"></property>
+	</bean>
+	
+	<bean id="spring_company_CompanyDeleteAction" class="com.soarsky.octopus.task.action.CompanyDeleteAction" scope="request">
+		<property name="tCompanyService" ref="tCompanyService"></property>
+	</bean>
+	
+	<!-- 订单管理 -->
+	<bean id="spring_order_CompanyOrderListAction" class="com.soarsky.octopus.task.action.CompanyOrderListAction" scope="request">
+		<property name="tCompanyOrderService" ref="tCompanyOrderService"></property>
+	</bean>
+	
+	<bean id="spring_order_CompanyOrderAddAction" class="com.soarsky.octopus.task.action.CompanyOrderAddAction" scope="request">
+		<property name="tCompanyOrderService" ref="tCompanyOrderService"></property>
+		<property name="tCompanyService" ref="tCompanyService"></property>
+		<property name="tChannelIndustryService" ref="tChannelIndustryService"></property>
+	</bean>
+	
+	<bean id="spring_order_CompanyOrderEditAction" class="com.soarsky.octopus.task.action.CompanyOrderEditAction" scope="request">
+	    <property name="tCompanyOrderService" ref="tCompanyOrderService"></property>
+	    <property name="tCompanyService" ref="tCompanyService"></property>
+		<property name="tChannelIndustryService" ref="tChannelIndustryService"></property>
+	</bean>
+	
+	<bean id="spring_order_CompanyOrderDeleteAction" class="com.soarsky.octopus.task.action.CompanyOrderDeleteAction" scope="request">
+		<property name="tCompanyOrderService" ref="tCompanyOrderService"></property>
+	</bean>
+	
+	<!-- 行业管理 -->
+	<bean id="spring_channel_ChannelIndustryListAction" class="com.soarsky.octopus.channel.action.ChannelIndustryListAction" scope="request">
+		<property name="tChannelIndustryService" ref="tChannelIndustryService"></property>
+	</bean>
+	
+	<bean id="spring_channel_ChannelIndustryAddAction" class="com.soarsky.octopus.channel.action.ChannelIndustryAddAction" scope="request">
+		<property name="tChannelIndustryService" ref="tChannelIndustryService"></property>
+	</bean>
+	
+	<bean id="spring_channel_ChannelIndustryEditAction" class="com.soarsky.octopus.channel.action.ChannelIndustryEditAction" scope="request">
+		<property name="tChannelIndustryService" ref="tChannelIndustryService"></property>
+	</bean>
+	
+	<bean id="spring_channel_ChannelIndustryDeleteAction" class="com.soarsky.octopus.channel.action.ChannelIndustryDeleteAction" scope="request">
+		<property name="tChannelIndustryService" ref="tChannelIndustryService"></property>
+	</bean>
+	
+	<!-- 赚客级别管理 -->
+	<bean id="spring_clientuser_UserLevelListAction" class="com.soarsky.octopus.clientuser.action.UserLevelListAction" scope="request">
+		<property name="tUserLevelService" ref="tUserLevelService"></property>
+	</bean>
+	
+	<bean id="spring_clientuser_UserLevelAddAction" class="com.soarsky.octopus.clientuser.action.UserLevelAddAction" scope="request">
+		<property name="tUserLevelService" ref="tUserLevelService"></property>
+	</bean>
+	
+	<bean id="spring_clientuser_UserLevelEditAction" class="com.soarsky.octopus.clientuser.action.UserLevelEditAction" scope="request">
+		<property name="tUserLevelService" ref="tUserLevelService"></property>
+	</bean>
+	
+	<bean id="spring_clientuser_UserLevelDeleteAction" class="com.soarsky.octopus.clientuser.action.UserLevelDeleteAction" scope="request">
+		<property name="tUserLevelService" ref="tUserLevelService"></property>
+	</bean>
+	
+	<!-- 礼物管理 -->
+	<bean id="spring_clientuser_GiftListAction" class="com.soarsky.octopus.clientuser.action.GiftListAction" scope="request">
+		<property name="tGiftService" ref="tGiftService"></property>
+	</bean>
+	
+	<bean id="spring_clientuser_GiftAddAction" class="com.soarsky.octopus.clientuser.action.GiftAddAction" scope="request">
+		<property name="tGiftService" ref="tGiftService"></property>
+	</bean>
+	
+	<bean id="spring_clientuser_GiftEditAction" class="com.soarsky.octopus.clientuser.action.GiftEditAction" scope="request">
+		<property name="tGiftService" ref="tGiftService"></property>
+	</bean>
+	
+	<bean id="spring_clientuser_GiftDeleteAction" class="com.soarsky.octopus.clientuser.action.GiftDeleteAction" scope="request">
+		<property name="tGiftService" ref="tGiftService"></property>
+	</bean>
+	
+	<!-- 兑换规则管理 -->
+	<bean id="spring_clientuser_ExchangeRuleListAction" class="com.soarsky.octopus.clientuser.action.ExchangeRuleListAction" scope="request">
+		<property name="tExchangeRuleService" ref="tExchangeRuleService"></property>
+	</bean>
+	
+	<bean id="spring_clientuser_ExchangeRuleAddAction" class="com.soarsky.octopus.clientuser.action.ExchangeRuleAddAction" scope="request">
+		<property name="tExchangeRuleService" ref="tExchangeRuleService"></property>
+	</bean>
+	
+	<bean id="spring_clientuser_ExchangeRuleEditAction" class="com.soarsky.octopus.clientuser.action.ExchangeRuleEditAction" scope="request">
+		<property name="tExchangeRuleService" ref="tExchangeRuleService"></property>
+	</bean>
+	
+	<bean id="spring_clientuser_ExchangeRuleDeleteAction" class="com.soarsky.octopus.clientuser.action.ExchangeRuleDeleteAction" scope="request">
+		<property name="tExchangeRuleService" ref="tExchangeRuleService"></property>
+	</bean>
+	
+	<!-- 爱好管理 -->
+	<bean id="spring_clientuser_HobbiesListAction" class="com.soarsky.octopus.clientuser.action.HobbiesListAction" scope="request">
+		<property name="tHobbiesService" ref="tHobbiesService"></property>
+	</bean>
+	
+	<bean id="spring_clientuser_HobbiesAddAction" class="com.soarsky.octopus.clientuser.action.HobbiesAddAction" scope="request">
+		<property name="tHobbiesService" ref="tHobbiesService"></property>
+	</bean>
+	
+	<bean id="spring_clientuser_HobbiesEditAction" class="com.soarsky.octopus.clientuser.action.HobbiesEditAction" scope="request">
+		<property name="tHobbiesService" ref="tHobbiesService"></property>
+	</bean>
+	
+	<bean id="spring_clientuser_HobbiesDeleteAction" class="com.soarsky.octopus.clientuser.action.HobbiesDeleteAction" scope="request">
+		<property name="tHobbiesService" ref="tHobbiesService"></property>
+	</bean>
+	
+	<!-- 任务管理 -->
+	<bean id="spring_task_TaskListAction" class="com.soarsky.octopus.task.action.TaskListAction" scope="request">
+		<property name="tTaskService" ref="tTaskService"></property>
+	</bean>
+	
+	<bean id="spring_task_TaskApproveAction" class="com.soarsky.octopus.task.action.TaskApproveAction" scope="request">
+		<property name="tTaskService" ref="tTaskService"></property>
+	</bean>
+	
+	<bean id="spring_task_TaskAddAction" class="com.soarsky.octopus.task.action.TaskAddAction" scope="request">
+		<property name="tTaskService" ref="tTaskService"></property>
+		<property name="tCompanyService" ref="tCompanyService"></property>
+		<property name="tCompanyOrderService" ref="tCompanyOrderService"></property>
+	</bean>
+	
+	<bean id="spring_task_TaskEditAction" class="com.soarsky.octopus.task.action.TaskEditAction" scope="request">
+		<property name="tTaskService" ref="tTaskService"></property>
+		<property name="tCompanyService" ref="tCompanyService"></property>
+		<property name="tApplicationService" ref="tApplicationService"></property>
+		<property name="tCompanyOrderService" ref="tCompanyOrderService"></property>
+	</bean>
+	
+	<bean id="spring_task_TaskDeleteAction" class="com.soarsky.octopus.task.action.TaskDeleteAction" scope="request">
+		<property name="tTaskService" ref="tTaskService"></property>
+	</bean>
+	
+	<bean id="spring_task_TaskDetailsAction" class="com.soarsky.octopus.task.action.TaskDetailsAction" scope="request">
+		<property name="tTaskService" ref="tTaskService"></property>
+		<property name="tApplicationService" ref="tApplicationService"></property>
+		<property name="tApkService" ref="tApkService"></property>
+		<property name="tAreaService" ref="tAreaService"></property>
+		<property name="tDownloadInstallLogService" ref="tDownloadInstallLogService"></property>
+		<property name="tSystemFlowService" ref="tSystemFlowService"></property>
+	</bean>
+	
+	<bean id="spring_task_ScreeningChannelAddAction" class="com.soarsky.octopus.task.action.ScreeningChannelAddAction" scope="request">
+		<property name="tChannelService" ref="tChannelService"></property>
+		<property name="tTaskAttributeService" ref="tTaskAttributeService"></property>
+		<property name="tTaskHobbiesService" ref="tTaskHobbiesService"></property>
+		<property name="tTaskChannelService" ref="tTaskChannelService"></property>
+		<property name="tApplicationService" ref="tApplicationService"></property>
+	</bean>
+	
+	<bean id="spring_task_ScreeningChannelEditAction" class="com.soarsky.octopus.task.action.ScreeningChannelEditAction" scope="request">
+		<property name="tChannelService" ref="tChannelService"></property>
+		<property name="tAreaService" ref="tAreaService"></property>
+		<property name="tTaskService" ref="tTaskService"></property>
+		<property name="tTaskAttributeService" ref="tTaskAttributeService"></property>
+		<property name="tTaskHobbiesService" ref="tTaskHobbiesService"></property>
+		<property name="tTaskChannelService" ref="tTaskChannelService"></property>
+	</bean>
+	<!-- 应用管理 -->
+	<bean id="spring_task_ApplicationAddAction" class="com.soarsky.octopus.task.action.ApplicationAddAction" scope="request">
+		<property name="tApplicationService" ref="tApplicationService"></property>
+		<property name="tTaskService" ref="tTaskService"></property>
+	</bean>
+	<bean id="spring_task_ApplicationEditAction" class="com.soarsky.octopus.task.action.ApplicationEditAction" scope="request">
+	    <property name="tApkService" ref="tApkService"></property>
+		<property name="tApplicationService" ref="tApplicationService"></property>
+		<property name="tTaskService" ref="tTaskService"></property>
+		<property name="tAppImageService" ref="tAppImageService"></property>
+	</bean>
+	<bean id="spring_task_SpecialResolutionApkAddAction" class="com.soarsky.octopus.task.action.SpecialResolutionApkAddAction" scope="request">
+		<property name="tApkService" ref="tApkService"></property>
+		<property name="tApplicationService" ref="tApplicationService"></property>
+	</bean>
+	<bean id="spring_task_SpecialResolutionApkEditAction" class="com.soarsky.octopus.task.action.SpecialResolutionApkEditAction" scope="request">
+		<property name="tApkService" ref="tApkService"></property>
+		<property name="tApplicationService" ref="tApplicationService"></property>
+	</bean>
+	<!-- 区域管理 -->
+	<bean id="spring_tarea_TAreaListAction" class="com.soarsky.octopus.clientuser.action.TAreaListAction" scope="request">
+		<property name="tAreaService" ref="tAreaService"></property>
+	</bean>
+	<bean id="spring_tarea_TAreaAddAction" class="com.soarsky.octopus.clientuser.action.TAreaAddAction" scope="request">
+		<property name="tAreaService" ref="tAreaService"></property>
+	</bean>
+	<bean id="spring_tarea_TAreaDeleteAction" class="com.soarsky.octopus.clientuser.action.TAreaDeleteAction" scope="request">
+		<property name="tAreaService" ref="tAreaService"></property>
+	</bean>
+	<bean id="spring_tarea_TAreaEditAction" class="com.soarsky.octopus.clientuser.action.TAreaEditAction" scope="request">
+		<property name="tAreaService" ref="tAreaService"></property>
+	</bean>
+	
+	<!-- 用户反馈管理 -->
+	<bean id="spring_clientuser_SuggectionListAction" class="com.soarsky.octopus.clientuser.action.SuggectionListAction" scope="request">
+		<property name="tSuggectionService" ref="tSuggectionService"></property>
+	</bean>
+	
+	<!-- 渠道推送管理 -->
+	<bean id="spring_channel_ChannelInviteListAction" class="com.soarsky.octopus.channel.action.ChannelInviteListAction" scope="request">
+		<property name="tChannelInviteService" ref="tChannelInviteService"></property>
+	</bean>
+	
+	<bean id="spring_channel_ChannelInviteAddAction" class="com.soarsky.octopus.channel.action.ChannelInviteAddAction" scope="request">
+		<property name="tChannelInviteService" ref="tChannelInviteService"></property>
+		<property name="tChannelService" ref="tChannelService"></property>	    
+	</bean>
+	
+	<!-- 用户注册管理 -->
+	<bean id="spring_clientuser_UserClientListAction" class="com.soarsky.octopus.clientuser.action.UserClientListAction" scope="request">
+		<property name="tUserClientService" ref="tUserClientService"></property>
+	</bean>
+	
+	<bean id="spring_clientuser_UserClientDetailsAction" class="com.soarsky.octopus.clientuser.action.UserClientDetailsAction" scope="request">
+		<property name="tUserClientService" ref="tUserClientService"></property>
+		<property name="tAreaService" ref="tAreaService"></property>
+		<!-- 调用 -->
+		<property name="tUserGoldCountService" ref="tUserGoldCountService"></property>
+		<property name="tUserHobbiesService" ref="tUserHobbiesService"></property>
+	</bean>
+	
+	<!-- MODEL管理 -->
+	<bean id="spring_manager_TModelInfoListAction" class="com.soarsky.octopus.manager.action.TModelInfoListAction" scope="request">
+		<property name="tModelInfoService" ref="tModelInfoService"></property>
+	</bean>
+	<bean id="spring_manager_TModelInfoAddAction" class="com.soarsky.octopus.manager.action.TModelInfoAddAction" scope="request">
+		<property name="tModelInfoService" ref="tModelInfoService"></property>
+	</bean>
+	<bean id="spring_manager_TModelInfoDeleteAction" class="com.soarsky.octopus.manager.action.TModelInfoDeleteAction" scope="request">
+		<property name="tModelInfoService" ref="tModelInfoService"></property>
+	</bean>
+	
+</beans>

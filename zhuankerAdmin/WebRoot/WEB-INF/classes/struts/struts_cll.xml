@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+
+	<include file="struts.xml" />
+	<package name="cll_pack" extends="base" namespace="/login">
+	
+	   <!-- 用户登录 -->
+		<action name="loginIn" class="spring_login_LoginAction" method="login">
+			<result name="success">/jsp/frame/index.jsp</result>
+			<!--<result name="success">/jsp/frame/frame.jsp</result>-->
+			<result name="input">/jsp/login.jsp</result>
+		</action>
+
+		<action name="loginOut" class="spring_login_LoginAction" method="loginOut">
+			<result name="success">/jsp/login.jsp</result>
+		</action>
+		
+		
+		<!-- 树形菜单 -->
+		<action name="getdata" class="spring_login_TreeAction" method="getTree">
+			<result type="json">
+				<param name="root">data</param>
+			</result>
+		</action>
+		
+	</package>
+	
+<!--  	<package name="channel_cll_pack" extends="base" namespace="/channel">
+		<action name="firstChannelAdd" class="spring_channel_firstChannelAddAction" method="input">
+			<result name="input">/jsp/channel/channelFirstAdd.jsp</result>
+		</action>
+	</package>
+-->	
+	<package name="manager_cll_pack" extends="base" namespace="/admin">
+		<action name="adminList" class="spring_admin_ManagerListAction" method="searchListPage">
+			<result name="success">/jsp/manager/managerList.jsp</result>
+		</action>
+		
+		<action name="adminAddInit" class="spring_admin_ManagerAddAction" method="input">
+			<result name="input">/jsp/manager/managerAdd.jsp</result>
+		</action>
+		
+		<action name="adminAdd" class="spring_admin_ManagerAddAction" method="save">
+			<result name="success" type="redirectAction">adminList</result>
+			<result name="input">/jsp/manager/managerAdd.jsp</result>
+		</action>
+		
+		<action name="adminEditInit" class="spring_admin_ManagerEditAction" method="input">
+			<result name="input" >/jsp/manager/managerEdit.jsp</result>
+		</action>
+		
+		<action name="adminEdit" class="spring_admin_ManagerEditAction" method="save">
+			<result name="success" type="redirectAction">adminList</result>
+			<result name="input">/jsp/manager/managerEdit.jsp</result>
+		</action>
+		
+		
+		<action name="adminDelete" class="spring_admin_ManagerDeleteAction" method="delete">
+			<result name="success" type="redirectAction">adminList</result>
+		</action>
+		<action name="judgeMgrChannel" class="spring_admin_ManagerDeleteAction" method="judgeMgrChannel">
+			<result name="success" type="json">
+			   <param name="root">resultMap</param>
+			</result>
+		</action>
+		
+		<action name="adminInitPass" class="spring_admin_ManagerPassAction" method="initPass">
+			<result name="success" type="redirectAction">adminList</result>
+		</action>
+		
+		<action name="passEdit" class="spring_admin_ManagerPassAction" method="changePass">
+		    <result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		
+		<action name="changePass" class="spring_admin_ManagerPassAction" method="input">
+			<result name="input" >/jsp/manager/passwordEdit.jsp</result>
+		</action>
+		
+		
+		
+		
+		<action name="roleList" class="spring_admin_RoleListAction" method="searchListPage">
+			<result name="success" >/jsp/manager/roleList.jsp</result>
+		</action>
+		
+		<action name="roleAddInit" class="spring_admin_RoleAddAction" method="input">
+			<result name="input" >/jsp/manager/roleAdd.jsp</result>
+		</action>
+		
+		<action name="roleAdd" class="spring_admin_RoleAddAction" method="save">
+			<result name="success" type="redirectAction">roleList</result>
+			<result name="input">/jsp/manager/roleAdd.jsp</result>
+		</action>
+		
+		<action name="roleEditInit" class="spring_admin_RoleEditAction" method="input">
+			<result name="input" >/jsp/manager/roleEdit.jsp</result>
+		</action>
+		
+		<action name="roleEdit" class="spring_admin_RoleEditAction" method="edit">
+			<result name="success" type="redirectAction">roleList</result>
+			<result name="input">/jsp/manager/roleEdit.jsp</result>
+		</action>
+		
+		<action name="rightQuery" class="spring_admin_RightEditAction" method="queryRight">
+			<result name="query">/jsp/manager/rightQuery.jsp</result>
+		</action>
+		
+		<action name="roleDelete" class="spring_admin_RoleDeleteAction" method="delete">
+			<result name="success" type="redirectAction">roleList</result>
+		</action>
+		
+		<action name="judgeMgrRole" class="spring_admin_RoleDeleteAction" method="judgeMgrRole">
+			<result name="success" type="json">
+			   <param name="root">resultMap</param>
+			</result>
+		</action>
+		
+		<action name="rightEditInit" class="spring_admin_RightEditAction" method="input">
+			<result name="input" >/jsp/manager/rightEdit.jsp</result>
+		</action>
+		
+		<action name="rightEdit" class="spring_admin_RightEditAction" method="edit">
+			<result name="success"  type="redirectAction">roleList</result>
+		</action>
+		
+	
+	
+	</package>
+	
+</struts>

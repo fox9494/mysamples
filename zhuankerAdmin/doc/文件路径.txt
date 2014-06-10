@@ -1,0 +1,10 @@
+upload +
+       +apk  
+            + base(章鱼网apk)
+	    + client_个人ID文件夹(每个用户apk)
+	    + channle_渠道ID文件夹(每个渠道apk)
+	    + company_companyID(各公司提供的apk)
+       +image
+            +company_companyID(各公司提供的缩图和icon)
+	    +base(章鱼网的如赚客头像)
+       +excel

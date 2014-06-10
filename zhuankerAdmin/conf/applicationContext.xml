@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Application context definition for PetClinic on Hibernate.
+-->
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+		xmlns:jee="http://www.springframework.org/schema/jee" xmlns:tx="http://www.springframework.org/schema/tx"
+		xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+			http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.5.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+	
+	<!-- 引入数据源上下文--> 
+	<import resource="spring/spring_action.xml"/>
+	<import resource="spring/spring_service.xml"/>
+	<import resource="spring/spring_dao.xml"/>
+	<import resource="spring/spring_transaction.xml"/>
+	<import resource="spring/spring_datasource.xml"/>
+	<import resource="spring/spring_schedule.xml"/>
+	<import resource="spring/spring_action_yl.xml"/>
+	<import resource="spring/spring_action_th.xml"/>
+	<import resource="spring/spring_action_ldl.xml"/>
+	<import resource="spring/spring_action_oyd.xml"/>
+	
+	
+	
+	
+	<!-- 初始化beanholder，使用此类可以获取applicationcontext,然后获取容器bean -->
+	<bean id="beanHolder" class="com.soarsky.octopus.utils.BeanHolder"></bean>
+	
+	<bean id="mailService" class="com.soarsky.octopus.common.service.impl.MailServiceImpl" init-method="init">
+		<property name="poolSize" value="8"></property>
+	</bean>
+	
+	<bean id="packageApkService" class="com.soarsky.octopus.common.service.impl.PackageApkServiceImpl" init-method="init">
+		<property name="poolSize" value="10"></property>
+	</bean>
+	
+</beans>

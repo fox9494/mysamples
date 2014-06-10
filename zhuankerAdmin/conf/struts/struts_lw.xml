@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+    <include file="struts.xml" />
+	<package name="uc_pack" extends="base" namespace="/company">
+	   <!-- 客户管理  -->
+          <!-- 客户列表 -->
+          <action name="companyList" class="spring_company_CompanyListAction">
+             <result name="success">/jsp/company/companylist.jsp</result>
+             <result name="findbynameorprofession">/jsp/company/companylist.jsp</result>
+          </action>
+          <!-- 添加客户 -->
+          <action name="companyAdd" class="spring_company_CompanyAddAction">
+             <result name="success" type="redirectAction">companyList!getUserList.shtml</result>
+             <result name="initaddsuccess">/jsp/company/companyadd.jsp</result>
+             <result name="input">/jsp/company/companyadd.jsp</result>
+          </action>
+          <!-- 修改客户 -->
+          <action name="companyEdit" class="spring_company_CompanyEditAction">
+             <result name="success">/jsp/company/companyedit.jsp</result>
+             <result name="editsuccess" type="redirectAction">companyList!getUserList.shtml</result>
+             <result name="input">/jsp/company/companyedit.jsp</result>
+          </action>
+          <!-- 删除客户 -->
+          <action name="companyDelete" class="spring_company_CompanyDeleteAction">
+             <result name="success" type="redirectAction">companyList!getUserList.shtml</result>
+          </action>	
+	</package>
+	<package name="ul_package" extends="uc_pack" namespace="/userlevel">
+	   <!-- 赚客级别管理  -->
+          <!-- 赚客级别列表 -->
+          <action name="userLevelList" class="spring_clientuser_UserLevelListAction">
+             <result name="success">/jsp/userlevel/userlevellist.jsp</result>
+          </action>
+          <!-- 添加赚客级别 -->
+          <action name="userLevelAdd" class="spring_clientuser_UserLevelAddAction">
+             <result name="success" type="redirectAction">userLevelList!searchList.shtml</result>
+             <result name="input">/jsp/userlevel/userleveladd.jsp</result>
+          </action>
+          <!-- 修改赚客级别 -->
+          <action name="userLevelEdit" class="spring_clientuser_UserLevelEditAction">
+             <result name="success">/jsp/userlevel/userleveledit.jsp</result>
+             <result name="editsuccess" type="redirectAction">userLevelList!searchList.shtml</result>
+             <result name="input">/jsp/userlevel/userleveledit.jsp</result>
+          </action>
+          <!-- 删除赚客级别 -->
+          <action name="userLevelDelete" class="spring_clientuser_UserLevelDeleteAction">
+             <result name="success" type="redirectAction">userLevelList!searchList.shtml</result>
+          </action>
+	</package>
+	<package name="ci_package" extends="ul_package" namespace="/channelindustry">
+	   <!-- 行业管理  -->
+          <!-- 行业列表 -->
+          <action name="channelIndustryList" class="spring_channel_ChannelIndustryListAction">
+             <result name="success">/jsp/channelindustry/channelindustrylist.jsp</result>
+          </action>
+          <!-- 添加行业 -->
+          <action name="channelIndustryAdd" class="spring_channel_ChannelIndustryAddAction">
+             <result name="success" type="redirectAction">channelIndustryList!getChannelIndustryList.shtml</result>
+             <result name="input">/jsp/channelindustry/channelindustryadd.jsp</result>
+          </action>
+          <!-- 修改行业 -->
+          <action name="channelIndustryEdit" class="spring_channel_ChannelIndustryEditAction">
+             <result name="success">/jsp/channelindustry/channelindustryedit.jsp</result>
+             <result name="editsuccess" type="redirectAction">channelIndustryList!getChannelIndustryList.shtml</result>
+             <result name="input">/jsp/channelindustry/channelindustryedit.jsp</result>
+          </action>
+          <!-- 删除行业 -->
+          <action name="channelIndustryDelete" class="spring_channel_ChannelIndustryDeleteAction">
+             <result name="success" type="redirectAction">channelIndustryList!getChannelIndustryList.shtml</result>
+          </action>
+	</package>
+	<package name="gf_package" extends="ci_package" namespace="/gift">
+	   <!-- 礼物管理  -->
+          <!-- 礼物列表 -->
+          <action name="giftList" class="spring_clientuser_GiftListAction">
+             <result name="success">/jsp/gift/giftlist.jsp</result>
+          </action>
+          <!-- 添加礼物 -->
+          <action name="giftAdd" class="spring_clientuser_GiftAddAction">
+             <result name="success" type="redirectAction">giftList!searchList.shtml</result>
+             <result name="input">/jsp/gift/giftadd.jsp</result>
+          </action>
+          <!-- 修改礼物 -->
+          <action name="giftEdit" class="spring_clientuser_GiftEditAction">
+             <result name="success">/jsp/gift/giftedit.jsp</result>
+             <result name="editsuccess" type="redirectAction">giftList!searchList.shtml</result>
+             <result name="input">/jsp/gift/giftedit.jsp</result>
+          </action>
+          <!-- 删除礼物 -->
+          <action name="giftDelete" class="spring_clientuser_GiftDeleteAction">
+             <result name="success" type="redirectAction">giftList!searchList.shtml</result>
+          </action>
+	</package>
+	<package name="er_package" extends="gf_package" namespace="/exchangerule">
+	   <!-- 兑换规则管理  -->
+          <!-- 规则列表 -->
+          <action name="exchangeRuleList" class="spring_clientuser_ExchangeRuleListAction">
+             <result name="success">/jsp/exchangerule/exchangerulelist.jsp</result>
+          </action>
+          <!-- 添加规则 -->
+          <action name="exchangeRuleAdd" class="spring_clientuser_ExchangeRuleAddAction">
+             <result name="success" type="redirectAction">exchangeRuleList!searchList.shtml</result>
+          </action>
+          <!-- 修改规则 -->
+          <action name="exchangeRuleEdit" class="spring_clientuser_ExchangeRuleEditAction">
+             <result name="success">/jsp/exchangerule/exchangeruleedit.jsp</result>
+             <result name="editsuccess" type="redirectAction">exchangeRuleList!searchList.shtml</result>
+          </action>
+          <!-- 删除规则 -->
+          <action name="exchangeRuleDelete" class="spring_clientuser_ExchangeRuleDeleteAction">
+             <result name="success" type="redirectAction">exchangeRuleList!searchList.shtml</result>
+          </action>
+	</package>
+	<package name="hb_package" extends="er_package" namespace="/hobbies">
+	   <!-- 爱好管理  -->
+          <!-- 爱好列表 -->
+          <action name="hobbiesList" class="spring_clientuser_HobbiesListAction">
+             <result name="success">/jsp/hobbies/hobbieslist.jsp</result>
+             <result name="findsuccess" type="json">
+               <param name="root">hobbies</param>
+             </result>
+          </action>
+          <!-- 添加爱好 -->
+          <action name="hobbiesAdd" class="spring_clientuser_HobbiesAddAction">
+             <result name="success" type="redirectAction">hobbiesList!searchList.shtml</result>
+             <result name="input">/jsp/hobbies/hobbiesadd.jsp</result>
+          </action>
+          <!-- 修改爱好-->
+          <action name="hobbiesEdit" class="spring_clientuser_HobbiesEditAction">
+             <result name="success">/jsp/hobbies/hobbiesedit.jsp</result>
+             <result name="editsuccess" type="redirectAction">hobbiesList!searchList.shtml</result>
+             <result name="input">/jsp/hobbies/hobbiesedit.jsp</result>
+          </action>
+          <!-- 删除爱好 -->
+          <action name="hobbiesDelete" class="spring_clientuser_HobbiesDeleteAction">
+             <result name="success" type="redirectAction">hobbiesList!searchList.shtml</result>
+          </action>
+	</package>
+	<package name="ta_package" extends="hb_package" namespace="/task">
+	   <!-- 任务管理  -->
+          <!-- 任务列表 -->
+          <action name="taskList" class="spring_task_TaskListAction">
+             <result name="success">/jsp/task/tasklist.jsp</result>
+             <result name="findbyconditions">/jsp/task/tasklist.jsp</result>
+          </action>
+          <!-- 审核列表-->
+          <action name="taskApprove" class="spring_task_TaskApproveAction">
+             <result name="success">/jsp/task/taskapprovelist.jsp</result>
+             <result name="approvesuccess" type="redirectAction">taskApprove!searchList.shtml</result>
+          </action>
+          <!-- 添加任务 -->
+          <action name="taskAdd" class="spring_task_TaskAddAction">
+             <result name="success">/jsp/task/taskadd.jsp</result>
+             <result name="initaddsuccess">/jsp/task/taskadd.jsp</result>
+             <result name="input">/jsp/task/taskadd.jsp</result>
+             <result name="initcompanyorder">/jsp/task/taskadd.jsp</result>
+          </action>
+          <!-- 修改任务-->
+          <action name="taskEdit" class="spring_task_TaskEditAction">
+             <result name="initSuccess">/jsp/task/taskedit.jsp</result>
+             <result name="success">/jsp/task/taskedit.jsp</result>
+             <result name="editsuccess">/jsp/task/taskedit.jsp</result>
+             <result name="input">/jsp/task/taskedit.jsp</result>          
+             <result name="findexpirestate" type="json">
+               <param name="root">msg</param>
+             </result>
+          </action>
+          <!-- 删除任务 -->
+          <action name="taskDelete" class="spring_task_TaskDeleteAction">
+             <result name="success" type="redirectAction">taskList!searchList.shtml</result>
+          </action>
+          <!-- 任务详情-->
+          <action name="taskDetails" class="spring_task_TaskDetailsAction">
+             <result name="searchtask">/jsp/task/taskdetails.jsp</result>
+             <result name="searchapp">/jsp/task/applicationdetails.jsp</result>
+             <result name="searchchannel">/jsp/task/channeldetails.jsp</result>
+             <result name="searchdownload">/jsp/task/downloaddetails.jsp</result>
+             <result name="searchdownloadjson" type="json">
+               <param name="root">pageBean</param>
+             </result>
+             <result name="searchinstall">/jsp/task/installdetails.jsp</result>
+             <result name="searchsysflow">/jsp/task/systemflowdetails.jsp</result>   
+             <result name="searchsysflowjson" type="json">
+                <param name="root">pageBean</param>
+             </result>     
+          </action>
+          <!-- 筛选渠道 -->
+          <action name="screeningChannel" class="spring_task_ScreeningChannelAddAction">
+             <result name="success" type="json">
+                <param name="root">channels</param>
+             </result>
+             <result name="initsuccess">/jsp/task/screeningchannels.jsp</result>
+             <result name="screensuccess" type="redirectAction">screeningChannel!goback.shtml?task.taskid=${task.taskid}&amp;confiresubmit=${confiresubmit}&amp;app.appid=${app.appid}&amp;submitChannel=${submitChannel}&amp;submitApk=${submitApk}</result>
+             <result name="goback">/jsp/task/taskappadd.jsp</result>
+          </action>
+          <action name="screeningChannelEdit" class="spring_task_ScreeningChannelEditAction">
+             <result name="initsuccess">/jsp/task/screeningchannelsedit.jsp</result>
+             <result name="success" type="redirectAction">taskEdit!input.shtml?info=${task.taskid}</result>
+          </action>
+	</package>
+	<package name="app_package" extends="ta_package" namespace="/application">
+	   <!-- 应用管理  -->
+          <!-- 添加应用 -->
+          <action name="applicationAdd" class="spring_task_ApplicationAddAction">
+             <result name="success">/jsp/task/taskappadd.jsp</result>
+             <result name="initaddsuccess">/jsp/task/taskappadd.jsp</result>
+             <result name="uploadapk">/jsp/task/taskappadd.jsp</result> 
+             <result name="input">/jsp/task/taskappadd.jsp</result>
+          </action>
+           <!-- 修改应用 -->
+          <action name="applicationEdit" class="spring_task_ApplicationEditAction">
+             <result name="success">/jsp/task/taskappedit.jsp</result>
+             <result name="initeditsuccess">/jsp/task/taskappedit.jsp</result>
+             <result name="uploadapk">/jsp/task/taskappedit.jsp</result> 
+             <result name="input">/jsp/task/taskappedit.jsp</result>
+          </action>
+          <!--添加特定分辨率APK-->
+          <action name="specialApkAdd" class="spring_task_SpecialResolutionApkAddAction">
+             <result name="addandexit" type="redirectAction">taskList!searchList.shtml</result>
+             <result name="addandcontinue">/jsp/task/specialresolutionaddapk.jsp</result>
+             <result name="initsuccess">/jsp/task/specialresolutionaddapk.jsp</result>
+             <result name="goback">/jsp/task/taskappadd.jsp</result>
+             <result name="uploadapk">/jsp/task/taskappedit.jsp</result> 
+             <result name="input">/jsp/task/specialresolutionaddapk.jsp</result>
+          </action>
+          <!--修改特定分辨率APK-->
+          <action name="specialApkEdit" class="spring_task_SpecialResolutionApkEditAction">
+             <result name="success">/jsp/task/specialresolutionlistapk.jsp</result>
+             <result name="init">/jsp/task/specialresolutioneditapk.jsp</result>
+             <result name="editsuccess" type="redirectAction">specialApkEdit!searchList.shtml?app.appid=${app.appid}&amp;task.taskid=${task.taskid}&amp;company.id=${company.id}</result> 
+             <result name="input">/jsp/task/specialresolutioneditapk.jsp</result>
+          </action>
+	</package>
+	<package name="sugg_package" extends="app_package" namespace="/suggection">
+	   <!-- 用户反馈管理  -->
+          <!-- 反馈列表-->
+          <action name="suggectionList" class="spring_clientuser_SuggectionListAction">
+             <result name="success">/jsp/suggection/suggectionlist.jsp</result>
+             <result name="findbyconditions">/jsp/suggection/suggectionlist.jsp</result> 
+          </action>
+	</package>
+	<package name="uc_package" extends="sugg_package" namespace="/userclient">
+	   <!-- 用户注册管理  -->
+          <!-- 用户列表-->
+          <action name="userclientList" class="spring_clientuser_UserClientListAction">
+             <result name="success">/jsp/clientuser/right.jsp</result>
+             <result name="findbyconditions">/jsp/clientuser/right.jsp</result> 
+          </action>
+          <!-- 用户列表-->
+          <action name="userclientDetails" class="spring_clientuser_UserClientDetailsAction">
+             <result name="initsuccess">/jsp/clientuser/userclientdetails.jsp</result>
+          </action>
+	</package>
+	<package name="or_package" extends="uc_package" namespace="/companyorder">
+	   <!-- 订单管理  -->
+          <!-- 订单列表  -->
+          <action name="companyorderList" class="spring_order_CompanyOrderListAction">
+             <result name="success">/jsp/company/orderlist.jsp</result>
+             <result name="findbyconditions">/jsp/company/orderlist.jsp</result> 
+          </action>
+          <!-- 添加订单  -->
+          <action name="companyorderAdd" class="spring_order_CompanyOrderAddAction">
+             <result name="success" type="redirectAction">companyorderList!searchList.shtml</result>
+             <result name="initsuccess">/jsp/company/ordercompanyaddlist.jsp</result>
+             <result name="findbyconditions">/jsp/company/ordercompanyaddlist.jsp</result> 
+             <result name="confirmsuccess">/jsp/company/orderadd.jsp</result>
+             <result name="input">/jsp/company/orderadd.jsp</result>
+          </action>
+          <!-- 修改订单  -->
+          <action name="companyorderEdit" class="spring_order_CompanyOrderEditAction">
+             <result name="success">/jsp/company/orderedit.jsp</result>
+             <result name="editsuccess" type="redirectAction">companyorderList!searchList.shtml</result>
+             <result name="initsuccess">/jsp/company/ordercompanyeditlist.jsp</result>
+             <result name="findbyconditions">/jsp/company/ordercompanyeditlist.jsp</result> 
+             <result name="confirmsuccess">/jsp/company/orderedit.jsp</result>
+             <result name="input">/jsp/company/orderedit.jsp</result>
+          </action>
+          <!-- 删除订单  -->
+          <action name="companyorderDelete" class="spring_order_CompanyOrderDeleteAction">
+             <result name="success" type="redirectAction">companyorderList!searchList.shtml</result>
+          </action>
+	</package>
+	<package name="cv_package" extends="or_package" namespace="/channelinvite">
+	   <!-- 推送管理  -->
+          <!-- 推送列表  -->
+          <action name="channelInviteList" class="spring_channel_ChannelInviteListAction">
+             <result name="success">/jsp/channelinvite/channelinvite.jsp</result>
+          </action>
+          <!-- 添加推送  -->
+          <action name="channelInviteAdd" class="spring_channel_ChannelInviteAddAction">
+             <result name="success" type="redirectAction">channelInviteList!searchList.shtml?channelId=${channelId}</result>
+             <result name="input" type="redirectAction">channelInviteList!searchList.shtml?channelId=${channelId}&amp;modelError=${modelError}</result>             
+          </action>
+	</package>
+</struts>

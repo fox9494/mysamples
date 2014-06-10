@@ -1,0 +1,23 @@
+系统要求:
+服务器:jboss7.1
+数据库:oracle11g R2
+jdk:jdk1.6.0-45
+
+安装步骤:
+
+/*建表前先运行此sql语句，避免手工插入自增序列号跳过1*/
+1.安装好数据库后执行：alter system set deferred_segment_creation=false;
+2.执行script.sql创建表
+3.执行sequece.sql创建序列
+4.执行init.sql初始化
+5.修改jboss的standalone下的standalone.xml文件  ,将ip改成0.0.0.0
+       ...
+        <interface name="public">
+            <inet-address value="${jboss.bind.address:0.0.0.0}"/>
+        </interface>
+6.进入后台管理界面，上传一个初始化apk版本
+7.将init文件夹下3个图片文件拷贝至/upload/image/base/下
+8.将apktool对应的平台版本上传到服务器上,linux注意更改脚本为可执行.
+9.将linux打开文件数调整到合适区间，默认是1024，调整为8192
+
+

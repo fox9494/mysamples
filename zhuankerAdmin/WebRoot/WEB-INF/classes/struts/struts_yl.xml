@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	<include file="struts.xml" />
+	<package name="yl_pack" extends="base" namespace="/reports">
+
+		<!-- 用户详情，流量统计 -->
+		<action name="systemFlowByUserId" class="spring_systemFlow_systemFlowListAction">
+			<result name="success">/jsp/clientuser/sysflowlist.jsp</result>
+		</action>
+		<!-- 用户详情，下载量统计（根据当前用户的应用） -->
+		<action name="downloadReportByUserId" class="spring_download_downloadLogListAction">
+			<result name="success">/jsp/clientuser/downloadlist.jsp</result>
+		</action>
+		<!-- 用户详情，非平台安装应用（根据当前用户安装的应用） -->
+		<action name="findInsatllApkByUserId" class="spring_installreport_insallReportListAction">
+			<result name="success">/jsp/clientuser/unplatformapp.jsp</result>
+		</action>
+		<!-- 用户详情，安装量 -->
+		<action name="findInstallReport" class="spring_install_installListAction">
+			<result name="success">/jsp/clientuser/installreport.jsp</result>
+		</action>
+	</package>
+	<!-- 注册用户详情 -->
+	<package name="y_pack" extends="base" namespace="/details">
+		<!-- 金币变化日志 -->
+		<action name="goldChangeList" class="spring_gold_goldChangeListAction">
+			<result name="success">/jsp/clientuser/goldloglist.jsp</result>
+		</action>
+		<!-- 兑换日志 -->
+		<action name="exchangeLoglist" class="spring_exchangeLog_exchangeLogListAction">
+			<result name="success">/jsp/clientuser/exchangeloglist.jsp</result>
+		</action>
+		<!-- 用户任务详情 -->
+		<action name="userTaskList" class="spring_task_userTaskListAction">
+			<result name="success">/jsp/clientuser/usertasklist.jsp</result>
+		</action>
+	</package>
+	<!-- 一级渠道 -->
+	<package name="channel_pack" extends="base" namespace="/firstChanel">
+	<!-- 查询分页 -->
+	<action name="firstchannelList" class="spring_firstchannel_firstChannelListAction">	
+		<result name="success">/jsp/channel/firstchannelList.jsp</result>			
+	</action>
+	<!-- 初始化一级渠道 -->
+	<action name="firstChannelAdd" class="spring_firstchannel_firstChannelAddAction">
+			<result name="success" type="redirectAction">firstchannelList!searchList.shtml</result>
+			<result name="input">/jsp/channel/firstchannelAdd.jsp</result>
+	</action>
+	<!-- 删除一级渠道 -->
+	<action name="firstChannelDel" class="spring_firstchannel_firstChannelDeleteAction">
+			<result name="success" type="redirectAction">firstchannelList!searchList.shtml</result>
+			<result name="check" type="json">
+				<param name="root">
+					msg
+				</param>
+			</result>
+	</action>
+	<!-- 更新一级渠道 -->
+	<action name="firstChannelEdit" class="spring_firstchannel_firstChannelEditAction">
+			<result name="input">/jsp/channel/firstchannelEdit.jsp</result>
+			<result name="success" type="redirectAction">firstchannelList!searchList.shtml</result>
+	</action>
+	</package>
+	<!-- 结算管理 -->
+	<package name="pay_pack" namespace="/payment" extends="base">
+	<!-- 用户结算 -->
+		<action name="paymentList" class="spring_payment_paymentListAction">
+				<result name="success">/jsp/payment/paymentlist.jsp</result>
+		</action>
+	<!-- 用户查询条件查询 -->
+		<action name="payMentByParams" class="spring_payment_paymentListAction">
+				<result name="success">/jsp/payment/paymentlist.jsp</result>
+		</action>
+	<!-- 用户结算，审核 -->
+		<action name="payMentChecked" class="spring_payment_paymentCheckedAction">
+				<result name="success" type="redirectAction">paymentList!searchList.shtml</result>
+		</action>
+	<!-- 用户结算，支付完成 -->
+		<action name="payMentPayed" class="spring_payment_paymentSuccessedAction">
+				<result name="success" type="redirectAction">paymentList!searchList.shtml</result>
+		</action>
+	<!-- 用户结算，取消兑换 -->
+		<action name="payMentUnChecked" class="spring_payment_paymentUnCheckedAction">
+				<result name="success" type="redirectAction">paymentList!searchList.shtml</result>
+		</action>
+	</package>
+</struts>

@@ -1,0 +1,14 @@
+/* CSS Document */
+
+<!-- login  -->
+.body{background:#7dc8f5;}
+.login{width:100%;text-align:center;}
+.loginLogo{width:672px;margin:0 auto;}
+.loginForm{background:url(../images/content_1_1_03.jpg);width:648px;height:152px;text-align:center;margin:0 auto;}
+.loginForm input{margin-top:20px;width:150px}
+.loginForm label{margin-top:20px;font-size:12px;font-weight:bold;color:#323232;width:50px;}
+.loginForm span{}
+
+
+.button{background:#55b1e8;width:200px!important;height:25px;border:1px solid #55b1e8;margin-top:20px;text-align:center;}
+

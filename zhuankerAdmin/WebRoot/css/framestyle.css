@@ -1,0 +1,109 @@
+@charset "utf-8";
+body{
+	margin:0;
+	padding:0;
+	min-width:1003px;
+	width:auto;
+	overflow-x:auto !important;
+	overflow-x:none;
+	scrollbar-arrow-color: #fff;  /*三角箭头的颜色*/
+	scrollbar-face-color: #93D242;  /*立体滚动条的颜色*/
+	scrollbar-3dlight-color: #BEE28F;  /*立体滚动条亮边的颜色*/
+	scrollbar-highlight-color: #BEE28F;  /*滚动条空白部分的颜色*/
+	scrollbar-shadow-color: #999;  /*立体滚动条阴影的颜色*/
+	scrollbar-darkshadow-color: #BEE28F;  /*立体滚动条强阴影的颜色*/
+	scrollbar-track-color: #BEE28F; /*立体滚动条背景颜色*/
+	scrollbar-base-color:#f8f8f8;  /*滚动条的基本颜色*/
+}
+img{
+	vertical-align:middle;
+	border:0;
+}
+
+
+.top{
+	background:url(../images/test/bg_top.jpg) left no-repeat;
+	height:74px;
+}
+
+.top .welcome{
+	float:left;
+	margin:30px 0 0 300px !important;
+	margin:30px 0 0 150px;
+	width:195px;
+	+width:220px;
+	font-size:15px;
+	font-weight:bold;
+	color:#43860C;
+}
+.top .welcome a{
+	color:#43860C;
+	text-decoration:none;
+}
+.top .welcome a:hover{
+	color:#43860C;
+	text-decoration:underline;
+}
+.top .right{
+	float:right;
+	margin:25px 10px 0 0;
+	width:auto;
+	min-height:15px;
+	height:auto !important;
+	height:15px;
+	overflow-y:hidden !important;
+	overflow-y:none;
+	font-size:15px;
+	font-weight:bold;
+	color:#43860C;
+	background:none;
+	border:0;
+}
+.btn_home,.btn_help,.btn_exit{	
+	margin:0 0 1px;	
+	padding:3px 0 0 14px;
+	height:30px;
+	font-size:15px;
+	font-weight:bold;
+	color:#43860C;
+	border:0;
+	vertical-align:middle;
+	cursor:pointer;
+}
+.btn_home{
+	width:90px;
+	background:url(../images/test/btn_home.png) !important;
+	background:url(../images/test/btn_home.gif);
+}
+.btn_help{
+	padding:3px 5px 0;
+	background:url(../images/test/btn_help.gif) right;
+}
+.btn_exit{
+	width:63px;
+	background:url(../images/test/btn_exit.png) !important;
+	background:url(../images/test/btn_exit.gif);
+}
+#left{
+	padding:0 0 0 4px;
+	float:left;
+	width:253px;
+	height:638px;
+	background:#F0F9E3 url(../images/test/bg.gif) top left repeat-y;
+}
+
+.right{
+	padding:0;
+	min-height:200px;
+	height:auto !important;
+	overflow-y:hidden !important;
+	overflow-y:none;
+	background:url(../images/test/bg.gif) right repeat-y;
+}
+.right .content{	
+	margin:10px;
+}
+
+
+
+

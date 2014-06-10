@@ -1,0 +1,13 @@
+
+
+.ui-tabs .ui-tabs-nav li a.close {
+    padding: 0;
+    position: absolute;
+    top: 0;
+    right: 2px;
+    cursor: pointer;
+}
+
+.ui-tabs .ui-tabs-panel {
+    padding: 0;
+}

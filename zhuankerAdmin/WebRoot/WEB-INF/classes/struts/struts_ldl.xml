@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+
+	<include file="struts.xml" />
+	<package name="md_package" extends="base" namespace="/manager">
+	
+	<!-- modle管理 -->
+	    <!-- model列表 --> 
+		<action name="modelList" class="spring_manager_TModelInfoListAction">
+			 <result type="json" name="success">
+		     <param name="root">resultList</param>
+		     </result>
+		</action>
+		
+		<!-- 添加model -->
+		<action name="modelAdd" class="spring_manager_TModelInfoAddAction">
+		     <result name="input" type="json">
+		       <param name="root">tmodelx</param>
+		     </result>
+		      <result name="success">
+		     /jsp/manager/modelInfo.jsp
+		      </result>		
+		</action>
+		
+		<!-- 删除model -->
+		<action name="modeldelete" class="spring_manager_TModelInfoDeleteAction">
+		  <result name="success"></result>	
+		</action>
+		
+		</package>
+		
+		<!-- 区域管理 -->
+		<package name="area_package" extends="base" namespace="/area">
+		  <!-- 区域管理 -->
+          <action name="areaList" class="spring_tarea_TAreaListAction">
+	         <result type="json" name="success">
+		     <param name="root">resultList</param>
+		     </result>
+		     <result type="json" name="initsuccess">
+		     <param name="root">areaList</param>
+		     </result>
+		     <result type="json" name="findsuccess">
+		     <param name="root">areaList</param>
+		     </result>
+	     </action>
+	     <!-- 添加区域 -->
+	      <action name="areaadd" class="spring_tarea_TAreaAddAction">
+	         <result name="success">
+	         /jsp/clientuser/arealist.jsp
+		     </result>
+		     <result type="json" name="judgeName">
+		       <param name="root">resultMap</param>
+		     </result>			     	
+	     </action>
+	     <!-- 删除区域 -->
+	     <action name="areadelete" class="spring_tarea_TAreaDeleteAction">
+	         <result name="success">	
+	          /jsp/clientuser/arealist.jsp     
+		     </result>	
+	     </action>
+	     <!-- 编辑区域 -->
+	     <action name="areaedit" class="spring_tarea_TAreaEditAction">
+	         <result  name="success">	
+	          /jsp/clientuser/arealist.jsp	   
+		     </result>
+		     <result type="json" name="judgeName">
+		       <param name="root">resultMap</param>
+		     </result>	
+	     </action>
+	</package>
+	
+	<!-- 系统版本管理 -->
+	<package name="mver_package" extends="base" namespace="/mversion">
+	
+	   <!-- 增加版本 -->
+	    <action name="versionadd" class="spring_manager_ManagerVersionAddAction">
+	         <result name="input">
+	           /jsp/manager/mVersionAdd.jsp
+	         </result> 
+	         <result name="success" type="redirectAction">
+	          versionlist!versionList.shtml
+	         </result>
+	    </action>
+	   
+	   <!-- 版本列表 -->
+	     <action name="versionlist" class="spring_manager_ManagerVersionListAction">     
+	     <result name="success" >
+	     /jsp/manager/mVersionList.jsp
+	     </result>
+	     </action>
+	</package>
+	<!-- 渠道管理 -->
+	<package name="channel" extends="base" namespace="/channel">
+	    
+	    <!-- 显示渠道树 -->
+	    <action name="channelManager" class="spring_channel_ChannelManagerAction">       
+	       <result type="json" name="success">
+		     <param name="root">resultList</param>
+		   </result>	
+		   <result type="json" name="findbycode">
+		     <param name="root">leveCode</param>
+		   </result>	    
+	    </action>
+
+	    <!-- 增加渠道 -->
+	     <action name="channelAdd" class="spring_channel_ChannelManagerAddChannelAction">
+	        <result name="success">
+	            /jsp/channel/channelMgrList.jsp
+	        </result>
+	          <result name="input">
+	            /jsp/channel/channelMgrAdd.jsp
+	        </result>
+	    </action>
+	    
+	    <!-- 更新渠道 -->
+	    <action name="channelEdit" class="spring_channel_ChannelManagerEditAction">	    
+	       <result name="input">
+	         /jsp/channel/channelMgrEdit.jsp
+	      </result>
+	      <result name="success">
+	        /jsp/channel/channelMgrList.jsp
+	      </result>
+	    </action>
+	    
+	    <!-- 删除渠道 -->
+	    <action name="channelDelete" class="spring_channel_ChannelManagerDeleteAction">
+	       <result name="success">
+	            /jsp/channel/channelMgrList.jsp
+	       </result>	    
+	    </action>
+	    <!-- 展示渠道列表 -->
+	    <action name="showChannelList" class="spring_channel_ChannelManagerAction">
+	        <result name="success">
+	            /jsp/channel/channelMgrList.jsp
+	        </result>
+	         <result name="input">
+	            /jsp/channel/channelMgrList.jsp
+	        </result>
+	        <result name="channel" type="json">
+	          <param name="root">pageBean</param>
+	        </result>
+	    </action>	     
+	</package>
+</struts>

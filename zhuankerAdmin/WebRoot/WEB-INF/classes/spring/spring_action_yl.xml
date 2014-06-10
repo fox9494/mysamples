@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	<!-- 使用量统计 -->
+	<!-- 使用量统计列表 -->
+	<bean id="spring_systemFlow_systemFlowListAction" class="com.soarsky.octopus.reports.action.SystemFlowListAction" scope="request">
+		<property name="tSystemFlowService" ref="tSystemFlowService"></property>
+		<property name="tApplicationService" ref="tApplicationService"></property>
+	</bean>
+	<!-- 下载量统计 -->
+	<bean id="spring_download_downloadLogListAction" class="com.soarsky.octopus.reports.action.DownloadLogListAction" scope="request">
+		<property name="tDownloadInstallLogService" ref="tDownloadInstallLogService"></property>
+	</bean>
+	<!-- 金币日志 -->
+	<bean id="spring_gold_goldChangeListAction" class="com.soarsky.octopus.clientuser.action.GoldChangeListAction" scope="request">
+		<property name="tGoldChangeService" ref="tGoldChangeService"></property>
+		<property name="tUserGoldCountService" ref="tUserGoldCountService"></property>
+	</bean>
+	<!-- 兑换日志 -->
+	<bean id="spring_exchangeLog_exchangeLogListAction" class="com.soarsky.octopus.clientuser.action.ExchangeLogListAction" scope="request">
+		<property name="tExchangeLogService" ref="tExchangeLogService"></property>
+	</bean>
+	<!-- 用户任务详细列表 -->
+	<bean id="spring_task_userTaskListAction" class="com.soarsky.octopus.clientuser.action.UserTaskListAction" scope="request">
+		<property name="tUserTaskService" ref="tUserTaskService"></property>
+	</bean>
+	<!-- 用户详情，非平台安装应用-->
+	<bean id="spring_installreport_insallReportListAction" class="com.soarsky.octopus.reports.action.InstalledApkListAction" scope="request">
+		<property name="tInstalledApkService" ref="tInstalledApkService"></property>
+	</bean>
+	<!-- 用户详情，安装量 -->
+	<bean id="spring_install_installListAction" class="com.soarsky.octopus.reports.action.InstallReportListAction" scope="request">
+		<property name="tDownloadInstallLogService" ref="tDownloadInstallLogService"></property>
+	</bean>
+	
+	<!-- 一级渠道 添加-->
+	<bean id="spring_firstchannel_firstChannelAddAction" class="com.soarsky.octopus.channel.action.ChannelFirstLevelAddAction" scope="request">
+		<property name="tChannelService" ref="tChannelService"></property>
+		<property name="tChannelIndustryService" ref="tChannelIndustryService"></property>
+		<property name="tRoleInfoService" ref="tRoleInfoService"></property>		
+		<property name="tAreaService" ref="tAreaService"></property>
+	</bean>
+	<!-- 更新一级渠道 -->
+	<bean id="spring_firstchannel_firstChannelEditAction" class="com.soarsky.octopus.channel.action.FirstChannelEditAction" scope="request">
+		<property name="tChannelService" ref="tChannelService"></property>
+		<property name="tChannelIndustryService" ref="tChannelIndustryService"></property>
+		<property name="tRoleInfoService" ref="tRoleInfoService"></property>		
+		<property name="tAreaService" ref="tAreaService"></property>		
+	</bean>
+	<!-- 一级渠道分页显示 -->
+	<bean id="spring_firstchannel_firstChannelListAction" class="com.soarsky.octopus.channel.action.FirstChannelListAction" scope="request">
+		<property name="tChannelService" ref="tChannelService"></property>
+	</bean>
+	<!-- 删除一级渠道 -->
+	<bean id="spring_firstchannel_firstChannelDeleteAction" class="com.soarsky.octopus.channel.action.FirstChannelDeleteAction" scope="request">
+		<property name="tChannelService" ref="tChannelService"></property>
+	</bean>
+	<!-- 用户结算 -->
+	<bean id="spring_payment_paymentListAction" class="com.soarsky.octopus.clientuser.action.PayMentListAction" scope="request">
+			<property name="tExchangeLogService" ref="tExchangeLogService"></property>
+	</bean>
+	<!-- 用户结算，审核 -->
+	<bean id="spring_payment_paymentCheckedAction" class="com.soarsky.octopus.clientuser.action.PayMentCheckedAction" scope="request">
+			<property name="tExchangeLogService" ref="tExchangeLogService"></property>
+	</bean>
+	<!-- 用户结算，支付完成 -->
+	<bean id="spring_payment_paymentSuccessedAction" class="com.soarsky.octopus.clientuser.action.PayMentSuccessedAction" scope="request">
+			<property name="tExchangeLogService" ref="tExchangeLogService"></property>
+	</bean>
+	<!-- 用户结算，取消兑换 -->
+	<bean id="spring_payment_paymentUnCheckedAction" class="com.soarsky.octopus.clientuser.action.PayMentUnCheckedAction" scope="request">
+			<property name="tExchangeLogService" ref="tExchangeLogService"></property>
+	</bean>
+</beans>

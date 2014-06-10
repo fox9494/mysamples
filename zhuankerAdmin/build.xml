@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project basedir="." default="all" name="zhuankerAdmin">
+	<property name="src.dir" value="${basedir}/src"/>
+	<property name="build.dir" value="${basedir}/build"/>
+	
+	
+	<!-- 编译路径 -->
+	<path id="build.classpath">
+		<fileset dir="${basedir}/WebRoot/WEB-INF/lib">
+			<include name="*.jar"/>
+		</fileset>
+		<fileset dir="${basedir}/javaee6Lib">
+			<include name="*.jar"/>
+		</fileset>
+	</path>
+	
+	<target name="clean">
+		<delete dir="${build.dir}"/>
+	</target>
+	
+	<target name="prepare">
+		<mkdir dir="${build.dir}"/>
+		<mkdir dir="${build.dir}/classes"/>
+	</target>
+	
+	<target name="compile" depends="prepare">
+		<javac target="1.6" destdir="${build.dir}/classes" classpathref="build.classpath" debug="on" encoding="UTF-8">
+			<src path="${src.dir}"/>
+		</javac>
+		
+		<copy todir="${build.dir}/classes" overwrite="true">
+			<fileset dir="${src.dir}">
+				<include name="com/soarsky/octopus/mapping/**/*.xml" />
+			</fileset>
+		</copy>
+	</target>
+	
+	<target name="all">
+		<antcall target="clean" />
+		<antcall target="zhuankerEntity"/>
+	</target>
+	
+	<!--将赚客的实体bean以及hiberante映射xml打包成jar -->
+	<target name="zhuankerEntity" depends="compile">
+		<jar jarfile="${build.dir}/zhuankerEntity.jar" basedir="${build.dir}/classes" 
+					includes="com/soarsky/octopus/mapping/**">
+		</jar>
+	</target>
+	
+</project>

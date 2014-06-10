@@ -1,0 +1,7 @@
+/* CSS Document */
+
+.main_wraper{width:99%;height:95%;color:#1b85c4;font-size:13px;border:1px solid #cccccc;margin:5px 5px 5px 5px ;background:#fafafa;}
+.main_tab{background:#d4eefe;margin:5px 5px 5px 5px;height:40px;}
+.main_tab label{font-size:12px;font-weight:bold;color:#323232;text-align:left;line-height:40px;height:30px;letter-spacing:1px;margin-left:9px}
+.main_content{height:410px;border:1px solid #cccccc;background:#FFFFFF;margin:5px 5px 5px 5px ;}
+.main_content label{font-size:12px;font-weight:normal;color:#1b85c4;margin-left:9px}

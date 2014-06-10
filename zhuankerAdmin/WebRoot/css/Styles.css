@@ -1,0 +1,63 @@
+a
+{
+    outline: none;
+}
+div.menuTree
+{
+    width: 200px;
+    height:98.5%;
+    overflow-y:auto;
+    border:1px solid rgb(185, 183, 183);
+    margin-bottom:11px;
+}
+div.menuTree UL
+{
+    font-size: 100%;
+    padding: 0px;
+    margin: 0px;
+    display:none;
+}
+div.menuTree UL LI
+{
+    list-style: none;
+    padding: 0px;
+    padding-left: 0px;
+    margin: 0px;
+    white-space: nowrap;
+    line-height: 20px;
+}
+div.menuTree UL LI a{
+	 padding-left: 50px;
+}
+div.menuTree UL LI ul li{
+	/* padding-left: 20px;*/
+}
+div.menuTree UL LI.parent A
+{
+    text-decoration: none;
+    padding: 0px 2px;
+}
+div.menuTree UL LI.parent A:hover
+{
+   
+}
+div.menuTree UL LI.child A
+{
+    color: #666666;
+    text-decoration: none;
+    padding: 0px 2px;
+}
+div.menuTree UL LI.child A:hover
+{
+    
+}
+/*
+div.menuTree UL LI.parent
+{
+    background: url(images/collapsed_image.gif) left top no-repeat;
+}
+div.menuTree UL LI.expanded
+{
+    background: url(images/expended_image.gif) left top no-repeat;
+}*/
+

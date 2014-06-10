@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	
+	
+	
+	<!-- 区域管理 -->
+	<bean id="spring_tarea_TAreaListAction" class="com.soarsky.octopus.clientuser.action.TAreaListAction" scope="request">
+		<property name="tAreaService" ref="tAreaService"></property>
+	</bean>
+	<bean id="spring_tarea_TAreaAddAction" class="com.soarsky.octopus.clientuser.action.TAreaAddAction" scope="request">
+		<property name="tAreaService" ref="tAreaService"></property>
+	</bean>
+	<bean id="spring_tarea_TAreaDeleteAction" class="com.soarsky.octopus.clientuser.action.TAreaDeleteAction" scope="request">
+		<property name="tAreaService" ref="tAreaService"></property>
+	</bean>
+	<bean id="spring_tarea_TAreaEditAction" class="com.soarsky.octopus.clientuser.action.TAreaEditAction" scope="request">
+		<property name="tAreaService" ref="tAreaService"></property>
+	</bean>
+	
+	<!-- MODEL管理 -->
+	<bean id="spring_manager_TModelInfoListAction" class="com.soarsky.octopus.manager.action.TModelInfoListAction" scope="request">
+		<property name="tModelInfoService" ref="tModelInfoService"></property>
+	</bean>
+	<bean id="spring_manager_TModelInfoAddAction" class="com.soarsky.octopus.manager.action.TModelInfoAddAction" scope="request">
+		<property name="tModelInfoService" ref="tModelInfoService"></property>
+	</bean>
+	<bean id="spring_manager_TModelInfoDeleteAction" class="com.soarsky.octopus.manager.action.TModelInfoDeleteAction" scope="request">
+		<property name="tModelInfoService" ref="tModelInfoService"></property>
+	</bean>
+	
+	<!-- 系统版本管理 -->
+	<bean id="spring_manager_ManagerVersionListAction" class="com.soarsky.octopus.manager.action.ManagerVersionListAction" scope="request">
+	    <property name="tVersionService" ref="tVersionService"></property>
+	</bean>
+	
+	<bean id="spring_manager_ManagerVersionAddAction" class="com.soarsky.octopus.manager.action.ManagerVersionAddAction" scope="request">
+	    <property name="tVersionService" ref="tVersionService"></property>
+	</bean>
+	
+	<!-- 渠道管理 -->
+	<bean id="spring_channel_ChannelManagerDeleteAction" class="com.soarsky.octopus.channel.action.ChannelManagerDeleteAction" scope="request">
+		<property name="tChannelService" ref="tChannelService"></property>
+	</bean>
+	
+	<bean id="spring_channel_ChannelManagerAddChannelAction" class="com.soarsky.octopus.channel.action.ChannelManagerAddChannelAction" scope="request">
+		<property name="tChannelService" ref="tChannelService"></property>
+		<property name="tAreaService" ref="tAreaService"></property>	
+		<property name="tChannelIndustryService" ref="tChannelIndustryService"></property>
+		<property name="tRoleInfoService" ref="tRoleInfoService"></property>	
+		<property name="tManagerInfoService" ref="tManagerInfoService"></property>
+	</bean>
+	
+	<bean id="spring_channel_ChannelManagerEditAction" class="com.soarsky.octopus.channel.action.ChannelManagerEditAction" scope="request">
+		<property name="tChannelService" ref="tChannelService"></property>
+		<property name="tAreaService" ref="tAreaService"></property>	
+		<property name="tChannelIndustryService" ref="tChannelIndustryService"></property>
+		<property name="tManagerInfoService" ref="tManagerInfoService"></property>
+	</bean>
+	
+	<bean id="spring_channel_ChannelManagerAction" class="com.soarsky.octopus.channel.action.ChannelManagerAction" scope="request">
+		<property name="tChannelService" ref="tChannelService"></property>
+	</bean>
+	
+</beans>

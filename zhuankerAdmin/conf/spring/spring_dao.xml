@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	
+	
+	<bean id="tLogDAO" class="com.soarsky.octopus.log.dao.TLogDAO">
+	  <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="tConfigDAO" class="com.soarsky.octopus.config.dao.TConfigDAO">
+	  <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="tAnnouncementDAO" class="com.soarsky.octopus.message.dao.TAnnouncementDAO">
+	  <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>	
+	
+	<bean id="tApkDAO" class="com.soarsky.octopus.task.dao.TApkDAO">
+	  <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>	
+	
+	<bean id="tAppImageDAO" class="com.soarsky.octopus.task.dao.TAppImageDAO">
+	  <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>	
+	
+	<bean id="tApplicationDAO" class="com.soarsky.octopus.task.dao.TApplicationDAO">
+	  <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>	
+	
+	<bean id="tAreaDAO" class="com.soarsky.octopus.clientuser.dao.TAreaDAO">
+	  <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>	
+	
+	<bean id="tChannelDAO" class="com.soarsky.octopus.channel.dao.TChannelDAO">
+	  <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="tChannelIndustryDAO" class="com.soarsky.octopus.channel.dao.TChannelIndustryDAO">
+	  <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="tChannelInviteDAO" class="com.soarsky.octopus.channel.dao.TChannelInviteDAO">
+	  <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="tClientLoginLogDAO" class="com.soarsky.octopus.clientuser.dao.TClientLoginLogDAO">
+	  <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="tCompanyDAO" class="com.soarsky.octopus.task.dao.TCompanyDAO">
+	  <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="tDownloadInstallLogDAO" class="com.soarsky.octopus.reports.dao.TDownloadInstallLogDAO">
+	  <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="tExchangeLogDAO" class="com.soarsky.octopus.clientuser.dao.TExchangeLogDAO">
+	  <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="tExchangeRuleDAO" class="com.soarsky.octopus.clientuser.dao.TExchangeRuleDAO">
+	  <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="tGameDAO" class="com.soarsky.octopus.game.dao.TGameDAO">
+	  <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="tGiftDAO" class="com.soarsky.octopus.clientuser.dao.TGiftDAO">
+	  <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="tGoldChangeDAO" class="com.soarsky.octopus.clientuser.dao.TGoldChangeDAO">
+	  <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="tHobbiesDAO" class="com.soarsky.octopus.clientuser.dao.THobbiesDAO">
+	  <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="tInstalledApkDAO" class="com.soarsky.octopus.reports.dao.TInstalledApkDAO">
+	  <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="tManagerInfoDAO" class="com.soarsky.octopus.manager.dao.TManagerInfoDAO">
+	  <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	
+	<bean id="tModelInfoDAO" class="com.soarsky.octopus.manager.dao.TModelInfoDAO">
+	  <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="tRightInfoDAO" class="com.soarsky.octopus.manager.dao.TRightInfoDAO">
+	  <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="tRoleInfoDAO" class="com.soarsky.octopus.manager.dao.TRoleInfoDAO">
+	  <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="tSuggectionDAO" class="com.soarsky.octopus.clientuser.dao.TSuggectionDAO">
+	  <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="tSystemFlowDAO" class="com.soarsky.octopus.reports.dao.TSystemFlowDAO">
+	  <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="tTaskAttributeDAO" class="com.soarsky.octopus.task.dao.TTaskAttributeDAO">
+	  <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="tTaskChannelDAO" class="com.soarsky.octopus.task.dao.TTaskChannelDAO">
+	  <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="tTaskDAO" class="com.soarsky.octopus.task.dao.TTaskDAO">
+	  <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="TTaskHobbiesDAO" class="com.soarsky.octopus.task.dao.TTaskHobbiesDAO">
+	  <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="tUserClientDAO" class="com.soarsky.octopus.clientuser.dao.TUserClientDAO">
+	  <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="tUserGoldCountDAO" class="com.soarsky.octopus.clientuser.dao.TUserGoldCountDAO">
+	  <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="tUserHobbiesDAO" class="com.soarsky.octopus.clientuser.dao.TUserHobbiesDAO">
+	  <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="tUserLevelDAO" class="com.soarsky.octopus.clientuser.dao.TUserLevelDAO">
+	  <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="tUserPositionDAO" class="com.soarsky.octopus.clientuser.dao.TUserPositionDAO">
+	  <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="tUserTaskDAO" class="com.soarsky.octopus.clientuser.dao.TUserTaskDAO">
+	  <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	
+	<bean id="tVersionDAO" class="com.soarsky.octopus.manager.dao.TVersionDAO">
+	  <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	
+	<bean id="tCompanyOrderDao" class="com.soarsky.octopus.task.dao.TCompanyOrderDao">
+	  <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<!-- 欧阳冬  payment结算管理模块用到的service -->
+	<bean id="demandPaymentDao" class="com.soarsky.octopus.payment.dao.TDemandPaymentDAO">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+		<bean id="channelPaymentDAO" class="com.soarsky.octopus.payment.dao.TChannelPaymentDAO">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<!-- 欧阳冬  payment结算管理模块用到的service -->
+	<!-- 曾刚洪 赚客用户统计 -->
+	<bean id="userReportDao" class="com.soarsky.octopus.reports.dao.UserReportDAO">
+	  <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+</beans>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+
+	<include file="struts.xml" />
+	
+	<!--  公共的上传用action -->
+	<package name="common_oyd_pack" extends="base" namespace="/common">
+		<!-- 公共的上传用action -->
+			<action name="upload" class="spring_common_UpLoadAction" method="upLoad">
+				<result name="success" type="json"></result>
+				<result name="input" type="json"></result>
+			</action>
+	</package>
+	
+	<!-- 报表统计模块 -->
+	<package name="reports_oyd_pack" extends="base" namespace="/reports">
+		<!-- 异步请求某客户发布的所有应用列表 -->
+		<action name="ajaxAppList" class="spring_reports_AjaxAppListAction" method="ajaxAppList">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 应用下载量统计 -->
+		<action name="appDownloadStatistics" class="spring_reports_appStatisticsAction" method="appDownloadStatistics">
+			<result name="success">/jsp/report/appDownloadStatistics.jsp</result>
+		</action>
+		<!-- 应用安装量统计 -->
+		<action name="appInstallsStatistics" class="spring_reports_appStatisticsAction" method="appInstallsStatistics">
+			<result name="success">/jsp/report/appInstallsStatistics.jsp</result>
+		</action>
+		<!-- 应用使用流量统计 -->
+		<action name="appFlowStatistics" class="spring_reports_appStatisticsAction" method="appFlowStatistics">
+			<result name="success">/jsp/report/appFlowStatistics.jsp</result>
+		</action>
+		<!-- 应用安装量统计 -->
+		<action name="userAppStatistics" class="spring_reports_userAppStatisticsAction" method="userAppStatistics">
+			<result name="success">/jsp/report/userAppStatistics.jsp</result>
+		</action>
+		<!-- 注册用户相关统计 -->
+		<action name="userStatistics" class="spring_reports_userStatisticsAction" method="userStatistics" >
+			<result name="success">/jsp/report/userStatistics.jsp</result>
+		</action>
+
+	</package>
+	
+	<!-- 结算管理模块 -->
+	<package name="payment_oyd_pack" extends="base" namespace="/payment">
+
+	<!-- 结算管理模块，需求方结算============================================= -->
+		 <action name="demandPaymentAdd" class="spring_payment_demandPaymentAddAction" method="saveDemandPayment">
+		 	<result name="success">/jsp/payment/demandPaymentAdd.jsp</result>
+		 </action>
+		 
+ 		 <action name="demandPaymentList" class="spring_payment_demandPaymentListAction" method="searchListPage">
+		 	<result name="success">/jsp/payment/demandPaymentList.jsp</result>
+		 </action>
+		 
+ 		 <action name="demandPaymentAddInit" class="spring_payment_demandPaymentAddAction" method="initCustomerList">
+		 	<result name="success">/jsp/payment/demandPaymentAdd.jsp</result>
+		 </action>
+		 
+		 <action name="demandPaymentStatistics" class="spring_payment_demandPaymentStatisticsAction" method="initCompanyList" >
+		 	<result name="success">/jsp/payment/demandPaymentStatistics.jsp</result>
+		 </action>
+		 
+ 		 <action name="ajaxTaskList" class="spring_payment_ajaxTaskListAction" method="ajaxTaskList">
+		 	<result name="success" type="json"></result>
+		 </action>
+		 
+		 <action name="ajaxStartDate" class="spring_payment_ajaxStartDateAction" method="ajaxStartDate">
+		 	<result name="success" type="json"></result>
+		 </action>
+		 
+		 <action name="ajaxStatistics" class="spring_payment_ajaxStatisticsAction" method="statistics">
+		 	<result name="success" type="json"></result>
+		 </action>
+	<!-- 结算管理模块，需求方结算============================================== -->
+	
+	<!-- 结算管理模块，渠道结算============================================= -->
+		 <action name="channelPaymentAdd" class="spring_payment_channelPaymentAddAction" method="saveChannelPayment">
+		 	<result name="success">/jsp/payment/channelPaymentAdd.jsp</result>
+		 </action>
+		 
+ 		 <action name="channelPaymentList" class="spring_payment_channelPaymentListAction" method="searchListPage">
+		 	<result name="success">/jsp/payment/channelPaymentList.jsp</result>
+		 </action>
+		 
+ 		 <action name="channelPaymentAddInit" class="spring_payment_channelPaymentAddAction" method="initChannelList">
+		 	<result name="success">/jsp/payment/channelPaymentAdd.jsp</result>
+		 </action>
+		 
+		 <action name="channelPaymentStatistics" class="spring_payment_channelPaymentStatisticsAction" method="initCompanyList" >
+		 	<result name="success">/jsp/payment/channelPaymentStatistics.jsp</result>
+		 </action>
+		 
+ 		 <action name="ajaxCPStatistics" class="spring_payment_ajaxCPStatisticsAction" method="statistics">
+		 	<result name="success" type="json"></result>
+		 </action>
+		 
+		 <action name="ajaxCPLastDate" class="spring_payment_ajaxCPLastDateAction" method="ajaxStartDate">
+		 	<result name="success" type="json"></result>
+		 </action>
+	<!-- 结算管理模块，渠道结算============================================== -->
+	
+	</package>
+	
+</struts>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+    
+<struts>
+
+   <!-- 指定被struts2处理的请求后缀类型。多个用逗号隔开--> 
+   <constant name="struts.action.extension" value="shtml"/> 	
+   <constant name="struts.devMode" value="false"/> 
+   <constant name="struts.custom.i18n.resources" value="messageResource"></constant>
+   <constant name="struts.locale" value="zh_CN"></constant>
+   <constant name="struts.objectFactory" value="spring"></constant>
+   <constant name="struts.i18n.encoding" value="UTF-8"></constant>
+   <constant name="struts.multipart.saveDir" value="/tmp"></constant>
+   
+   <constant name="struts.multipart.maxSize" value="104857600"/>
+ 
+   <include file="struts/struts_jy.xml" />
+   <include file="struts/struts_lw.xml" />
+   <include file="struts/struts_xh.xml" />
+   <include file="struts/struts_cll.xml" />
+   <include file="struts/struts_th.xml" />
+   <include file="struts/struts_yl.xml"/>
+   <include file="struts/struts_ldl.xml"/>
+   <include file="struts/struts_oyd.xml" />
+   <package name="base"  extends="json-default">
+        <interceptors>
+			<interceptor name="exceptionInterceptor" class="com.soarsky.octopus.common.interceptor.ExceptionInterceptor" />
+			<interceptor-stack name="customerStack">
+				<interceptor-ref name="defaultStack" />
+			    <interceptor-ref name="exceptionInterceptor" />
+			</interceptor-stack>
+		</interceptors>
+		
+		
+		<default-interceptor-ref name="customerStack" />
+		
+		<!-- 全局results配置 -->
+		<global-results>
+			<result name="notLogin" type="redirect">/login/welcome.jsp</result>
+			<result name="login_fail" type="redirect">/login/welcome.jsp</result>
+			<result name="error">/jsp/error.jsp</result>
+			<result name="admin_exception">/jsp/error.jsp</result>
+		</global-results>
+		
+		<global-exception-mappings>
+			<exception-mapping result="admin_exception" exception="java.lang.Exception"></exception-mapping>
+		</global-exception-mappings>
+		
+   </package>
+
+</struts>

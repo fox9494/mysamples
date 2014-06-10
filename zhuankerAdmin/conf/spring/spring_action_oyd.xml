@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	
+	<!-- 公共的上传用action====================== -->
+	
+	<bean id="spring_common_UpLoadAction" class="com.soarsky.octopus.common.action.UpLoadAction" scope="request">
+	</bean>
+	
+	<!-- 公共的上传用action========================== -->
+	
+	<!-- 结算管理模块，需求方结算=============================================== -->
+	
+	<!-- 确定结算时将完成的结算详细信息保存到数据库  -->
+	<bean id="spring_payment_demandPaymentAddAction" class="com.soarsky.octopus.payment.action.DemandPaymentAddAction" scope="request">
+		<property name="demandPaymentService" ref="demandPaymentService"></property>
+	</bean>
+	<!-- 分页查询显示已经与需求方完成结算的结算相关数据  以及初始化查询客户信息列表-->
+	<bean id="spring_payment_demandPaymentListAction" class="com.soarsky.octopus.payment.action.DemandPaymentListAction" scope="request">
+		<property name="demandPaymentService" ref="demandPaymentService"></property>
+	</bean>
+	<!-- 统计查询初始化客户信息列表 -->
+	<bean id="spring_payment_demandPaymentStatisticsAction" class="com.soarsky.octopus.payment.action.DemandPaymentStatisticsAction" scope="request">
+		<property name="demandPaymentService" ref="demandPaymentService"></property>
+	</bean>
+	<!-- 根据所选择的客户信息，异步处理查询该客户发布的所有任务 -->
+	<bean id="spring_payment_ajaxTaskListAction" class="com.soarsky.octopus.payment.action.AjaxTaskListAction" scope="request">
+		<property name="demandPaymentService" ref="demandPaymentService"></property> 
+	</bean>
+	<!-- 根据所选择的任务，异步查询该任务最末次结算的结束时间 -->
+	<bean id="spring_payment_ajaxStartDateAction" class="com.soarsky.octopus.payment.action.AjaxStartDateAction" scope="request">
+		<property name="demandPaymentService" ref="demandPaymentService"></property>
+	</bean>
+	<!-- 根据所选择任务id，开始时间，结算时间，异步统计给任务在指定时间范围完成量 -->
+	<bean id="spring_payment_ajaxStatisticsAction" class="com.soarsky.octopus.payment.action.AjaxStatisticsAction" scope="request">
+		<property name="demandPaymentService" ref="demandPaymentService"></property>
+	</bean>
+	
+	<!-- 结算管理模块，需求方结算============================================= -->
+	
+	<!-- 结算管理模块，渠道结算=============================================== -->
+	
+	<!-- 分页查询显示已经与需求方完成结算的结算相关数据  以及初始化查询客户信息列表-->
+	<bean id="spring_payment_channelPaymentListAction" class="com.soarsky.octopus.payment.action.ChannelPaymentListAction" scope="request">
+		<property name="channelPaymentService" ref="channelPaymentService"></property>
+	</bean>
+	<!-- 异步处理获取渠道最末次结算日期的action -->
+	<bean id="spring_payment_ajaxCPLastDateAction" class="com.soarsky.octopus.payment.action.AjaxCPLastDateAction" scope="request">
+		<property name="channelPaymentService" ref="channelPaymentService"></property>
+	</bean>
+	<!-- 异步处理在指定时间范围内渠道结算相关数据的action异步处理获取渠道最末次结算日期的action -->
+	<bean id="spring_payment_ajaxCPStatisticsAction" class="com.soarsky.octopus.payment.action.AjaxCPStatisticsAction" scope="request">
+		<property name="channelPaymentService" ref="channelPaymentService"></property>
+	</bean>
+	<!-- 查询统计，并初始化渠道信息列表 -->
+	<bean id="spring_payment_channelPaymentStatisticsAction" class="com.soarsky.octopus.payment.action.ChannelPaymentStatisticsAction" scope="request">
+		<property name="channelPaymentService" ref="channelPaymentService"></property>
+	</bean>
+	<!-- 渠道方结算新增结算 -->
+	<bean id="spring_payment_channelPaymentAddAction" class="com.soarsky.octopus.payment.action.ChannelPaymentAddAction" scope="request">
+		<property name="channelPaymentService" ref="channelPaymentService"></property>
+	</bean>
+	<!-- 结算管理模块，渠道结算=============================================== -->
+	
+	<!-- 报表统计模块========================================== -->
+		<!-- 应用安装量统计  -->
+		<bean id="spring_reports_appStatisticsAction" class="com.soarsky.octopus.reports.action.AppStatisticsAction" scope="request">
+			<property name="reportStatisticsService" ref="reportStatisticsService"></property>
+		</bean>
+		<!-- 用户手机上安装的应用统计-->
+		<bean id="spring_reports_userAppStatisticsAction" class="com.soarsky.octopus.reports.action.UserAppStatisticsAction" scope="request">
+			<property name="reportStatisticsService" ref="reportStatisticsService"></property>
+		</bean>		
+		<bean id="spring_reports_AjaxAppListAction" class="com.soarsky.octopus.reports.action.AjaxAppListAction"  scope="request">
+			<property name="reportStatisticsService" ref="reportStatisticsService"></property>
+		</bean>
+		<!-- 赚客用户统计-->
+		<bean id="spring_reports_userStatisticsAction" class="com.soarsky.octopus.reports.action.UserStatisticsAction" scope="request">
+			<property name="reportStatisticsService" ref="reportStatisticsService"></property>
+		</bean>
+	<!-- 报表统计模块========================================== -->
+	
+</beans>

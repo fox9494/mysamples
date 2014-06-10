@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	
+	<bean id="tManagerInfoService" class="com.soarsky.octopus.manager.service.impl.TManagerInfoServiceImpl">
+		<property name="tManagerInfoDAO" ref="tManagerInfoDAO"></property>
+	</bean>
+	
+	<bean id="tConfigService" class="com.soarsky.octopus.config.service.impl.TConfigServiceImpl">
+		<property name="tConfigDAO" ref="tConfigDAO"></property>
+	</bean>
+	
+	<bean id="tLogService" class="com.soarsky.octopus.log.service.impl.TLogServiceImpl">
+		<property name="tLogDAO" ref="tLogDAO"></property>
+	</bean>
+	
+	
+	<bean id="tAnnouncementService" class="com.soarsky.octopus.message.service.impl.TAnnouncementServiceImpl">
+		<property name="tAnnouncementDAO" ref="tAnnouncementDAO"></property>
+	</bean>
+	
+	<bean id="tApkService" class="com.soarsky.octopus.task.service.impl.TApkServiceImpl">
+		<property name="tApkDAO" ref="tApkDAO"></property>
+	</bean>
+	
+	<bean id="tAppImageService" class="com.soarsky.octopus.task.service.impl.TAppImageServiceImpl">
+		<property name="tAppImageDAO" ref="tAppImageDAO"></property>
+	</bean>
+	
+	<bean id="tApplicationService" class="com.soarsky.octopus.task.service.impl.TApplicationServiceImpl">
+		<property name="tApplicationDAO" ref="tApplicationDAO"></property>
+	</bean>
+	
+	<bean id="tAreaService" class="com.soarsky.octopus.clientuser.service.impl.TAreaServiceImpl">
+		<property name="tAreaDAO" ref="tAreaDAO"></property>
+	</bean>
+	
+	<bean id="tChannelIndustryService" class="com.soarsky.octopus.channel.service.impl.TChannelIndustryServiceImpl">
+		<property name="tChannelIndustryDAO" ref="tChannelIndustryDAO"></property>
+	</bean>
+	
+	<bean id="tChannelInviteService" class="com.soarsky.octopus.channel.service.impl.TChannelInviteServiceImpl">
+		<property name="tChannelInviteDAO" ref="tChannelInviteDAO"></property>
+	</bean>
+	
+	<bean id="tChannelService" class="com.soarsky.octopus.channel.service.impl.TChannelServiceImpl">
+		<property name="tChannelDAO" ref="tChannelDAO"></property>
+		<property name="tVersionDAO" ref="tVersionDAO"></property>
+		<property name="mailService" ref="mailService"></property>
+		<property name="packageApkService" ref="packageApkService"></property>
+	</bean>
+	
+	<bean id="tClientLoginLogService" class="com.soarsky.octopus.clientuser.service.impl.TClientLoginLogServiceImpl">
+		<property name="tClientLoginLogDAO" ref="tClientLoginLogDAO"></property>
+	</bean>
+	
+	<bean id="tCompanyService" class="com.soarsky.octopus.task.service.impl.TCompanyServiceImpl">
+		<property name="tCompanyDAO" ref="tCompanyDAO"></property>
+	</bean>
+	
+	<bean id="tDownloadInstallLogService" class="com.soarsky.octopus.reports.service.impl.TDownloadInstallLogServiceImpl">
+		<property name="tDownloadInstallLogDAO" ref="tDownloadInstallLogDAO"></property>
+	</bean>
+	
+	<bean id="tExchangeLogService" class="com.soarsky.octopus.clientuser.service.impl.TExchangeLogServiceImpl">
+		<property name="tExchangeLogDAO" ref="tExchangeLogDAO"></property>
+	</bean>
+	
+	<bean id="tExchangeRuleService" class="com.soarsky.octopus.clientuser.service.impl.TExchangeRuleServiceImpl">
+		<property name="tExchangeRuleDAO" ref="tExchangeRuleDAO"></property>
+	</bean>
+	
+	<bean id="tGameService" class="com.soarsky.octopus.game.service.impl.TGameServiceImpl">
+		<property name="tGameDAO" ref="tGameDAO"></property>
+	</bean>
+	
+	<bean id="tGiftService" class="com.soarsky.octopus.clientuser.service.impl.TGiftServiceImpl">
+		<property name="tGiftDAO" ref="tGiftDAO"></property>
+	</bean>
+	
+	<bean id="tGoldChangeService" class="com.soarsky.octopus.clientuser.service.impl.TGoldChangeServiceImpl">
+		<property name="tGoldChangeDAO" ref="tGoldChangeDAO"></property>
+	</bean>
+	
+	<bean id="tHobbiesService" class="com.soarsky.octopus.clientuser.service.impl.THobbiesServiceImpl">
+		<property name="tHobbiesDAO" ref="tHobbiesDAO"></property>
+	</bean>
+	
+	<bean id="tInstalledApkService" class="com.soarsky.octopus.reports.service.impl.TInstalledApkServiceImpl">
+		<property name="tInstalledApkDAO" ref="tInstalledApkDAO"></property>
+	</bean>
+	
+	<bean id="tModelInfoService" class="com.soarsky.octopus.manager.service.impl.TModelInfoServiceImpl">
+		<property name="tModelInfoDAO" ref="tModelInfoDAO"></property>
+	</bean>
+	
+	<bean id="tRightInfoService" class="com.soarsky.octopus.manager.service.impl.TRightInfoServiceImpl">
+		<property name="tRightInfoDAO" ref="tRightInfoDAO"></property>
+		<property name="tModelInfoDAO" ref="tModelInfoDAO"></property>
+	</bean>
+	
+	<bean id="tRoleInfoService" class="com.soarsky.octopus.manager.service.impl.TRoleInfoServiceImpl">
+		<property name="tRoleInfoDAO" ref="tRoleInfoDAO"></property>
+		<property name="tManagerInfoDAO" ref="tManagerInfoDAO"></property>
+	</bean>
+	
+	<bean id="tSuggectionService" class="com.soarsky.octopus.clientuser.service.impl.TSuggectionServiceImpl">
+		<property name="tSuggectionDAO" ref="tSuggectionDAO"></property>
+	</bean>
+	
+	<bean id="tSystemFlowService" class="com.soarsky.octopus.reports.service.impl.TSystemFlowServiceImpl">
+		<property name="tSystemFlowDAO" ref="tSystemFlowDAO"></property>
+	</bean>
+	
+	<bean id="tTaskAttributeService" class="com.soarsky.octopus.task.service.impl.TTaskAttributeServiceImpl">
+		<property name="tTaskAttributeDAO" ref="tTaskAttributeDAO"></property>
+	</bean>
+	
+	<bean id="tTaskChannelService" class="com.soarsky.octopus.task.service.impl.TTaskChannelServiceImpl">
+		<property name="tTaskChannelDAO" ref="tTaskChannelDAO"></property>
+	</bean>
+	
+	<bean id="tTaskHobbiesService" class="com.soarsky.octopus.task.service.impl.TTaskHobbiesServiceImpl">
+		<property name="tTaskHobbiesDAO" ref="TTaskHobbiesDAO"></property>
+	</bean>
+	
+	<bean id="tTaskService" class="com.soarsky.octopus.task.service.impl.TTaskServiceImpl">
+		<property name="tTaskDAO" ref="tTaskDAO"></property>
+	</bean>
+	
+	<bean id="tUserClientService" class="com.soarsky.octopus.clientuser.service.impl.TUserClientServiceImpl">
+		<property name="tUserClientDAO" ref="tUserClientDAO"></property>
+	</bean>
+	
+	<bean id="tUserGoldCountService" class="com.soarsky.octopus.clientuser.service.impl.TUserGoldCountServiceImpl">
+		<property name="tUserGoldCountDAO" ref="tUserGoldCountDAO"></property>
+	</bean>
+	
+	<bean id="tUserHobbiesService" class="com.soarsky.octopus.clientuser.service.impl.TUserHobbiesServiceImpl">
+		<property name="tUserHobbiesDAO" ref="tUserHobbiesDAO"></property>
+	</bean>
+	
+	<bean id="tUserLevelService" class="com.soarsky.octopus.clientuser.service.impl.TUserLevelServiceImpl">
+		<property name="tUserLevelDAO" ref="tUserLevelDAO"></property>
+	</bean>
+	
+	<bean id="tUserPositionService" class="com.soarsky.octopus.clientuser.service.impl.TUserPositionServiceImpl">
+		<property name="tUserPositionDAO" ref="tUserPositionDAO"></property>
+	</bean>
+	
+	<bean id="tUserTaskService" class="com.soarsky.octopus.clientuser.service.impl.TUserTaskServiceImpl">
+		<property name="tUserTaskDAO" ref="tUserTaskDAO"></property>
+	</bean>
+	
+	<bean id="tVersionService" class="com.soarsky.octopus.manager.service.impl.TVersionServiceImpl">
+		<property name="tVersionDAO" ref="tVersionDAO"></property>
+		<property name="packageApkService" ref="packageApkService"></property>
+	</bean>
+	
+	<bean id="tCompanyOrderService" class="com.soarsky.octopus.task.service.impl.TCompanyOrderServiceImpl">
+		<property name="tCompanyOrderDao" ref="tCompanyOrderDao"></property>
+	</bean>
+	
+	<!-- 欧阳冬  =================================================================== -->
+	<!-- payment结算管理模块用到的service -->
+	<bean id="demandPaymentService" class="com.soarsky.octopus.payment.service.impl.TDemandPaymentServiceImpl">
+		<property name="demandPaymentDao" ref="demandPaymentDao"></property>
+		<property name="tCompanyDAO" ref="tCompanyDAO"></property>
+		<property name="tTaskDAO" ref="tTaskDAO"></property>
+		<property name="tUserTaskDAO" ref="tUserTaskDAO"></property>
+	</bean>
+	
+	<bean id="channelPaymentService" class="com.soarsky.octopus.payment.service.impl.TChannelPaymentServiceImpl">
+		<property name="channelPaymentDAO" ref="channelPaymentDAO"></property>
+		<property name="channelDAO" ref="tChannelDAO"></property>
+		<property name="userTaskDAO" ref="tUserTaskDAO"></property>
+	</bean>
+	
+	<!-- reports报表统计模块用到的service -->
+	<bean id="reportStatisticsService" class="com.soarsky.octopus.reports.service.impl.ReportStatisticsServiceImpl" >
+		<property name="tCompanyDAO" ref="tCompanyDAO"></property>
+		<property name="tApplicationDAO" ref="tApplicationDAO"></property>
+		<property name="tDownloadInstallLogDAO" ref="tDownloadInstallLogDAO"></property>
+		<property name="tSystemFlowDAO" ref="tSystemFlowDAO"></property>
+		<property name="tInstalledApkDAO" ref="tInstalledApkDAO"></property>
+		<property name="userReportDao" ref="userReportDao"></property>
+	</bean>
+
+	<!-- =================================================================== -->
+	
+</beans>
