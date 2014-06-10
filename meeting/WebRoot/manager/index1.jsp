@@ -9,7 +9,7 @@ request.setAttribute("_path",path);
 <html>
 <head>
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-	<title>国信证券软件管家管理 </title>
+	<title>成勘院会议系统 </title>
 	<link rel="stylesheet" href="resources/css/ext-all.css" type="text/css" media="screen" charset="utf-8" />
 	<link rel="stylesheet" href="styles/html.css" type="text/css" media="screen" charset="utf-8" />
 	<link rel="shortcut icon" href="images/ico.png" type="image/x-icon"/>
@@ -102,7 +102,7 @@ request.setAttribute("_path",path);
 	    <div class="loading-indicator"><img src="images/Ext/extanim64.gif" width="64" height="64" style="margin-right:8px;" />系统加载中，请稍候...</div>
 	</div>
 	<div id="panelTop">
-		<div class="header"><h1>国信证券软件管家-后台管理<samp>版本:1.0</samp>
+		<div class="header"><h1>成勘院会议系统-后台管理<samp>版本:1.0</samp>
 		<span class="aa" id="gai">欢迎您：&nbsp;<%=session.getAttribute("username") %>！ 
 		<a href="userLogin!exit.action" style="color: white;">退出系统</a></span>	</h1>
 		</div>

@@ -138,17 +138,18 @@ public class AdminUserServiceImpl implements AdminUserService {
 					}
 				}
 				
-				//将map中的menu设置子菜单
-				Set<Entry<Integer, MenuVO>> set = menuMap.entrySet();
-				for (Entry<Integer, MenuVO> entry : set) {
-					MenuVO menu = entry.getValue();
-					
-					MenuVO parentMenu = menuMap.get(menu.getParentId());
-					if (parentMenu==null){
-						list.add(menu);
-					}else{
-						parentMenu.getItems().add(menu);
-					}
+			}
+			
+			//将map中的menu设置子菜单
+			Set<Entry<Integer, MenuVO>> set = menuMap.entrySet();
+			for (Entry<Integer, MenuVO> entry : set) {
+				MenuVO menu = entry.getValue();
+				
+				MenuVO parentMenu = menuMap.get(menu.getParentId());
+				if (parentMenu==null){
+					list.add(menu);
+				}else{
+					parentMenu.getItems().add(menu);
 				}
 			}
 		}

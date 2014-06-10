@@ -19,13 +19,13 @@
 		</property>
 		<property name="mappingDirectoryLocations">
 	       <list>
-    	     <value>classpath:/com/institutemeeting/mapping</value>
+    	     <value>classpath:/com/institute/meeting/mapping</value>
      	  </list>
         </property>
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">
-					com.institute.meeting.util.CustomDialect
+					com.institute.meeting.utils.CustomDialect
 				</prop>
 				<prop key="hibernate.show_sql">true</prop>
 			</props>

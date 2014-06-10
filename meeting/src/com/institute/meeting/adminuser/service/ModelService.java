@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.institute.meeting.adminuser.entity.TModel;
+import com.institute.meeting.common.entity.TreeModel;
 
 public interface ModelService {
 	
@@ -19,5 +20,12 @@ public interface ModelService {
 	 * @return  Map
 	 */
 	public Map<Integer,TModel> queryAllForMap();
+	
+	
+	/**
+	 * 查询所有的资源模块，并转成树形数据
+	 * @return
+	 */
+	public List<TreeModel> findAllModelForTree();
 
 }

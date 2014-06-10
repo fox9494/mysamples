@@ -20,13 +20,20 @@
 	  <property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 	
-	<bean id="localVersionDao" class="com.institute.meeting.localversion.dao.impl.LocalVersionDaoImpl">
-	  <property name="sessionFactory" ref="sessionFactory"></property>
-	</bean>		
 	
 	<bean id="adminRightDao" class="com.institute.meeting.adminuser.dao.impl.AdminRightDaoImpl">
 	  <property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>	
+	
+	<bean id="adminUserRoleDao" class="com.institute.meeting.adminuser.dao.impl.AdminUserRoleDaoImpl">
+	  <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	
+	
+<!-- 	<bean id="localVersionDao" class="com.institute.meeting.localversion.dao.impl.LocalVersionDaoImpl">
+	  <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>		
 	
 	<bean id="applicationDao" class="com.institute.meeting.app.dao.impl.ApplicationDaoImpl">
 	      <property name="sessionFactory" ref="sessionFactory"></property>
@@ -54,5 +61,5 @@
 	
 	<bean id="versionDao" class="com.institute.meeting.version.dao.impl.VersionDaoImpl">
 	      <property name="sessionFactory" ref="sessionFactory"></property>
-	</bean>
+	</bean> -->
 </beans>

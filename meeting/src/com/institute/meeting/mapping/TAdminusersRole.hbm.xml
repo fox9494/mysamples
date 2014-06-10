@@ -10,10 +10,10 @@
             <column name="UserRoleID" />
             <generator class="native" />
         </id>
-        <property name="userId" type="java.lang.String">
+        <property name="userId" type="java.lang.Integer">
             <column name="userId"  />
         </property>
-        <property name="roleId" type="java.lang.String">
+        <property name="roleId" type="java.lang.Integer">
             <column name="roleId"  />
         </property>
     </class>

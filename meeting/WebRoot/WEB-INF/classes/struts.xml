@@ -59,6 +59,11 @@
 			<result name="success" type="redirectAction">adminRoleList!searchAllRole.action</result>
 		</action>
 		
+		<action name="adminRoleAdd" class="spring_adminuser_AdminRoleAddAction">
+			<result name="input">/jsp/admin/manager/roleAdd.jsp</result>
+			<result name="success" type="redirectAction">adminRoleList!searchAllRole.action</result>
+		</action>
+		
 		<!-- 用户删除 -->
 		<action name="adminuserDelete" class="spring_adminuser_AdminUserDeleteAction">
 		<result name="success" type="json"></result>

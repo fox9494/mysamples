@@ -6,6 +6,7 @@
 	<bean id="adminUserService" class="com.institute.meeting.adminuser.service.impl.AdminUserServiceImpl">
 		<property name="adminUserDao" ref="adminUserDao"></property>
 		<property name="adminRoleDao" ref="adminRoleDao"></property>
+		<property name="adminUserRoleDao" ref="adminUserRoleDao"></property>
 	</bean>
 	
 	<bean id="adminRoleService" class="com.institute.meeting.adminuser.service.impl.AdminRoleServiceImpl">
@@ -16,14 +17,13 @@
 		<property name="adminRightDao" ref="adminRightDao"></property>
 	</bean>	
 	
-	<bean id="localVersionService" class="com.institute.meeting.localversion.service.impl.LocalVersionServiceImpl">
-		<property name="localVersionDao" ref="localVersionDao"></property>
-	</bean>
-	
-	
 	<bean id="modelService" class="com.institute.meeting.adminuser.service.impl.ModelServiceImpl">
 		<property name="modelDao" ref="modelDao"></property>
 	</bean>	
+	
+	<!-- <bean id="localVersionService" class="com.institute.meeting.localversion.service.impl.LocalVersionServiceImpl">
+		<property name="localVersionDao" ref="localVersionDao"></property>
+	</bean>
 	
 	<bean id="applicationService" class="com.institute.meeting.app.service.impl.ApplicationServiceImpl">
 		<property name="applicationDao" ref="applicationDao"></property>
@@ -54,5 +54,5 @@
 	
 	<bean id="versionService" class="com.institute.meeting.version.service.impl.VersionServiceImpl">
 		<property name="versionDao" ref="versionDao"></property>
-	</bean>
+	</bean> -->
 </beans>

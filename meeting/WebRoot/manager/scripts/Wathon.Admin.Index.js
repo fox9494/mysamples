@@ -145,7 +145,7 @@ Wathon.Admin.Index = Wathon.Admin.prototype = {
 			style : "padding:5px;",
 			closable : true,
 			autoScroll : true,
-			html:'欢迎使用国信证券管家系统'
+			html:'欢迎使用成勘院会议系统'
 		} ]
 	}),
 
