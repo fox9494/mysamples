@@ -10,26 +10,52 @@ import com.institute.meeting.adminuser.entity.TAdminRole;
 import com.institute.meeting.adminuser.entity.TModel;
 import com.institute.meeting.adminuser.service.AdminRoleService;
 import com.institute.meeting.adminuser.vo.RoleInfoVO;
+import com.institute.meeting.common.service.impl.BaseServiceImpl;
 
-public class AdminRoleServiceImpl implements AdminRoleService {
+public class AdminRoleServiceImpl extends BaseServiceImpl<TAdminRole> implements AdminRoleService {
 	
 	private AdminRoleDao   adminRoleDao;
 	
+	
+	@Override
+	protected Class getEntityClass() {
+		return TAdminRole.class;
+	}
+	
+	
 	/**
-	 * 查询所有的角色
+	 * 保存角色和权限
 	 */
-	public List<TAdminRole>  findAllRole(){
-		return adminRoleDao.queryAll(TAdminRole.class);
+	public void saveRoleAndRight(TAdminRole role,String moduleIds){
+		adminRoleDao.save(role);
+		String[] modules = moduleIds.split(",");
+		List<TAdminRight> rightList = new ArrayList<TAdminRight>();
+		for (String module : modules) {
+			TAdminRight right = new TAdminRight();
+			right.setRole(role);
+			TModel model = new TModel();
+			model.setModelId(Integer.valueOf(module));
+			right.setModel(model);
+			rightList.add(right);
+		}
+		adminRoleDao.batchAdd(rightList);
 	}
 	
 	/**
-	 * 根据主键查找
-	 * @param roleId
+	 * 验证角色名是否唯一
+	 * 唯一则返回true
+	 * @param name
 	 * @return
 	 */
-	public TAdminRole findById(Integer roleId){
-		return adminRoleDao.getById(TAdminRole.class,roleId);
+	public boolean validateName(String name){
+		List<TAdminRole> list = adminRoleDao.findByProperty(TAdminRole.class, "roleName", name);
+		if (list!=null && !list.isEmpty()){
+			return false;
+		}else{
+			return true;
+		}
 	}
+	
 	
 	/**
 	 * 查询所有的角色权限,带有模块名
@@ -82,5 +108,12 @@ public class AdminRoleServiceImpl implements AdminRoleService {
 	public void setAdminRoleDao(AdminRoleDao adminRoleDao) {
 		this.adminRoleDao = adminRoleDao;
 	}
+
+
+
+
+
+
+	
 
 }

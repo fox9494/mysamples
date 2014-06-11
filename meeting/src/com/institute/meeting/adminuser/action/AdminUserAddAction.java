@@ -29,7 +29,7 @@ public class AdminUserAddAction extends BaseAction {
 	
 	public String addUser(){
 		if (this.hasValidatorErrors()){
-			roleList = adminRoleService.findAllRole();
+			roleList = adminRoleService.findAll();
 			return INPUT;
 		}
 		
@@ -55,7 +55,7 @@ public class AdminUserAddAction extends BaseAction {
 	}
 	
 	public String initAddAdmin(){
-		roleList = adminRoleService.findAllRole();
+		roleList = adminRoleService.findAll();
 		return INPUT;
 	}
 

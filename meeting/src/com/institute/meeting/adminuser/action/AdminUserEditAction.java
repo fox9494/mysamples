@@ -21,7 +21,7 @@ public class AdminUserEditAction extends BaseAction {
        private String oldAdminUser;
        public String EditAdminUser(){
     	   if (this.hasValidatorErrors()){
-   			roleList = adminRoleService.findAllRole();
+   			roleList = adminRoleService.findAll();
    			return INPUT;
    		   }
     	   adminUser.setEditDate(new Date());
@@ -31,7 +31,7 @@ public class AdminUserEditAction extends BaseAction {
        
        public String initEditAdmin(){
     	   adminUser=this.adminUserService.findByAdminUser(userId);
-    	   roleList=this.adminRoleService.findAllRole();
+    	   roleList=this.adminRoleService.findAll();
     	   oldAdminUser=adminUser.getUserAccount();
     	   return INPUT;
        }

@@ -38,7 +38,7 @@ public class AdminRoleEditAction extends BaseAction {
 	 * @return
 	 */
 	public String initEdit(){
-		role = adminRoleService.findById(roleId);
+		role = (TAdminRole) adminRoleService.findById(roleId);
 		modelList = modelService.findAllMenu();  
 		return INPUT;
 	}

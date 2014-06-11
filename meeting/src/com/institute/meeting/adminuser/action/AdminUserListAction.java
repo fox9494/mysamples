@@ -26,7 +26,7 @@ public class AdminUserListAction extends BaseAction {
 	 */
 	public String searchListPage(){
 		pageBean = adminUserService.queryPageList(10, currentPage);
-		roles=adminRoleService.findAllRole();
+		roles=adminRoleService.findAll();
 		return SUCCESS;
 	}
 

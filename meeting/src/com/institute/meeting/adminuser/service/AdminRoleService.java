@@ -4,14 +4,9 @@ import java.util.List;
 
 import com.institute.meeting.adminuser.entity.TAdminRole;
 import com.institute.meeting.adminuser.vo.RoleInfoVO;
+import com.institute.meeting.common.service.BaseService;
 
-public interface AdminRoleService {
-	
-	/**
-	 * 查询所有的角色
-	 * @return
-	 */
-	public List<TAdminRole>  findAllRole();
+public interface AdminRoleService extends BaseService{
 	
 	
 	/**
@@ -21,16 +16,19 @@ public interface AdminRoleService {
 	public List<RoleInfoVO> findRoleRight();
 	
 	/**
-	 * 根据主键查找
-	 * @param roleId
-	 * @return
+	 * 保存角色和权限
 	 */
-	public TAdminRole findById(Integer roleId);
+	public void saveRoleAndRight(TAdminRole role,String moduleIds);
+	
 	
 	/**
-	 * 更新角色
-	 * @param entity
+	 * 验证角色名是否唯一
+	 * 唯一则返回true
+	 * @param name
+	 * @return
 	 */
-	public void updateRole(TAdminRole entity);
+	public boolean validateName(String name);
+	
+	
 
 }

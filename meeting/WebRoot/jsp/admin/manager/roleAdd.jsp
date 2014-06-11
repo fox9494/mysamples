@@ -61,7 +61,6 @@
  				     required: true     
  				   },
  				   "role.remark":{
- 				     required: true,
  				     maxlength: 50
  				   }    			   
  				 },
@@ -71,11 +70,10 @@
  			          maxlength: jQuery.format("输入不能超过{0}个字符")
  			        },
  			        moduleIds: {     
- 			        required: "无金币总数", 
+ 			        required: "请选择权限", 
  			        maxlength: jQuery.format("输入不能超过{0}个字符")
  			        },  
  			        "role.remark": {     
- 			           required: "无结算金额",
  			           maxlength: jQuery.format("输入不能超过{0}个字符")
  			        }		        
  			 	}
@@ -92,11 +90,7 @@
          
            //提交表单
            function submitForm(){
-			   if ($("#roleName").val()==""){
-			   	  Boteng.DialogBox.message("请输入角色名称");
-			   	   $("#roleName").focus();
-			   	   return;
-			   }
+			   
 			   var treeObj = $.fn.zTree.getZTreeObj("tree");
 			   var nodes = treeObj.getCheckedNodes(true);
 			   if (nodes.length>0){
@@ -115,8 +109,7 @@
 			   	   alert("请选择角色操作模块");
 			   	   return;
 			   };
-			   
-			   $("#form").submit();
+			   $("#addRoleForm").submit();
 			}
         </script>
     
@@ -127,16 +120,16 @@
 			<div class="toolpad clearfix">
 				<label style="font-size: 14px"><strong>添加角色</strong></label>
 			</div>
-			<form action="roleAdd!addRole.action" method="post" id="addRoleForm">
+			<form action="adminRoleAdd!addRole.action" method="post" id="addRoleForm">
 				<table class="inputtable" style="width: 100%;">
 					<tr>
 						<td class="c01">
 							角色名称:<font color="red">&nbsp;<b>*</b>&nbsp;</font>
 						</td>
 						<td>
-							<input name="role.roleName" type="text" value="<s:property value="tappRoles.roleName"/>"/>
+							<input name="role.roleName" type="text" value="<s:property value="role.roleName"/>"/>
                             
-                            <font color="red"><s:fielderror fieldName="role.roleName" /></font>
+                            <font color="red"><s:fielderror fieldName="role.hasExist" /></font>
 						</td>
 					</tr>
 					
@@ -146,7 +139,8 @@
 						</td>
 						<td>
 							 <ul id="tree" class="ztree"></ul>	
-							 <input type="hidden" name="moduleIds"/>		
+							 <input type="hidden" name="moduleIds" id="moduleIds"/>		
+							 <font color="red"><s:fielderror fieldName="role.tree" /></font>
 						</td>
 					</tr>
 					
@@ -155,9 +149,8 @@
 							角色描述:
 						</td>
 						<td>
-							<textarea cols="40" rows="7" name="role.remark"  ></textarea>	
-                              <font color="red"><s:fielderror
-									fieldName="role.remark" />
+							<textarea cols="40" rows="7" name="role.remark"  value ="<s:property value="role.remark"/>"></textarea>	
+                              <font color="red"><s:fielderror fieldName="role.remark" />
 							</font>				
 						</td>
 					</tr>
@@ -169,7 +162,7 @@
 				<br>
 
 				<div class="toolpad tcenter">
-					<input type="submit" style="width: 100px;" value="提  交"  onclick="javascrpit:submitForm();"/>
+					<input type="button" style="width: 100px;" value="提  交"  onclick="javascrpit:submitForm();"/>
                     <input type="reset" style="width: 100px;" value="返回"  onclick="goBackRoleList()"/>
 				</div>
 
