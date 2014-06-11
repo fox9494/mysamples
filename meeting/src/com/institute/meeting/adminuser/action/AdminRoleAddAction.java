@@ -24,19 +24,16 @@ public class AdminRoleAddAction extends BaseAction {
 
 	private AdminRoleService adminRoleService;
 	
-	private List<TModel>   modelList;
-	
 	private ModelService  modelService;
 	
 	private AdminRightService adminRightService;
 	
-	private Integer roleId;
-	
 	private TAdminRole role;
 	
-	private String[] model;
-	
 	private JSONArray treeJson;
+	
+	//权限模块字符串
+	private String moduleIds;
 	
 	/**
 	 * 初始化角色
@@ -46,6 +43,12 @@ public class AdminRoleAddAction extends BaseAction {
 		List<TreeModel> treeList = modelService.findAllModelForTree();
 		treeJson = JSONArray.fromObject(treeList);
 		return INPUT;
+	}
+	
+	public String addRole(){
+		
+		
+		return SUCCESS;
 	}
 	
 	/**
@@ -96,28 +99,12 @@ public class AdminRoleAddAction extends BaseAction {
 		this.adminRoleService = adminRoleService;
 	}
 
-	public List<TModel> getModelList() {
-		return modelList;
-	}
-
-	public void setModelList(List<TModel> modelList) {
-		this.modelList = modelList;
-	}
-
 	public ModelService getModelService() {
 		return modelService;
 	}
 
 	public void setModelService(ModelService modelService) {
 		this.modelService = modelService;
-	}
-
-	public Integer getRoleId() {
-		return roleId;
-	}
-
-	public void setRoleId(Integer roleId) {
-		this.roleId = roleId;
 	}
 
 	public TAdminRole getRole() {
@@ -129,13 +116,6 @@ public class AdminRoleAddAction extends BaseAction {
 		this.role = role;
 	}
 
-	public String[] getModel() {
-		return model;
-	}
-
-	public void setModel(String[] model) {
-		this.model = model;
-	}
 
 	public AdminRightService getAdminRightService() {
 		return adminRightService;
@@ -151,6 +131,14 @@ public class AdminRoleAddAction extends BaseAction {
 
 	public void setTreeJson(JSONArray treeJson) {
 		this.treeJson = treeJson;
+	}
+
+	public String getModuleIds() {
+		return moduleIds;
+	}
+
+	public void setModuleIds(String moduleIds) {
+		this.moduleIds = moduleIds;
 	}
 
 

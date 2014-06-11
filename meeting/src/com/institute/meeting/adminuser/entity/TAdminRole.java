@@ -1,5 +1,6 @@
 package com.institute.meeting.adminuser.entity;
 
+import java.util.Date;
 import java.util.Set;
 
 /**
@@ -13,6 +14,10 @@ public class TAdminRole implements java.io.Serializable {
 	
 	//角色名
 	private String  roleName;
+	
+	private String remark;
+	
+	private Date createDate;
 
 	
 	private Set<TAdminRight>  roleRightSet;
@@ -52,6 +57,26 @@ public class TAdminRole implements java.io.Serializable {
 
 	public void setRoleRightSet(Set<TAdminRight> roleRightSet) {
 		this.roleRightSet = roleRightSet;
+	}
+
+
+	public String getRemark() {
+		return remark;
+	}
+
+
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
+
+
+	public Date getCreateDate() {
+		return createDate;
+	}
+
+
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
 	}
 
 

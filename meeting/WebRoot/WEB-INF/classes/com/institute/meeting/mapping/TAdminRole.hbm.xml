@@ -15,6 +15,14 @@
 			<column name="RoleName"  />
 		</property>
 		
+		<property name="remark" type="java.lang.String">
+			<column name="remark"  />
+		</property>
+		
+		<property name="createDate" type="java.util.Date">
+			<column name="CreateDate"  />
+		</property>
+		
 		<set name="roleRightSet" table="t_admin_right" cascade="all" lazy="false" order-by="rightId">
 			<key column="RoleId"></key>
 			<one-to-many class="com.institute.meeting.adminuser.entity.TAdminRight"/>
