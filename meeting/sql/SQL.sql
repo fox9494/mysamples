@@ -45,24 +45,24 @@ delete from t_model;
 
 insert into t_model(`modelId`,`name`,`code`,`type`,`order`,url,parentId,icon) values(1,'系统管理','com.meeting.adminuser','0',1,'',null,'<img src="../images/1361617211_setting_tools.png">&nbsp;');
 insert into t_model(`modelId`,`name`,`code`,`type`,`order`,url,parentId,icon) values(2,'角色管理','com.meeting.adminuser.role','0',1,'',1,'<img src="../images/1361617228_group.png">&nbsp;');
-insert into t_model(`modelId`,`name`,`code`,`type`,`order`,url,parentId,icon) values(3,'用户管理','com.meeting.adminuser.user','0',2,'',1,'<img src="../images/min-icon.png"/>&nbsp;');
-insert into t_model(`modelId`,`name`,`code`,`type`,`order`,url,parentId,icon) values(4,'会议管理','com.meeting.meeting','0',2,'',null,'<img src="../images/min-icon.png"/>&nbsp;');
+insert into t_model(`modelId`,`name`,`code`,`type`,`order`,url,parentId,icon) values(3,'用户管理','com.meeting.adminuser.user','0',2,'',1,'<img src="../images/1361617541_application_form_edit.png"/>&nbsp;');
+insert into t_model(`modelId`,`name`,`code`,`type`,`order`,url,parentId,icon) values(4,'会议管理','com.meeting.meeting','0',2,'',null,'<img src="../images/1361617203_book_open.png"/>&nbsp;');
 
-insert into t_model(`name`,`code`,`type`,`order`,url,parentId,icon) values('类别管理','com.guoxin.category','0',1,'',null,'<img src="../images/1361617443_chart_bar.png"/>&nbsp;');
-insert into t_model(`name`,`code`,`type`,`order`,url,parentId,icon) values('应用管理','com.guoxin.application','0',2,'',null,'<img src="../images/1361617541_application_form_edit.png"/>&nbsp;');
-insert into t_model(`name`,`code`,`type`,`order`,url,parentId,icon) values('角色管理','com.guoxin.clientrole','0',3,'',null,'<img src="../images/1361617228_group.png">&nbsp;');
-insert into t_model(`name`,`code`,`type`,`order`,url,parentId,icon) values('客户管理','com.guoxin.client','0',4,'',null,'<img src="../images/1361617669_user1.png">&nbsp;');
-insert into t_model(`name`,`code`,`type`,`order`,url,parentId,icon) values('版本管理','com.guoxin.version','0',5,'',null,'<img src="../images/1361617203_book_open.png">&nbsp;');
-insert into t_model(`name`,`code`,`type`,`order`,url,parentId,icon) values('后台管理','com.guoxin.adminuser','0',6,'',null,'<img src="../images/1361617211_setting_tools.png">&nbsp;');
-insert into t_model(`name`,`code`,`type`,`order`,url,parentId,icon) values('类别管理','com.guoxin.category.list','0',1,'typeList!searchListPage.action',1,'<img src="../images/min-icon.png"/>&nbsp;');
-insert into t_model(`name`,`code`,`type`,`order`,url,parentId,icon) values('应用管理','com.guoxin.application.list','0',1,'../jsp/frame.jsp',2,'<img src="../images/min-icon.png"/>&nbsp;');
-insert into t_model(`name`,`code`,`type`,`order`,url,parentId,icon) values('角色管理','com.guoxin.clientrole.list','0',1,'roleList!searchListPage.action',3,'<img src="../images/min-icon.png"/>&nbsp;');
-insert into t_model(`name`,`code`,`type`,`order`,url,parentId,icon) values('角色应用','com.guoxin.clientrole.app','0',2,'roleAppList!searchListPage.action',3,'<img src="../images/min-icon.png"/>&nbsp;');
-insert into t_model(`name`,`code`,`type`,`order`,url,parentId,icon) values('客户管理','com.guoxin.client.list','0',1,'customerList!searchListPage.action',4,'<img src="../images/min-icon.png"/>&nbsp;');
-insert into t_model(`name`,`code`,`type`,`order`,url,parentId,icon) values('查看版本','com.guoxin.version.list','0',1,'searchLocalVerList!searchVersion.action',5,'<img src="../images/min-icon.png"/>&nbsp;');
-insert into t_model(`name`,`code`,`type`,`order`,url,parentId,icon) values('上传版本','com.guoxin.version.upload','0',2,'updateLocalVersion!initUpdateVersion.action',5,'<img src="../images/min-icon.png"/>&nbsp;');
-insert into t_model(`name`,`code`,`type`,`order`,url,parentId,icon) values('后台管理员','com.guoxin.adminuser.list','0',1,'adminuserList!searchListPage.action',6,'<img src="../images/min-icon.png"/>&nbsp;');
-insert into t_model(`name`,`code`,`type`,`order`,url,parentId,icon) values('权限分配','com.guoxin.adminuser.pri','0',2,'adminRoleList!searchAllRole.action',6,'<img src="../images/min-icon.png"/>&nbsp;');
+##insert into t_model(`name`,`code`,`type`,`order`,url,parentId,icon) values('类别管理','com.guoxin.category','0',1,'',null,'<img src="../images/1361617443_chart_bar.png"/>&nbsp;');
+##insert into t_model(`name`,`code`,`type`,`order`,url,parentId,icon) values('应用管理','com.guoxin.application','0',2,'',null,'<img src="../images/1361617541_application_form_edit.png"/>&nbsp;');
+##insert into t_model(`name`,`code`,`type`,`order`,url,parentId,icon) values('角色管理','com.guoxin.clientrole','0',3,'',null,'<img src="../images/1361617228_group.png">&nbsp;');
+##insert into t_model(`name`,`code`,`type`,`order`,url,parentId,icon) values('客户管理','com.guoxin.client','0',4,'',null,'<img src="../images/1361617669_user1.png">&nbsp;');
+##insert into t_model(`name`,`code`,`type`,`order`,url,parentId,icon) values('版本管理','com.guoxin.version','0',5,'',null,'<img src="../images/1361617203_book_open.png">&nbsp;');
+##insert into t_model(`name`,`code`,`type`,`order`,url,parentId,icon) values('后台管理','com.guoxin.adminuser','0',6,'',null,'<img src="../images/1361617211_setting_tools.png">&nbsp;');
+##insert into t_model(`name`,`code`,`type`,`order`,url,parentId,icon) values('类别管理','com.guoxin.category.list','0',1,'typeList!searchListPage.action',1,'<img src="../images/min-icon.png"/>&nbsp;');
+##insert into t_model(`name`,`code`,`type`,`order`,url,parentId,icon) values('应用管理','com.guoxin.application.list','0',1,'../jsp/frame.jsp',2,'<img src="../images/min-icon.png"/>&nbsp;');
+##insert into t_model(`name`,`code`,`type`,`order`,url,parentId,icon) values('角色管理','com.guoxin.clientrole.list','0',1,'roleList!searchListPage.action',3,'<img src="../images/min-icon.png"/>&nbsp;');
+##insert into t_model(`name`,`code`,`type`,`order`,url,parentId,icon) values('角色应用','com.guoxin.clientrole.app','0',2,'roleAppList!searchListPage.action',3,'<img src="../images/min-icon.png"/>&nbsp;');
+##insert into t_model(`name`,`code`,`type`,`order`,url,parentId,icon) values('客户管理','com.guoxin.client.list','0',1,'customerList!searchListPage.action',4,'<img src="../images/min-icon.png"/>&nbsp;');
+##insert into t_model(`name`,`code`,`type`,`order`,url,parentId,icon) values('查看版本','com.guoxin.version.list','0',1,'searchLocalVerList!searchVersion.action',5,'<img src="../images/min-icon.png"/>&nbsp;');
+##insert into t_model(`name`,`code`,`type`,`order`,url,parentId,icon) values('上传版本','com.guoxin.version.upload','0',2,'updateLocalVersion!initUpdateVersion.action',5,'<img src="../images/min-icon.png"/>&nbsp;');
+##insert into t_model(`name`,`code`,`type`,`order`,url,parentId,icon) values('后台管理员','com.guoxin.adminuser.list','0',1,'adminuserList!searchListPage.action',6,'<img src="../images/min-icon.png"/>&nbsp;');
+##insert into t_model(`name`,`code`,`type`,`order`,url,parentId,icon) values('权限分配','com.guoxin.adminuser.pri','0',2,'adminRoleList!searchAllRole.action',6,'<img src="../images/min-icon.png"/>&nbsp;');
 
 
 ##后台用户角色表
@@ -94,17 +94,6 @@ insert into t_admin_right(roleId,modelId) values(1,1);
 insert into t_admin_right(roleId,modelId) values(1,2);
 insert into t_admin_right(roleId,modelId) values(1,3);
 insert into t_admin_right(roleId,modelId) values(1,4);
-insert into t_admin_right(roleId,modelId) values(1,5);
-insert into t_admin_right(roleId,modelId) values(1,6);
-insert into t_admin_right(roleId,modelId) values(1,7);
-insert into t_admin_right(roleId,modelId) values(1,8);
-insert into t_admin_right(roleId,modelId) values(1,9);
-insert into t_admin_right(roleId,modelId) values(1,10);
-insert into t_admin_right(roleId,modelId) values(1,11);
-insert into t_admin_right(roleId,modelId) values(1,12);
-insert into t_admin_right(roleId,modelId) values(1,13);
-insert into t_admin_right(roleId,modelId) values(1,14);
-insert into t_admin_right(roleId,modelId) values(1,15);
 
 
 #本地应用版本表

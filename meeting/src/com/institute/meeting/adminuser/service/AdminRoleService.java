@@ -5,6 +5,7 @@ import java.util.List;
 import com.institute.meeting.adminuser.entity.TAdminRole;
 import com.institute.meeting.adminuser.vo.RoleInfoVO;
 import com.institute.meeting.common.service.BaseService;
+import com.institute.meeting.utils.PageBean;
 
 public interface AdminRoleService extends BaseService{
 	
@@ -28,6 +29,15 @@ public interface AdminRoleService extends BaseService{
 	 * @return
 	 */
 	public boolean validateName(String name);
+	
+	/**
+	 * 分页查找
+	 * @param pageSize
+	 * @param currentPage
+	 * @param role
+	 * @return
+	 */
+	public PageBean queryListPage(int pageSize, Integer currentPage,TAdminRole role);
 	
 	
 

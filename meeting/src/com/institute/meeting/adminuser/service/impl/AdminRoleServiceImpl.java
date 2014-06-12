@@ -11,6 +11,7 @@ import com.institute.meeting.adminuser.entity.TModel;
 import com.institute.meeting.adminuser.service.AdminRoleService;
 import com.institute.meeting.adminuser.vo.RoleInfoVO;
 import com.institute.meeting.common.service.impl.BaseServiceImpl;
+import com.institute.meeting.utils.PageBean;
 
 public class AdminRoleServiceImpl extends BaseServiceImpl<TAdminRole> implements AdminRoleService {
 	
@@ -56,6 +57,16 @@ public class AdminRoleServiceImpl extends BaseServiceImpl<TAdminRole> implements
 		}
 	}
 	
+	/**
+	 * 分页查找
+	 * @param pageSize
+	 * @param currentPage
+	 * @param role
+	 * @return
+	 */
+	public PageBean queryListPage(int pageSize, Integer currentPage,TAdminRole role){
+		return adminRoleDao.queryListPage(pageSize, currentPage, role);
+	}
 	
 	/**
 	 * 查询所有的角色权限,带有模块名

@@ -51,7 +51,7 @@
 		</action>
 	
 		<action name="adminRoleList" class="spring_adminuser_AdminRoleListAction">
-			<result name="success">/jsp/adminRightList.jsp</result>
+			<result name="success">/jsp/admin/manager/roleList.jsp</result>
 		</action>
 		
 		<action name="adminRoleEdit" class="spring_adminuser_AdminRoleEditAction">

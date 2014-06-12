@@ -1,12 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<%@taglib prefix ="s" uri ="/struts-tags"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-<%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-%>
+<%@ include file="../../common/libs.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
   <head>
@@ -24,10 +17,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 	//搜索查詢
 	function searchInfo(cur){
-		document.getElementById("currentPage").value = cur;
-		var search = document.getElementById("search_form");
-		search.action="roleList!searchListPage.action";
-		search.submit();
+		
+		//document.getElementById("currentPage").value = cur;
+		//var search = document.getElementById("search_form");
+		//search.action="roleList!searchListPage.action";
+		//search.submit();
+		$("#currentPage").val(cur);
+		$("#search_form").attr("action","adminRoleList!searchListPage.action");
+		$("#search_form").submit();
 	}
 	
 	
@@ -107,75 +104,75 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</tr>
 				</table>
 			</div>
-			<form method="post" name="pageInfo">
+			<form method="post" name="pageInfo" id="search_form">
+				<div class="search">
+				   	 角色名:<input  type="text" class="button" name="role.roleName"/>
+				    <input value="查询"  type="submit" class="button" />
+			    </div>   	   	
 				<table class="listtable" width="100%">
 					<tr>
+						<th>序号</th>
 						<th>角色名</th>
 						<th>角色简介</th>
-						<th>新增时间</th>
-                        <th>修改时间</th>
+						<th>创建时间</th>
 						<th style="width: 100px;">操作</th>
 					</tr>
-	        <s:iterator value="pageBean.list" id="tappRole" status="sta">
-            	<tr onmouseover="this.className='tr_o'"
-							onmouseout="this.className='tr_s'" class="tr_s">
-       
-            	<td  style="text-align: left;">
-            	     <s:property value="#tappRole.roleName"/>
-            	</td>
-            	<td style="text-align: left;">
-            	     <s:property value="#tappRole.roleDescribe"/>
-            	</td>
-            	<td >
-            	     <s:date name="#tappRole.createDate" format="yyyy-MM-dd HH:mm:ss"/>
-            	</td>
-                <td>
-                    <s:date name="#tappRole.editDate" format="yyyy-MM-dd HH:mm:ss"/>
-                </td>
-            	    
-            	<td>
-	           		<a href="#" onclick="LookUp('<s:property value='#tappRole.roleId'/>')" >修改</a>
-	           		&nbsp;|&nbsp;
-	           		<a href="javascript:void(0)" onclick="deleteAction(<s:property value="#tappRole.roleId"/>)">删除</a>
-           		</td>
-	    
-	        	</tr>
-	        </s:iterator>
-        </table>
-        <div style="text-align:right;" class="pageArea">
-        <s:if test="pageBean.list!=null">
-		         	<div style="">
-						<a href="javascript:void(0)" onclick="searchInfo(1)" class="linkFirst">&nbsp;&nbsp;首页 </a><a href="javascript:void(0)" onclick="searchInfo(${pageBean.currentPage-1})" class="linkBack">&nbsp;上一页</a>
-						<a href="javascript:void(0)" onclick="searchInfo(${pageBean.currentPage+1})" class="linkNext"> 下一页&nbsp; </a><a href="javascript:void(0)" onclick="searchInfo(${pageBean.totalPage})" class="linkLast">尾页&nbsp;&nbsp;</a>
-						第${pageBean.currentPage}页/共${pageBean.totalPage}页 共计${pageBean.allRow}条
-						转到&nbsp;<input type="text" name="pageBean.currentPage" value="<s:property value='pageBean.currentPage'/>" style="width:35px; text-align: center;" onblur="this.value=this.value.replace(/[^\d\.]+/g,'')"
-									onafterpaste="this.value=this.value.replace(/[^\d\.]+/g,'')" id="pagenum"/>&nbsp;页
-						 <input type="button" value="go" onclick="searchInfo(document.getElementById('pagenum').value)" />
-			    	</div>
-	         	</s:if>
-	         	<s:else>
-	         		<div>
-						<a href="javascript:void(0)" class="linkFirst">&nbsp;&nbsp;首页 </a><a href="javascript:void(0)" class="linkBack">&nbsp;上一页</a>
-						<a href="javascript:void(0)" class="linkNext"> 下一页 &nbsp;</a><a href="javascript:void(0)" class="linkLast">尾页&nbsp;&nbsp;</a>
-						 一共<s:property value="pageBean.totalPage"></s:property> 页 
-						当前是第<s:property value="pageBean.currentPage"></s:property>页 
-						转到&nbsp;
-									<input type="text" name="pageBean.currentPage"
-										value="<s:property value='pageBean.currentPage'/>"
-										style="width: 35px; text-align: center;"
-										onblur="this.value=this.value.replace(/[^\d\.]+/g,'')"
-										onafterpaste="this.value=this.value.replace(/[^\d\.]+/g,'')" id="page"/>
-									&nbsp;页
-						 <input type="button" value="go" onclick="goPage()"/>
-			    	</div>
-	         	</s:else>
-	         	
-	       </div>
-        
-	</form>
-  	<s:form  method="post" id="search_form">
-  		    <input name="currentPage" type="hidden" id="currentPage"/>
-  	</s:form>
-</div>
+					
+					<c:forEach var="role" items="${pageBean.list}" varStatus="s">
+					    <tr onmouseover="this.className='tr_o'"
+								onmouseout="this.className='tr_s'" class="tr_s">
+								
+						   <td >${s.index + 1}</td>
+						   <td  style="text-align: left;">
+			            	     ${role.roleName}
+			               </td>
+			               <td  style="text-align: left;">
+			            	     ${role.remark}
+			               </td>
+			               <td  style="text-align: left;">
+			            	    <fmt:formatDate value="${role.createDate}" pattern="yyyy-MM-dd HH:mm:ss"/>
+			               </td>
+			               <td>
+				           		<a href="#" onclick="LookUp('<s:property value='#tappRole.roleId'/>')" >修改</a>
+				           		&nbsp;|&nbsp;
+				           		<a href="javascript:void(0)" onclick="deleteAction(<s:property value="#tappRole.roleId"/>)">删除</a>
+			           	   </td>
+					</c:forEach>
+		        </table>
+		        <div style="text-align:right;" class="pageArea">
+		        		<s:if test="pageBean.list!=null">
+				         	<div style="">
+								<a href="javascript:void(0)" onclick="searchInfo(1)" class="linkFirst">&nbsp;&nbsp;首页 </a><a href="javascript:void(0)" onclick="searchInfo(${pageBean.currentPage-1})" class="linkBack">&nbsp;上一页</a>
+								<a href="javascript:void(0)" onclick="searchInfo(${pageBean.currentPage+1})" class="linkNext"> 下一页&nbsp; </a><a href="javascript:void(0)" onclick="searchInfo(${pageBean.totalPage})" class="linkLast">尾页&nbsp;&nbsp;</a>
+								第${pageBean.currentPage}页/共${pageBean.totalPage}页 共计${pageBean.allRow}条
+								转到&nbsp;<input type="text" name="pageBean.currentPage" value="<s:property value='pageBean.currentPage'/>" style="width:35px; text-align: center;" onblur="this.value=this.value.replace(/[^\d\.]+/g,'')"
+											onafterpaste="this.value=this.value.replace(/[^\d\.]+/g,'')" id="pagenum"/>&nbsp;页
+								 <input type="button" value="go" onclick="searchInfo(document.getElementById('pagenum').value)" />
+					    	</div>
+			         	</s:if>
+			         	<s:else>
+			         		<div>
+								<a href="javascript:void(0)" class="linkFirst">&nbsp;&nbsp;首页 </a><a href="javascript:void(0)" class="linkBack">&nbsp;上一页</a>
+								<a href="javascript:void(0)" class="linkNext"> 下一页 &nbsp;</a><a href="javascript:void(0)" class="linkLast">尾页&nbsp;&nbsp;</a>
+								 一共<s:property value="pageBean.totalPage"></s:property> 页 
+								当前是第<s:property value="pageBean.currentPage"></s:property>页 
+								转到&nbsp;
+											<input type="text" name="pageBean.currentPage"
+												value="<s:property value='pageBean.currentPage'/>"
+												style="width: 35px; text-align: center;"
+												onblur="this.value=this.value.replace(/[^\d\.]+/g,'')"
+												onafterpaste="this.value=this.value.replace(/[^\d\.]+/g,'')" id="page"/>
+											&nbsp;页
+								 <input type="button" value="go" onclick="goPage()"/>
+					    	</div>
+			         	</s:else>
+			         	
+			       </div>
+			</form>
+			
+		  	<s:form  method="post" id="search_form">
+		  		    <input name="currentPage" type="hidden" id="currentPage"/>
+		  	</s:form>
+	</div>
   </body>
 </html>

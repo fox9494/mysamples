@@ -3,11 +3,13 @@ package com.institute.meeting.utils;
 import java.util.List;
 
 public class PageBean {
+	
+	public static int DEFAULTPAGESIZE=10;
 	private List list;// 数据列表
 	private int allRow; // 总条数
 	private int totalPage;// 总页数
 	private int currentPage = 1;// 当前页码
-	private int pageSize = 10;// 每页条数
+	private int pageSize = DEFAULTPAGESIZE;// 每页条数
 
 	private boolean isFirstPage;// 是否是第一页
 	private boolean isLastPage;// 是否是最后一页
