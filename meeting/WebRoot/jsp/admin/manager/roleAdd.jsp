@@ -1,14 +1,14 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ taglib uri="/struts-tags" prefix="s"%>
-
+<%@ include file="../../common/libs.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 	<head>
-		<meta http-equiv="pragma" content="no-cache">
-		<meta http-equiv="cache-control" content="no-cache">
-		<meta http-equiv="expires" content="0">
-		<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-		<meta http-equiv="description" content="This is my page">
+		<meta http-equiv="pragma" content="no-cache" />
+		<meta http-equiv="cache-control" content="no-cache" />
+		<meta http-equiv="expires" content="0" />
+		<meta http-equiv="keywords" content="keyword1,keyword2,keyword3" / >
+		<meta http-equiv="description" content="This is my page" / >
 
 		<%@ include file="../../common/scripts.jsp"%>
 		<link rel="stylesheet" href="css/zTreeStyle/zTreeStyle.css" type="text/css">
@@ -37,15 +37,28 @@
 		 
 		 function zTreeOnCheck(event, treeId, treeNode){
 	    	   if(treeNode.getParentNode()){
-	    		   treeObj.expandNode(treeNode.getParentNode(), true, false, true);
+	    		   //treeObj.expandNode(treeNode.getParentNode(), true, false, true);
 	    	   }
 	      }
 		 
 		 var zNodes = ${treeJson};
+		 var modueIdValues ="${moduleIds}";//选中的值
+		 
+		 //根据后台返回的值选中树节点
+		 function setNodeCheck(){
+			 var modelArray = new Array(); 
+			 modelArray= modueIdValues.split(",");
+			 $.each(modelArray,function(index,value){
+				 var node = zTreeObj.getNodeByParam("id", value, null);
+				 zTreeObj.selectNode(node);
+			 });
+	     }
         
          $(document).ready(function(){ 
+        	 zTreeObj = $.fn.zTree.init($("#tree"), setting, zNodes);//初始化树
         	 
-        	 zTreeObj = $.fn.zTree.init($("#tree"), setting, zNodes);
+        	 setNodeCheck();
+        	 
         	 $("#addRoleForm").validate({
  				/* 设置验证规则 */     
  			    rules: {     
