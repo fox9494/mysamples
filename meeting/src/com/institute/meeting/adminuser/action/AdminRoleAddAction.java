@@ -37,6 +37,9 @@ public class AdminRoleAddAction extends BaseAction {
 	public String initAddRole(){
 		List<TreeModel> treeList = modelService.findAllModelForTree();
 		treeJson = JSONArray.fromObject(treeList);
+		if (StringUtils.isBlank(moduleIds)){
+			moduleIds="-1";
+		}
 		return INPUT;
 	}
 	
