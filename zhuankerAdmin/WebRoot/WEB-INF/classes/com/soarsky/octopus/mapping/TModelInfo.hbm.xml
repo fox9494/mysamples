@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.soarsky.octopus.mapping.TModelInfo" table="T_MODEL_INFO" schema="ZHUANKER">
+        <id name="id" type="java.lang.Long">
+            <column name="ID" />
+            <generator class="sequence">
+              <param name="sequence">SEQ_PRI_MODEL_INFO</param>
+            </generator>
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+        <property name="code" type="java.lang.String">
+            <column name="CODE" />
+        </property>
+        <property name="type" type="java.lang.String">
+            <column name="TYPE" >
+            </column>
+        </property>
+        <property name="url" type="java.lang.String">
+            <column name="URL" />
+        </property>
+        
+		<property name="icon" type="java.lang.String">
+			<column name="icon"  />
+		</property>
+        
+        <property name="modelOrder" type="java.lang.Integer">
+            <column name="MODELORDER" />
+        </property>
+        
+        <set name="tRightInfos" >
+            <key>
+                <column name="MODEL_ID" />
+            </key>
+            <one-to-many class="com.soarsky.octopus.mapping.TRightInfo" />
+        </set>
+        
+        <set name="modelSet" table="t_model">
+			<key column="parent_Id"></key>
+			<one-to-many class="com.soarsky.octopus.mapping.TModelInfo"/>
+		</set>
+        
+        <many-to-one name="parent" class="com.soarsky.octopus.mapping.TModelInfo" column="parent_Id"></many-to-one>
+    </class>
+</hibernate-mapping>
