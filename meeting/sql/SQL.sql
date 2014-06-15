@@ -44,7 +44,7 @@ CREATE TABLE `t_model` (
 delete from t_model;
 
 insert into t_model(`modelId`,`name`,`code`,`type`,`order`,url,parentId,icon) values(1,'系统管理','com.meeting.adminuser','0',1,'',null,'<img src="../images/1361617211_setting_tools.png">&nbsp;');
-insert into t_model(`modelId`,`name`,`code`,`type`,`order`,url,parentId,icon) values(2,'角色管理','com.meeting.adminuser.role','0',1,'',1,'<img src="../images/1361617228_group.png">&nbsp;');
+insert into t_model(`modelId`,`name`,`code`,`type`,`order`,url,parentId,icon) values(2,'角色管理','com.meeting.adminuser.role','0',1,'adminRoleList!searchListPage.action',1,'<img src="../images/1361617228_group.png">&nbsp;');
 insert into t_model(`modelId`,`name`,`code`,`type`,`order`,url,parentId,icon) values(3,'用户管理','com.meeting.adminuser.user','0',2,'',1,'<img src="../images/1361617541_application_form_edit.png"/>&nbsp;');
 insert into t_model(`modelId`,`name`,`code`,`type`,`order`,url,parentId,icon) values(4,'会议管理','com.meeting.meeting','0',2,'',null,'<img src="../images/1361617203_book_open.png"/>&nbsp;');
 

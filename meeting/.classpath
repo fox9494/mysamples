@@ -12,7 +12,6 @@
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/aspectjrt.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/aspectjweaver.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/axml-0.9.jar"/>
-	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/c3p0-0.9.1.2.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/cglib-nodep-2.2.3.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/commons-attributes-api.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/commons-attributes-compiler.jar"/>
@@ -79,6 +78,9 @@
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/velocity-tools-view-1.4.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/xapool.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/xwork-core-2.3.4.1.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/log4jdbc4-1.2.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/c3p0-0.9.2.1.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/c3p0-oracle-thin-extras-0.9.2.1.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -17,6 +17,7 @@
 
       
 		<script type="text/javascript">
+		
 		 
 		 var zTreeObj;//定义ztree对象
 		 
@@ -50,7 +51,7 @@
 			 modelArray= modueIdValues.split(",");
 			 $.each(modelArray,function(index,value){
 				 var node = zTreeObj.getNodeByParam("id", value, null);
-				 zTreeObj.selectNode(node);
+				 zTreeObj.checkNode(node, true, false);
 			 });
 	     }
         
@@ -137,7 +138,6 @@
 						</td>
 						<td>
 							<input name="role.roleName" type="text" value="<s:property value="role.roleName"/>"/>
-                            
                             <font color="red"><s:fielderror fieldName="role.hasExist" /></font>
 						</td>
 					</tr>

@@ -30,11 +30,17 @@
 	
 	//搜索查詢
 	function checkSubmit(cur){
-		document.getElementById("currentPage").value = cur;
-		document.getElementById("content").value = document.getElementById("contentParmas").value;
-		var search = document.getElementById("search_form");
-		search.action="ActionNoticeAction!searchActionNoticeListPage.action";
-		search.submit();
+		$("#currentPage").val(cur);
+		$("#roleNameParam").val($("roleName").val());
+		//document.getElementById("currentPage").value = cur;
+		//document.getElementById("content").value = document.getElementById("contentParmas").value;
+		//var search = document.getElementById("search_form");
+		//search.action="ActionNoticeAction!searchActionNoticeListPage.action";
+		alert($("#currentPage").val());
+		alert($("#roleNameParam").val());
+		$("#search_form").attr("action","adminRoleList!searchListPage.action");
+		$("#search_form").submit();
+		//search.submit();
 	}
 	
 	//查看角色
@@ -98,17 +104,25 @@
 				<table style="text-align: right;width: 100%">
 					<tr>
 						<td>
+						   角色名:
+						</td>
+						<td>
+							<input type="text" name="role.roleName" id="roleName" value=${role.roleName}></input>
+						</td>
+						<td>&nbsp;&nbsp;</td>
+						<td>
+							 <!-- <a class="input" href="javascript:void(0)" onclick="checkSubmit(1)"></a>-->
+							  <input type="button" value="搜索" onclick="checkSubmit(1)" />
+						</td>
+						<td>&nbsp;&nbsp;</td>
+						<td>
 							<!-- <a class="input" href="javascript:void(0)" onclick="addAdmin()">新增角色</a>-->
 							 <input type="button" value="新增角色" onclick="addAdminRole()" />
 						</td>
 					</tr>
 				</table>
 			</div>
-			<form method="post" name="pageInfo" id="search_form">
-				<div class="search">
-				   	 角色名:<input  type="text" class="button" name="role.roleName"/>
-				    <input value="查询"  type="submit" class="button" />
-			    </div>   	   	
+			<form method="post" name="pageInfo">
 				<table class="listtable" width="100%">
 					<tr>
 						<th>序号</th>
@@ -172,6 +186,7 @@
 			
 		  	<s:form  method="post" id="search_form">
 		  		    <input name="currentPage" type="hidden" id="currentPage"/>
+		  		    <input name="role.roleName" type="hidden" id="roleNameParam"/>
 		  	</s:form>
 	</div>
   </body>
