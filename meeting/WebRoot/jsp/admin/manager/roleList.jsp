@@ -23,6 +23,7 @@
 		//search.action="roleList!searchListPage.action";
 		//search.submit();
 		$("#currentPage").val(cur);
+		$("#roleNameParam").val($("#roleName").val());
 		$("#search_form").attr("action","adminRoleList!searchListPage.action");
 		$("#search_form").submit();
 	}
@@ -31,13 +32,11 @@
 	//搜索查詢
 	function checkSubmit(cur){
 		$("#currentPage").val(cur);
-		$("#roleNameParam").val($("roleName").val());
+		$("#roleNameParam").val($("#roleName").val());
 		//document.getElementById("currentPage").value = cur;
 		//document.getElementById("content").value = document.getElementById("contentParmas").value;
 		//var search = document.getElementById("search_form");
 		//search.action="ActionNoticeAction!searchActionNoticeListPage.action";
-		alert($("#currentPage").val());
-		alert($("#roleNameParam").val());
 		$("#search_form").attr("action","adminRoleList!searchListPage.action");
 		$("#search_form").submit();
 		//search.submit();
@@ -54,15 +53,15 @@
 	}
 	
 	//删除角色
-   //	function deleteAction(id){
-	 //   var msg="您确定要删除此条记录吗?";
-		//    if(confirm(msg)==true){
-		  //  	window.location.href="<%=request.getContextPath()%>/Roledelete!deleteRole.action?roleId="+id;
-		    //}
-		    //else{
-		      //  return false;
-		    //}
-   //}
+   function deleteAction(id){
+	    var msg="您确定要删除此条记录吗?";
+		    if(confirm(msg)==true){
+		    	window.location.href="<%=request.getContextPath()%>/Roledelete!deleteRole.action?roleId="+id;
+		    }
+		    else{
+		        return false;
+		    }
+   }
    
    
     //删除角色
@@ -101,7 +100,7 @@
   
    <div class="rightContent">
 			<div class="toolpad clearfix">
-				<table style="text-align: right;width: 100%">
+				<table>
 					<tr>
 						<td>
 						   角色名:

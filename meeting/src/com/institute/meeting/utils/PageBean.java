@@ -4,7 +4,7 @@ import java.util.List;
 
 public class PageBean {
 	
-	public static int DEFAULTPAGESIZE=10;
+	public static int DEFAULTPAGESIZE=2;
 	private List list;// 数据列表
 	private int allRow; // 总条数
 	private int totalPage;// 总页数
