@@ -7,12 +7,12 @@
 		destroy-method="close" abstract="false" lazy-init="default" autowire="default"
 		dependency-check="default">
 		<property name="driverClass">
-			<value>com.mysql.jdbc.Driver</value>
-			<!-- <value>net.sf.log4jdbc.DriverSpy</value> -->
+			<!-- <value>com.mysql.jdbc.Driver</value> -->
+			<value>net.sf.log4jdbc.DriverSpy</value>
 		</property>
 		<property name="jdbcUrl">
-			<value>jdbc:mysql://localhost:3306/meeting?useUnicode=true&amp;characterEncoding=utf8</value>
-			<!-- <value>jdbc:log4jdbc://localhost:3306/meeting?useUnicode=true&amp;characterEncoding=utf8</value> -->
+			<!-- <value>jdbc:mysql://localhost:3306/meeting?useUnicode=true&amp;characterEncoding=utf8</value> -->
+			<value>jdbc:log4jdbc:mysql//localhost:3306/meeting?useUnicode=true&amp;characterEncoding=utf8</value>
 		</property>
 		<property name="user">
 			<value>meeting</value>
