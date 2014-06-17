@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	
+	<bean id="baseDao" class="com.institute.meeting.common.dao.impl.BaseDaoImpl">
+	  <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	
+	<bean id="adminUserDao" class="com.institute.meeting.adminuser.dao.impl.AdminUserDaoImpl">
+	  <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="adminRoleDao" class="com.institute.meeting.adminuser.dao.impl.AdminRoleDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="modelDao" class="com.institute.meeting.adminuser.dao.impl.ModelDaoImpl">
+	  <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	
+	<bean id="adminRightDao" class="com.institute.meeting.adminuser.dao.impl.AdminRightDaoImpl">
+	  <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>	
+	
+	<bean id="adminUserRoleDao" class="com.institute.meeting.adminuser.dao.impl.AdminUserRoleDaoImpl">
+	  <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	
+	
+<!-- 	<bean id="localVersionDao" class="com.institute.meeting.localversion.dao.impl.LocalVersionDaoImpl">
+	  <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>		
+	
+	<bean id="applicationDao" class="com.institute.meeting.app.dao.impl.ApplicationDaoImpl">
+	      <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="customerDao" class="com.institute.meeting.customer.dao.impl.CustomerDaoImpl">
+	      <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="hotappDao" class="com.institute.meeting.hotapp.dao.impl.HotappDaoImpl">
+	      <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="rightDao" class="com.institute.meeting.right.dao.impl.RightDaoImpl">
+	      <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="roleDao" class="com.institute.meeting.role.dao.impl.RoleDaoImpl">
+	      <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="typeDao" class="com.institute.meeting.type.dao.impl.TypeDaoImpl">
+	      <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="versionDao" class="com.institute.meeting.version.dao.impl.VersionDaoImpl">
+	      <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean> -->
+</beans>

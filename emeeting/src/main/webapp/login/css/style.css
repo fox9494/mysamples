@@ -1,0 +1,79 @@
+﻿/*Reset*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td
+{ margin:0; padding:0; border:0; outline:0; font-size:100%; vertical-align:baseline;}
+body{ line-height:1;}
+ol, ul{ list-style:none;}
+blockquote, q{quotes:none;}
+blockquote:before, blockquote:after,
+q:before, q:after{ content:''; content:none;}
+:focus{ outline:0;}
+ins{ text-decoration:none;}
+del{ text-decoration:line-through;}
+table{ border-collapse:collapse; border-spacing:0;}
+/* Globe Font Control */
+body, table, input, textarea, button, select{ font-family:'Microsoft Yahei','Arial',Tahoma; font-size:12px;}
+.fl {float:left;}
+.fr {float:right;}
+.clearfix:after {content: ".";display: block;height: 0;clear:both;visibility: hidden;}
+.clearfix {display: inline-block;}
+/* Hides from IE-mac \*/ *
+html .clearfix {height: 1%;}
+.clearfix {display: block;}
+/* End hide from IE-mac */
+.clean {clear:both;}
+a,a:link,a:visited{color:#42a4ff;text-decoration:none;}
+a:hover{text-decoration:underline;}
+/*Common*/
+body{background-color:#f5f5f6;}
+.c01{background-color:#f7f7f7;color:#333333;width:170px;}
+.tcenter{text-align:center;}
+/*----------Login--------------*/
+.login{height:500px;background:url(../images/bg_login.jpg) no-repeat center bottom;padding-top:150px;font-size:14px;}
+.loginbox{width:292px;height:270px;background:url(../images/bg_login_layout.png) no-repeat;margin:0 auto;padding:90px 0 0 60px}
+.loginbox input{border:1px solid #c6c6c6;height:23px;line-height:23px;width:160px;}
+.loginbox .checkinput{width:95px;}
+.loginbox div{padding:10px 0;}
+.enter{margin:40px 0 0 20px;}
+.enter a{display:inline-block;width:96px;height:29px;background:url(../images/icon.jpg) no-repeat;text-indent:-9999px;margin-right:10px;}
+.enter .reset{background-position:0 -29px;}
+/*----------Header--------------*/
+.header{height:95px;background:url(../images/icon.jpg) repeat-x 0 -58px;position:relative;overflow:hidden;}
+.logo{width:334px;height:29px;position:absolute;top:20px;left:20px;}
+.nav{position:absolute;top:35px;left:380px;height:30px;background:url(../images/bg_nav.jpg) no-repeat;}
+.nav li{float:left;display:inline;width:115px;height:30px;}
+.nav li a{display:block;width:115px;height:30px;line-height:30px;text-align:center;color:#333333;}
+.nav li a:hover,.nav li .cur{text-decoration:none;background:url(../images/bg_menu_cur.png) no-repeat;color:#ffffff;}
+.userinfo{height:28px;line-height:28px;position:absolute;top:68px;left:20px;color:#6d6d6d;}
+.userinfo a{color:#6d6d6d;margin:0 2px;}
+.userinfo .setting{background:url(../images/img_set.png) no-repeat 0 3px;padding-left:17px;}
+/*LeftMenu*/
+.leftMenu{width:197px;background:url(../images/bg_leftmenu.jpg) repeat-y;padding-right:6px;}
+.leftline{background-color:#1e466a;height:15px;}
+.leftMenu h1,.leftMenu h1 a{height:35px;line-height:35px;}
+.leftMenu h1 a{display:block;background:url(../images/icon.jpg) no-repeat 0 -153px;color:#000000;text-decoration:none;padding-left:20px;}
+.leftMenu h1 .open{background-position:0 -188px}
+.leftMenu ul{margin-right:3px;}
+.leftMenu ul li,.leftMenu ul li a{height:30px;line-height:30px;display:block;}
+.leftMenu ul li a{padding:0 10px 0 30px;color:#b9ddff;background:url(../images/fh.png) no-repeat 20px 13px;}
+.leftMenu ul li .cur,.leftMenu ul li a:hover{background-color:#2d689f;text-decoration:none;}
+/*rightContent*/
+.index{padding:100px 0 0 100px;}
+.rightContent{padding:0 10px 10px;}
+.rightContent .input{color:#ffffff;height:26px;line-height:26px;background:#5198db url(../images/bg_button.gif) repeat-x left bottom;border:1px solid #457fb6;color:#ffffff;float:left;display:inline;padding:0 10px;}
+.rightContent .input:hover{text-decoration:none;}
+.toolpad{padding:10px 0;}
+.listtable,.inputtable{background-color:#ffffff;}
+.listtable th,.listtable td,.inputtable th,.inputtable td{border:1px solid #dadada;height:28px;line-height:28px;text-align:center;padding:0 10px;}
+.listtable th{background:url(../images/bg_table_title.jpg) repeat-x left bottom;font-weight:normal;}
+.listtable td{color:#666666;}
+.inputtable th,.inputtable td{text-align:left;vertical-align:middle;}
+.pages{padding:15px 0;text-align:center;color:#666666;}
+.pages a{margin:0 10px;color:#333333;}
