@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Repository and Service layers
+-->
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+		
+		
+	<import resource="spring-datasource.xml"/>
+    <import resource="spring-transaction.xml"/>
+    
+		
+	
+    <!--spring2加在property文件  -->
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+	    <description>属性配置文件加载</description>
+		<property name="locations">  
+           <list>  
+             <!--  这里支持多种寻址方式：classpath和file   -->
+              <value>classpath:frame.properties</value>  
+              <!-- 推荐使用file的方式引入，这样可以将配置和代码分离  
+              <value>file:/opt/demo/config/demo-mq.properties</value>  
+              <value>/WEB-INF/test.properties</value> -->  
+            </list>  
+        </property>  
+	</bean>
+	
+	<!--spring2.5以后加载properties文件方式，多个文件逗号分离  -->
+	<!-- <context:property-placeholder location="classpath:frame.properties"/> -->
+
+    
+    <bean class="com.openframe.utils.BeanHolder"/>
+    
+    <context:annotation-config/>  
+
+    <context:component-scan base-package="com.openframe.**.service"/>
+    
+    <context:component-scan base-package="com.openframe.**.jms"/>
+    
+    <context:component-scan base-package="com.openframe.**.dao"/>
+
+    <context:property-placeholder location="classpath:spring/data-access.properties"/>
+
+    <!-- 支持事务注解 -->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+	
+	<!-- 文件上传处理 -->
+	<!-- <bean id="fileManager" class="com.openframe.common.fileupload.impl.FileManagerImpl">
+		<property name="fileDirectory" value="${fileUpload.home}" />
+	</bean>
+	
+	
+	<bean id="testService" class="com.openframe.sysmanager.service.impl.TestServiceImpl">
+	   <property name="name" value="${fileUpload.home}"></property>
+	</bean> -->
+	
+	
+	
+	
+	
+    
+  <!--   <bean id="userController" class="com.zte.ums.web.controller.UserController">
+		<property name="userService"><ref bean="userService"/></property>
+	</bean>
+
+    <bean id="userService" class="com.zte.ums.service.impl.UserServiceImpl">
+		<property name="userDao"><ref bean="userDao"/></property>
+	</bean>
+	
+	<bean id="userDao" class="com.zte.ums.dao.impl.UserDAOImpl"></bean> -->
+
+    
+    
+    <!-- <bean id="exampleBean" class="examples.ExampleBean">
+		使用setter注入
+		<property name="beanOne"><ref bean="anotherExampleBean"/></property>
+		<property name="beanTwo" ref="yetAnotherBean"/>
+		<property name="integerProperty" value="1"/>
+	</bean>
+	
+	<bean id="anotherExampleBean" class="examples.AnotherBean"/>
+	<bean id="yetAnotherBean" class="examples.YetAnotherBean"/>
+	 -->
+	
+	
+	
+	<!--集合注入方式  -->
+	<!-- <bean id="moreComplexObject" class="example.ComplexObject">
+		java.util.Properties)
+		<property name="adminEmails">
+		  <props>
+		      <prop key="administrator">administrator@example.org</prop>
+		      <prop key="support">support@example.org</prop>
+		      <prop key="development">development@example.org</prop>
+		  </props>
+		</property>
+		(java.util.List) call
+		<property name="someList">
+		  <list>
+		      <value>a list element followed by a reference</value>
+		      <ref bean="myDataSource" />
+		  </list>
+		</property>
+		(java.util.Map)
+		<property name="someMap">
+		  <map>
+		      <entry key="an entry" value="just some string"/>
+		      <entry key ="a ref" value-ref="myDataSource"/>
+		  </map>
+		</property>
+		results in a setSomeSet(java.util.Set) call
+		<property name="someSet">
+		  <set>
+		      <value>just some string</value>
+		      <ref bean="myDataSource" />
+		  </set>
+		</property>
+	</bean>
+ -->
+    
+    
+  
+   
+ 
+
+  
+</beans>
