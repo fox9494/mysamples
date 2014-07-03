@@ -18,40 +18,53 @@
     <!--spring3加载properties文件方式  -->
     <context:property-placeholder location="classpath:spring/data-access.properties" ignore-unresolvable="true"/>
     
-
-    <!-- DataSource configuration for the tomcat jdbc connection pool 
-    See here for more details on commons-dbcp versus tomcat-jdbc: 
-    http://blog.ippon.fr/2013/03/13/improving-the-performance-of-the-spring-petclinic-sample-application-part-3-of-5/-->
-   <!--  <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
-          p:driverClass="${jdbc.driverClass}" p:url="${jdbc.jdbcUrl}"
-          p:username="${jdbc.user}" p:password="${jdbc.password}"/> -->
+	<!--druid 的log4j配置，用来输出sql语句等  -->
+   	<bean id="log-filter" class="com.alibaba.druid.filter.logging.Log4jFilter">
+    	<property name="resultSetLogEnabled" value="false" />
+    	<property name="statementExecutableSqlLogEnable" value="true" />
+ 	</bean>
           
-    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
-		destroy-method="close" abstract="false" lazy-init="default" autowire="default">
-		<property name="driverClass">
-			<value>com.mysql.jdbc.Driver</value>
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
+		<property name="driverClassName">
+			<value>${jdbc.driverClass}</value>
+		</property><!-- Druid数据源能自动寻找驱动 -->
+		<property name="url">
+			<value>${jdbc.jdbcUrl}</value>
 		</property>
-		<property name="jdbcUrl">
-			<value>jdbc:mysql://10.74.165.7:3306/test?useUnicode=true&amp;characterEncoding=utf8</value>
-		</property>
-		<property name="user">
-			<value>root</value>
+		<property name="username">
+			<value>${jdbc.user}</value>
 		</property>
 		<property name="password">
-			<value>123456</value>
+			<value>${jdbc.password}</value>
 		</property>
-		<property name="maxPoolSize">
-			<value>15</value>
-		</property>
-		<property name="minPoolSize">
-			<value>2</value>
-		</property>
-		<property name="initialPoolSize">
-			<value>10</value>
-		</property>
-		<property name="maxIdleTime">
-			<value>1800</value>
-		</property>
+		
+		<property name="proxyFilters">
+	        <list>
+	            <ref bean="log-filter"/>
+	        </list>
+	    </property>
+		
+		 <!-- 配置初始化大小、最小、最大 -->
+	    <property name="initialSize" value="1" />
+	    <property name="minIdle" value="1" /> 
+	    <property name="maxActive" value="20" />
+	      <!-- 配置获取连接等待超时的时间 -->
+      	<property name="maxWait" value="6000" /><!-- 单位毫秒 -->
+      	 
+      	 <!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
+        <property name="minEvictableIdleTimeMillis" value="300000" />
+         
+        <property name="validationQuery" value="SELECT 'x'" />
+        <property name="testWhileIdle" value="true" />
+      	<property name="testOnBorrow" value="false" />
+      	<property name="testOnReturn" value="false" />
+      	
+      	<!-- 打开PSCache，并且指定每个连接上PSCache的大小 -->
+      	<property name="poolPreparedStatements" value="false" /><!--mysql建议false，oracle建议true  -->
+     	<property name="maxPoolPreparedStatementPerConnectionSize" value="20" />
+
+      	<!-- 配置监控统计拦截的filters -->
+     	<property name="filters" value="stat,log4j" /> 
 	</bean>
 	
 	
