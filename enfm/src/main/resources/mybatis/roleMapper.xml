@@ -4,18 +4,18 @@
 
 <mapper namespace="com.openframe.sysmanager.dao.RoleDAO">
 
-   <resultMap type="com.openframe.sysmanager.domain.Role" id="resultRole">
+   <!-- <resultMap type="com.openframe.sysmanager.domain.Role" id="resultRole">
 	    <id  property="roleId" column="role_id"/>
 	    <result property="roleName" column="role_name"/>
 	    <result property="createDate" column="create_date"/>
   </resultMap>
 
-  <!--useGeneratedKeys自动返回数据库自增主键到keyProperty中  -->
-  <!-- 对于类的映射建议写类路径全名 -->
+  useGeneratedKeys自动返回数据库自增主键到keyProperty中 
+  对于类的映射建议写类路径全名
   <insert id="insert" parameterType="com.openframe.sysmanager.domain.Role" useGeneratedKeys="true" keyProperty="roleId">
-      <!-- 不同数据库执行不同sql语句例子 -->
+      不同数据库执行不同sql语句例子
 	  <if test="_databaseId == 'oracle'">
-         <!--不同数据库sql语句  -->
+         不同数据库sql语句 
       </if>		
       <if test="_databaseId == 'mysql'">
          INSERT INTO t_role (role_id, role_name,create_date) 
@@ -55,7 +55,7 @@
   		<where>
   			<if test="role_name != null and role_name!=''">role_name like  CONCAT('%',#{roleName,jdbcType=VARCHAR},'%' )</if>
   		</where>
-  </select>
+  </select> -->
   
 
 </mapper>

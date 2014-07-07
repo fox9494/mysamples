@@ -1,31 +1,17 @@
-
+<%@ page language="java"  pageEncoding="utf-8"%>
+<%@include file="common/libs.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>监控页面</title>
-    <script type="text/javascript" src="../../../jquery.js"></script>
-    <script type="text/javascript" src="../../../ui/om-core.js"></script>
-    <script type="text/javascript" src="../../../ui/om-mouse.js"></script>
-    <script type="text/javascript" src="../../../ui/om-resizable.js"></script>
-    <script type="text/javascript" src="../../../ui/om-combo.js"></script>
-    <script type="text/javascript" src="../../../ui/om-calendar.js"></script>
-    <script type="text/javascript" src="../../../ui/om-grid.js"></script>
-    <script type="text/javascript" src="../../../ui/om-grid-headergroup.js"></script>
-    <script type="text/javascript" src="../../../ui/om-button.js"></script>
-    <script type="text/javascript" src="../../../ui/om-buttonbar.js"></script>
-    <script type="text/javascript" src="../../../ui/om-panel.js"></script>
-    <script type="text/javascript" src="../../../ui/om-tabs.js"></script>
-    <script type="text/javascript" src="../../../ui/om-tree.js"></script>
-    <script type="text/javascript" src="../../../ui/om-draggable.js"></script>
-    <script type="text/javascript" src="../../../ui/om-scrollbar.js"></script>
-    <script type="text/javascript" src="../../../ui/om-borderlayout.js"></script>
-    <link rel="stylesheet" type="text/css" href="../../../themes/apusic/om-all.css" />
-    <!-- view_source_begin -->
+    <title>系统框架页面</title>
+    <%@include file="common/scripts.jsp" %>
+
+
     <style>
 		html, body{ width: 100%; height: 100%; padding: 0; margin: 0;overflow: hidden;}
 		#north-panel{
-			background: url("images/header-bg.jpg") repeat-x scroll 0 0;
+			background: url("<c:url value='/resource/om/css/apusic/images/header-bg.jpg'/>") repeat-x scroll 0 0;
 			text-align: center;
 		}
 		#north-panel h2{
@@ -37,13 +23,13 @@
 			width: 135px;;
 			height: 16px;
 			margin-left: 2px;
-			background: url("images/nav-search.png") no-repeat scroll 0 0 #FFFFFF;
+			background: url("<c:url value='/resource/om/css/apusic/images/nav-search.png'/>") no-repeat scroll 0 0 #FFFFFF;
 			padding-left: 20px;
 			border: 1px solid #99A8BB;
 			line-height: 16px;
 		}
         div.icon-help{
-        	background-image: url("images/icon-help.png"); 
+        	background-image: url("<c:url value='/resource/om/css/apusic/images/icon-help.png'/>"); 
         	margin-top: -2px;
         }
         #search-panel span.label{
@@ -109,7 +95,7 @@
 			list-style-type: none;
 		}
 		.nav-panel div.user{
-			background: url("images/user.png") no-repeat scroll 20px 4px;
+			background: url("<c:url value='/resource/om/css/apusic/images/user.png'/>") no-repeat scroll 20px 4px;
 		}
 		.nav-panel div.nav-item:hover{
 			border: 1px solid #99A8BC;
@@ -194,6 +180,7 @@
             });
             // 初始化中间的tab页签
             $('#center-tab').omTabs({height:"fit",border:false});
+            
             var treedata = [{id:"n1",text:"品牌",expanded:true},
                          {id:"n2",text:"运营商",expanded:true},
                          {id:"n11",pid:"n1",text:"三星"},

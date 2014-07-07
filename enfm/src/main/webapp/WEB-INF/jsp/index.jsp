@@ -1,8 +1,9 @@
 <%@ page language="java"  pageEncoding="utf-8"%>
 <%@include file="common/libs.jsp" %>
 
+
 <!DOCTYPE HTML >
-<html><!-- doctype和html都不写，即使html5 -->
+<html><!-- doctype和html都不写，即是html5 -->
   <head>
     
     <title>主页面</title>
@@ -13,6 +14,11 @@
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
 	<%@include file="common/scripts.jsp" %>
+	
+	<style>
+    	 html, body{ width: 100%; height: 100%; padding: 0; margin: 0;overflow: hidden;}
+    </style>
+	
 	
 	<script type="text/javascript">
         $(document).ready(function() {
@@ -61,7 +67,7 @@
   <body>
       <div id="page">
     	<div id="north-panel">north</div>
-    	<div id="center-panel" style="padding: 0 10px;">center</div>
+    	<div id="center-panel" style="padding: 0 10px;">center页面加了doctype声明后</div>
     	<div id="east-panel">east</div>
     	<div id="west-panel">west</div>
     	<div id="south-panel">sorth</div>

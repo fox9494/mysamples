@@ -34,15 +34,15 @@
 	<!-- <context:property-placeholder location="classpath:frame.properties"/> -->
 
     
-    <bean class="com.openframe.utils.BeanHolder"/>
+    <bean class="com.cpy.enfm.utils.BeanHolder"/>
     
     <context:annotation-config/>  
 
-    <context:component-scan base-package="com.openframe.**.service"/>
+    <context:component-scan base-package="com.cpy.enfm.**.service"/>
     
-    <context:component-scan base-package="com.openframe.**.jms"/>
+    <context:component-scan base-package="com.cpy.enfm.**.jms"/>
     
-    <context:component-scan base-package="com.openframe.**.dao"/>
+    <context:component-scan base-package="com.cpy.enfm.**.dao"/>
 
     <context:property-placeholder location="classpath:spring/data-access.properties"/>
 

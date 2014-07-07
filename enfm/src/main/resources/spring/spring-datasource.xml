@@ -144,7 +144,7 @@
 		<property name="databaseIdProvider" ref="databaseIdProvider"/> 
 		<property name="plugins">
 			<list>
-				<bean class="com.openframe.common.page.PaginationInterceptor" >
+				<bean class="com.cpy.enfm.common.page.PaginationInterceptor" >
 					<property name="dialect" value="MYSQL" />
 				</bean>
 			</list>
