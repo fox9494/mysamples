@@ -6,7 +6,7 @@ USE `enfm`;
 
 ##后台用户表
 DROP TABLE IF EXISTS `t_admin_users`;
-CREATE TABLE `t_adminusers` (
+CREATE TABLE `t_admin_users` (
   `UserID` int(11) NOT NULL auto_increment,
   `UserAccount` varchar(50) default NULL,
   `UserPassword` varchar(50) default NULL,
@@ -37,7 +37,7 @@ CREATE TABLE `t_adminusers_role` (
 insert into t_adminusers_role(`userId`,`roleId`) values(1,1);
 
 
-##模块表
+##资源模块表
 DROP TABLE IF EXISTS `t_module`;
 CREATE TABLE `t_module` (
   `moduleId` int(11) NOT NULL auto_increment COMMENT '模块ID',
@@ -53,10 +53,10 @@ CREATE TABLE `t_module` (
 
 delete from t_module;
 
-insert into t_module(`moduleId`,`name`,`code`,`type`,`order`,url,parentId,icon) values(1,'系统管理','com.cpy.enfm.adminuser','0',1,'',null,'<img src="../images/1361617211_setting_tools.png">&nbsp;');
-insert into t_module(`moduleId`,`name`,`code`,`type`,`order`,url,parentId,icon) values(2,'角色管理','com.cpy.enfm.adminuser.role','0',1,'adminRoleList!searchListPage.action',1,'<img src="../images/1361617228_group.png">&nbsp;');
-insert into t_module(`moduleId`,`name`,`code`,`type`,`order`,url,parentId,icon) values(3,'用户管理','com.cpy.enfm.adminuser.user','0',2,'',1,'<img src="../images/1361617541_application_form_edit.png"/>&nbsp;');
-insert into t_module(`moduleId`,`name`,`code`,`type`,`order`,url,parentId,icon) values(4,'会议管理','com.cpy.enfm.meeting','0',2,'',null,'<img src="../images/1361617203_book_open.png"/>&nbsp;');
+insert into t_module(`moduleId`,`name`,`code`,`type`,`order`,url,parentId,icon) values(1,'系统管理','com.cpy.enfm.adminuser','0',1,'',null,'icon-orange');
+insert into t_module(`moduleId`,`name`,`code`,`type`,`order`,url,parentId,icon) values(2,'角色管理','com.cpy.enfm.adminuser.role','0',1,'adminRoleList!searchListPage.action',1,'icon-role');
+insert into t_module(`moduleId`,`name`,`code`,`type`,`order`,url,parentId,icon) values(3,'用户管理','com.cpy.enfm.adminuser.user','0',2,'',1,'icon-user');
+insert into t_module(`moduleId`,`name`,`code`,`type`,`order`,url,parentId,icon) values(4,'会议管理','com.cpy.enfm.meeting','0',2,'',null,'icon-database');
 
 ##insert into t_module(`name`,`code`,`type`,`order`,url,parentId,icon) values('类别管理','com.guoxin.category','0',1,'',null,'<img src="../images/1361617443_chart_bar.png"/>&nbsp;');
 ##insert into t_module(`name`,`code`,`type`,`order`,url,parentId,icon) values('应用管理','com.guoxin.application','0',2,'',null,'<img src="../images/1361617541_application_form_edit.png"/>&nbsp;');

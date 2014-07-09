@@ -1,376 +1,149 @@
-
-<!DOCTYPE html>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>监控页面</title>
-    <script type="text/javascript" src="../../../jquery.js"></script>
-    <script type="text/javascript" src="../../../ui/om-core.js"></script>
-    <script type="text/javascript" src="../../../ui/om-mouse.js"></script>
-    <script type="text/javascript" src="../../../ui/om-resizable.js"></script>
-    <script type="text/javascript" src="../../../ui/om-combo.js"></script>
-    <script type="text/javascript" src="../../../ui/om-calendar.js"></script>
-    <script type="text/javascript" src="../../../ui/om-grid.js"></script>
-    <script type="text/javascript" src="../../../ui/om-grid-headergroup.js"></script>
-    <script type="text/javascript" src="../../../ui/om-button.js"></script>
-    <script type="text/javascript" src="../../../ui/om-buttonbar.js"></script>
-    <script type="text/javascript" src="../../../ui/om-panel.js"></script>
-    <script type="text/javascript" src="../../../ui/om-tabs.js"></script>
-    <script type="text/javascript" src="../../../ui/om-tree.js"></script>
-    <script type="text/javascript" src="../../../ui/om-draggable.js"></script>
-    <script type="text/javascript" src="../../../ui/om-scrollbar.js"></script>
-    <script type="text/javascript" src="../../../ui/om-borderlayout.js"></script>
-    <link rel="stylesheet" type="text/css" href="../../../themes/apusic/om-all.css" />
-    <!-- view_source_begin -->
-    <style>
-		html, body{ width: 100%; height: 100%; padding: 0; margin: 0;overflow: hidden;}
-		#north-panel{
-			background: url("images/header-bg.jpg") repeat-x scroll 0 0;
-			text-align: center;
-		}
-		#north-panel h2{
-			font-size: 18px;
-			font-weight: bold;
-			margin: 5px;
-		}
-		input#navSearch{
-			width: 135px;;
-			height: 16px;
-			margin-left: 2px;
-			background: url("images/nav-search.png") no-repeat scroll 0 0 #FFFFFF;
-			padding-left: 20px;
-			border: 1px solid #99A8BB;
-			line-height: 16px;
-		}
-        div.icon-help{
-        	background-image: url("images/icon-help.png"); 
-        	margin-top: -2px;
-        }
-        #search-panel span.label{
-        	margin-left: 10px;
-        }
-        #search-panel .input-text {
-		    border: 1px solid #6D869E;
-		    height: 18px;
-		    vertical-align: middle;
-		    width: 137px;
-		}
-		#search-panel span.om-combo,#search-panel span.om-calendar{
-			vertical-align: middle;
-		}
-		#grid .om-btn-icon {
-			padding-left: 34px;
-		}
-		#grid .op-menu{
-			position: absolute;
-			display: none;
-			background-color: #E6ECF5;
-			border: 1px solid #99A8BC;
-			padding: 0;
-			width: 75px;
-		}
-		#grid .op-menu div{
-			cursor: pointer;
-			padding-left: 20px;
-		}
-		#grid .op-menu div:hover{
-			background-color: #4E76AD;
-			color: #FFFFFF;
-		}
-		#grid .op-menu .edit{
-			background: url("images/op-edit.png") no-repeat scroll 7px 5px;
-		}
-		#grid .op-menu .delete{
-			background: url("images/op-delete.png") no-repeat scroll 7px 5px;
-		}
-		.om-borderlayout-region-west .om-borderlayout-region-header{
-		 	padding: 0px;
-		 	border: 0;
-		 	height: 28px;
-		 	line-height: 28px;
-		 	background: url("images/accordion/leftmenu_bg.jpg") repeat-x scroll 0 0 #FFFFFF;
-		 	border-right:1px solid #99A8BB;
-		 	font-size: 14px;
-		 	font-weight: bold;
-		 	cursor: pointer;
-		}
-		.om-borderlayout-region-west .om-panel-body{
-			padding: 0;
-		}
-		.nav-panel {
-			padding: 0;
-		}
-		.nav-panel div.nav-item{
-			line-height: 25px;
-			font-size: 13px;
-			font-weight: bold;
-			padding-left: 40px;
-			cursor: pointer;
-			list-style-type: none;
-		}
-		.nav-panel div.user{
-			background: url("images/user.png") no-repeat scroll 20px 4px;
-		}
-		.nav-panel div.nav-item:hover{
-			border: 1px solid #99A8BC;
-			background-color: #C4D6EC;
-			padding-left: 39px;
-			line-height: 23px;
-		}
-		.nav-panel div.user:hover{
-			background-position: 19px 3px;
-		}
-    </style>
-    <script type="text/javascript">
-    	var colModel = 
-	    [
-	     	[
-	     	 {header:"公司" , name:"company" , rowspan:2 , width:80}, 
-	     	 {header:"主打产品" , name:"majorProduct" , rowspan:2 , width:80},
-	     	 {header:"个人信息" , colspan:3},
-	     	 {header : '操作', name : 'operation',rowspan:2,width:120, align:'center', 
-	     		 renderer:function(colValue, rowData, rowIndex){
-	     			 // 构建表格里面每一行的操作按钮和弹出菜单的html。
-	     			 var menu = "<div id='op-menu-"+rowIndex+"' class='op-menu'><div class='edit'>编辑</div><div class='delete'>删除</div></div>";
-	     			 var btn = "<a href='javascript:void(0);' id='op-btn-"+rowIndex+"' class='op-btn'>操作</a>";
-	     			 return menu + btn;
-		         }}],
-	     	[{header:"地址" , name:"address" , width:100},
-	     	 {header:"联系方式" , name:"tel" , width:100},
-	     	 {header:"公司主页" , name:"website" , width:"autoExpand"}
-	     	 ]
-	     ];
-        $(document).ready(function() {
-            var element = $('body').omBorderLayout({
-           	   panels:[{
-           	        id:"north-panel",
-           	        region:"north",
-           	        header : false,
-           	        height : 40
-           	    },{
-           	        id:"south-panel",
-           	        title:"This is south panel",
-           	        region:"south",
-           	        resizable:true,
-           	        collapsible:true,
-           	        height:80,
-           	        header:false
-           	    },{
-           	        id:"center-panel",
-           	     	header:false,
-           	        region:"center"
-           	    },{
-           	        id:"west-panel",
-           	        resizable:true,
-           	        collapsible:true,
-           	        title:"<input type='text' id='navSearch'></input>",
-           	        region:"west",
-           	        expandToBottom : true,
-           	        width:170
-           	    }],
-           	    hideCollapsBtn : true,
-           	    spacing : 8
-            });
-            // 默认关闭下面的面板
-            element.omBorderLayout("collapseRegion","south");
-            // 导航面板里由5个单独的panel构成
-            var menuPanel = [{id:"nav-panel-1" , title:"系统资源"},
-                             {id:"nav-panel-2" , title:"系统日志"},
-                             {id:"nav-panel-3" , title:"系统管理"},
-                             {id:"nav-panel-4" , title:"系统信息"},
-                             {id:"nav-panel-5" , title:"系统性能"}];
-            $(menuPanel).each(function(index , panel){
-                $("#"+panel.id).omPanel({
-                    title : panel.title,
-                    collapsible:true,
-                    // 面板收缩和展开的时候重新计算自定义滚动条是否显示
-                    onCollapse : function(){
-                        $("#west-panel").omScrollbar("refresh");
-                    },
-                    onExpand : function(){
-                        $("#west-panel").omScrollbar("refresh");
-                    }
-                });
-            });
-            // 初始化中间的tab页签
-            $('#center-tab').omTabs({height:"fit",border:false});
-            var treedata = [{id:"n1",text:"品牌",expanded:true},
-                         {id:"n2",text:"运营商",expanded:true},
-                         {id:"n11",pid:"n1",text:"三星"},
-    			         {id:"n12",pid:"n1",text:"诺基亚"},
-    			         {id:"n13",pid:"n1",text:"摩托罗拉"},
-    			         {id:"n14",pid:"n1",text:"索尼"},
-    			         {id:"n21",pid:"n2",text:"移动"},
-    			         {id:"n22",pid:"n2",text:"联通"},
-    			         {id:"n23",pid:"n2",text:"电信"}];
-            $("#navtree").omTree({
-                dataSource : treedata,
-                simpleDataModel: true
-            });
-            $("#help-panel").omPanel({
-            	title : "帮助信息",collapsible:true,iconCls:"icon-help",_helpMsg:true
-            });
-            $("#search-panel").omPanel({
-            	title : "高级搜索",collapsible:true
-            });
-            $("#search-type").omCombo({
-            	width : 138,
-                dataSource : [ {text : '类型一', value : 'TYPE1'}, 
-                               {text : '类型二', value : 'TYPE2'}, 
-                               {text : '类型三', value : 'TYPE3'}, 
-                               {text : '类型四', value : 'TYPE4'} ]
-            });
-            $("#start-time").omCalendar();
-            $("#end-time").omCalendar();
-            $('span#button-search').omButton({
-          	    icons : {left : 'images/search.png'},width : 70
-       	 	});
-            $('#buttonbar').omButtonbar({
-            	btns : [{label:"新增",
-            		     id:"button-new" ,
-            		     icons : {left : 'images/add.png'},
-            	 		 onClick:function(){alert('你点击了新增按钮！')}
-            			},
-            			{separtor:true},
-            	        {label:"删除",
-            			 id:"button-remove",
-            		     disabled :  true,
-            			 icons : {left : 'images/remove.png'},
-            	 		 onClick:function(){alert('你点击了删除按钮！')}
-            	        }
-            	]
-            });
-            $('#grid').omGrid({
-                dataSource : 'header-group-basic-data.json',
-                height : 450,
-                showIndex : true,
-                colModel : colModel,
-                onRefresh: function(nowPage, pageRecords, event){
-                	var $grid = $('#grid'); 
-                	$grid.find("a.op-btn").each(function(){
-                		var $btn = $(this); 
-                		// 初始化表格里面的操作按钮
-                		$btn.omButton({
-                			icons : {left : 'images/op-btn-icon.png'},
-                			width : 75,
-                			onClick : function(event){
-                				var v = $grid.find("div.op-menu:visible");
-                				var $opMenu = $(event.currentTarget.previousSibling);
-                				// 重新计算菜单的位置
-                				var left = $btn.offset().left - $grid.offset().left - 80 + "px";
-                				if($opMenu.css("display") == "none"){
-                					$opMenu.show().css({left:left});
-                				} else{
-                					$opMenu.hide();
-                				}
-                				v.hide();
-                				event.stopPropagation();
-                				return false;
-                			}
-                		});
-                	});
-                	// 绑定表格操作按钮菜单的事件
-                	$grid.find("div.op-menu").each(function(){
-                		var $menu = $(this);
-                		$menu.find(".edit").click(function(){
-							alert("编辑");
-							$menu.hide();
-						});
-                		$menu.find(".delete").click(function(){
-							alert("删除");
-							$menu.hide();
-						});
-                	});
+<base href="<%=basePath%>">
+<script type="text/javascript" src="<c:url value='/resource/js/jquery-1.8.2.min.js'/>" charset="utf-8"></script>
 
-                }
-            });
-            $("span#save").omButton({width:100,height:30});
-            // 导航面板使用自定义滚动条
-            $("#west-panel").omScrollbar();
-            // 点击页面其他地方的时候隐藏表格里面的菜单
-            $("body").click(function(){
-				$("#grid").find("div.op-menu:visible").hide();
-            });
-        });
-    </script>
-    <!-- view_source_end -->
+<title>用户登录</title>
+
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="keywords" content="login">
+<meta http-equiv="description" content="login">
+<script type="text/javascript">
+	
+</script>
+<style type="text/css">
+body {
+	margin: 0;
+	padding: 0;
+	font-size: 12px;
+	background: url(<%=path %>/resource/style/images/index/bg.jpg) top repeat-x;
+}
+
+.input {
+	width: 150px;
+	height: 17px;
+	border-top: 1px solid #404040;
+	border-left: 1px solid #404040;
+	border-right: 1px solid #D4D0C8;
+	border-bottom: 1px solid #D4D0C8;
+}
+</style>
+		<script type="text/javascript">      
+        	$(function(){           
+	            $('#kaptchaImage').click(function () {//生成验证码  
+	             $(this).hide().attr('src', '<%=path %>/login/captcha-image.do?' + Math.floor(Math.random()*100) ).fadeIn(); })      
+	        });   
+        
+       </script>   
 </head>
+
 <body>
-    <!-- view_source_begin -->
-   	<div id="north-panel"><h2>XXX 监控平台</h2></div>
-   	<div id="center-panel" style="padding: 5px 10px 0px 10px;">
-    	<div id="center-tab">
-	        <ul>
-	            <li><a href="#tab1">流程</a></li>
-	            <li><a href="#tab2">服务</a></li>
-	        </ul>
-	         <div id="tab1" style="padding: 0;position: relative;">
-		   		<h2>流程</h2>
-		   		<div id="help-panel">这是帮助文字。这是帮助文字。这是帮助文字。这是帮助文字。这是帮助文字。这是帮助文字。</div>
-		   		<br />
-		   		<div id="search-panel">
-		   			<div style="width: 800px;">
-			   			<span class="label">服务名称：</span>
-			   			<input type="text" class="input-text" />
-			   			<span class="label">服务类型：</span>
-			   			<input id="search-type" />
-			   			<span class="label">服务名称：</span>
-			   			<input type="text" class="input-text" />
-			   			<br /><br />
-			   			<span class="label">服务名称：</span>
-			   			<input type="text" class="input-text" />
-			   			<span class="label">开始时间：</span>
-			   			<input id="start-time" style="width: 118px" />
-			   			<span class="label">结束时间：</span>
-			   			<input id="end-time"  style="width: 118px"/>
-			   			<br /><br />
-			   			<span id="button-search">搜索</span>
-		   			</div>
-		   		</div>
-		   		<br />
-		   		<div id="buttonbar" style="margin-bottom: 5px;"></div>
-		   		<table id="grid"></table>
-		   		<div style="height: 40px;">
-			   		<span id="save"  class="apusic-btn-deepblue">保存</span>
-		   		</div>
-	   		</div>
-	   		<div id="tab2">服务内容</div>
-		</div>
-   	</div>
-   	
-   	<div id="west-panel" class="om-accordion" style="position: relative;">
-   		<div id="nav-panel-1" class="nav-panel">
-			<div class="nav-item user">服务</div>
- 			<div class="nav-item">流程</div>
- 			<div class="nav-item">触发器</div>
- 			<div class="nav-item">闪回</div>
- 			<div class="nav-item">CDC</div>
- 			<div class="nav-item">数据源</div>
- 			<div class="nav-item">文件池</div>
- 			<div class="nav-item">队列</div>
- 			<div class="nav-item">调度</div>
-   		</div>
-   		<div id="nav-panel-2" class="nav-panel">
-   			<ul id="navtree"></ul>
-   		</div>
-   		<div id="nav-panel-3" class="nav-panel">
- 			<div class="nav-item">流程</div>
- 			<div class="nav-item">触发器</div>
- 			<div class="nav-item">闪回</div>
-   		</div>
-   		<div id="nav-panel-4" class="nav-panel">
- 			<div class="nav-item">流程</div>
- 			<div class="nav-item">触发器</div>
- 			<div class="nav-item">闪回</div>
-   		</div>
-   		<div id="nav-panel-5" class="nav-panel">
- 			<div class="nav-item">流程</div>
- 			<div class="nav-item">触发器</div>
- 			<div class="nav-item">闪回</div>
-   		</div>
-   	</div>
-   	<div id="south-panel">sorth</div>
-    <!-- view_source_end -->
+	<form id="loginForm" action="user!doNotNeedSession_login.do"
+		method="post">
+		<table width="750" border="0" align="center" cellpadding="0"
+			cellspacing="0">
+			<tbody>
+				<tr>
+					<td height="200">&nbsp;</td>
+				</tr>
+				<tr>
+					<td><table width="100%" border="0" cellspacing="0"
+							cellpadding="0">
+							<tbody>
+								<tr>
+									<td width="423" height="280" valign="top"><table
+											width="100%" border="0" cellspacing="0" cellpadding="0">
+											<tbody>
+												<tr>
+													<td><img src="<%=path %>/resource/style/images/index/ltop.jpg">
+													</td>
+												</tr>
+												<tr>
+													<td><img src="<%=path %>/resource/style/images/index/llogo.jpg">
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</td>
+									<td width="40" align="center" valign="bottom"><img
+										src="<%=path %>/resource/style/images/index/line.jpg" width="23" height="232">
+									</td>
+									<td valign="top"><table width="100%" border="0"
+											cellspacing="0" cellpadding="0">
+											<tbody>
+												<tr>
+													<td height="90" align="center" valign="bottom"><img
+														src="<%=path %>/resource/style/images/index/ltitle.jpg">
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<div></div>
+														<table width="100%" border="0" align="center"
+															cellpadding="0" cellspacing="5">
+															<tbody>
+																<tr>
+																	<td colspan="2" align="center">${msg}</td>
+																</tr>
+																<tr>
+																	<td width="91" height="40" align="right"><strong>
+																			用户名：</strong>
+																	</td>
+																	<td width="211"><input type="text" id="username"
+																		name="cname" class="input">
+																	</td>
+																</tr>
+																<tr>
+																	<td height="40" align="right"><strong>密码：</strong>
+																	</td>
+																	<td><input name="cpwd" type="password"
+																		id="password" class="input">
+																	</td>
+																</tr>
+																<tr>
+																	<td height="40" align="right"><strong>验证码：</strong>
+																	</td>
+																	<td><input name="securityCode" type="text"
+																		id="securityCode" class="input">
+																	</td>
+																</tr>
+																<tr>
+																	<td height="40" align="center" colspan="2">
+																	<img src="<%=path %>/login/captcha-image.do" id="kaptchaImage"/>
+																	</td>
+																</tr>
+																<tr>
+																	<td height="40" colspan="2" align="center"><input
+																		type="image" src="<%=path %>/resource/style/images/index/login.jpg">
+																		&nbsp; &nbsp; <img name="reg" style="cursor: pointer"
+																		src="<%=path %>/resource/style/images/index/reset.jpg"
+																		onclick="document.forms[0].reset()"></td>
+																</tr>
+															</tbody>
+														</table>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
 </body>
-<script type="text/javascript" src="../../../demos/common/js/themeloader.js"></script>
 </html>

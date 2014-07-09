@@ -62,6 +62,13 @@
 			<version>1.2</version>
 		</dependency>
 		
+		<!--开源图形验证码 -->
+		<dependency>
+	      <groupId>com.github.axet</groupId>
+	      <artifactId>kaptcha</artifactId>
+	      <version>0.0.9</version>
+	    </dependency>
+		
 
 		<dependency>
 			<groupId>javax.servlet</groupId>
