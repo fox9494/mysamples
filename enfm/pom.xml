@@ -7,8 +7,6 @@
   <packaging>war</packaging>
   
   <description>web项目框架</description>
-
-
 	<developers>
 		<developer>
 			<email>cll219@qq.com</email>
@@ -239,6 +237,7 @@
 			<artifactId>commons-lang3</artifactId>
 			<version>3.1</version>
 		</dependency>
+		
 		
 		
 		<!-- <dependency>

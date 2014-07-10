@@ -16,8 +16,6 @@
 	      <param-name>log4jRefreshInterval</param-name>
 	      <param-value>60000</param-value>
     </context-param>  
-    
-
   
   <!-- spring字符过滤器 -->
   <filter>
@@ -34,6 +32,22 @@
     <filter-name>Spring_character_encoding_filter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
+  
+   <!-- shiro配置 -->
+  <filter>
+    <filter-name>shiroFilter</filter-name>
+    <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    <init-param>
+        <param-name>targetFilterLifecycle</param-name>
+        <param-value>true</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>shiroFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+ </filter-mapping>
+  
+
   
   <!-- 定义spring-context -->
   <context-param>

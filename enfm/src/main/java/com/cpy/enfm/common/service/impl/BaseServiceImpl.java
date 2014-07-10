@@ -1,14 +1,12 @@
 package com.cpy.enfm.common.service.impl;
 
-import java.util.List;
-
 import com.cpy.enfm.common.dao.BaseMybatisDAO;
 import com.cpy.enfm.common.service.BaseService;
 
 public abstract class BaseServiceImpl<T> implements BaseService<T> {
 	
 	
-	private BaseMybatisDAO<T> baseDao;
+	protected BaseMybatisDAO<T> baseDao;
 	
 	
 	

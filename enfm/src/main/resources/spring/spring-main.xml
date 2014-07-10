@@ -13,6 +13,8 @@
 		
 	<import resource="spring-datasource.xml"/>
     <import resource="spring-transaction.xml"/>
+    <!-- <import resource="spring-shiro.xml"/> -->
+   
     
 		
 	
@@ -63,7 +65,12 @@
                         <prop key="kaptcha.image.height">50</prop>  
                         <prop key="kaptcha.session.key">code</prop>  
                         <prop key="kaptcha.textproducer.char.length">4</prop>  
-                        <prop key="kaptcha.textproducer.font.names">宋体,楷体,微软雅黑</prop>  
+                        <prop key="kaptcha.textproducer.font.names">宋体,楷体,微软雅黑</prop>    
+                        
+                        <!-- 去掉干扰线 -->
+                        <!-- <prop key="kaptcha.noise.impl">com.google.code.kaptcha.impl.NoNoise</prop> -->
+                        <!-- 使用全部是数值 -->
+                        <!-- <prop key="kaptcha.textproducer.char.string">0123456789</prop> -->
                     </props>  
                 </constructor-arg>  
             </bean>  
