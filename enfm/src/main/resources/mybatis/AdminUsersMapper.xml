@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cpy.enfm.sysmanager.user.dao.AdminUserDAO" >
+  <resultMap id="BaseResultMap" type="com.cpy.enfm.sysmanager.user.entity.AdminUsers" >
+    <id column="UserID" property="userId" jdbcType="INTEGER" />
+    <result column="UserAccount" property="userAccount" jdbcType="VARCHAR" />
+    <result column="UserPassword" property="userPassword" jdbcType="VARCHAR" />
+    <result column="CreateDate" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="EditDate" property="editDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    UserID, UserAccount, UserPassword, CreateDate, EditDate
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="mybatis.entity.AdminUsersExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_admin_users
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_admin_users
+    where UserID = #{userId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_admin_users
+    where UserID = #{userId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="mybatis.entity.AdminUsersExample" >
+    delete from t_admin_users
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="mybatis.entity.AdminUsers" >
+    insert into t_admin_users (UserID, UserAccount, UserPassword, 
+      CreateDate, EditDate)
+    values (#{userId,jdbcType=INTEGER}, #{userAccount,jdbcType=VARCHAR}, #{userPassword,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{editDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="mybatis.entity.AdminUsers" >
+    insert into t_admin_users
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        UserID,
+      </if>
+      <if test="userAccount != null" >
+        UserAccount,
+      </if>
+      <if test="userPassword != null" >
+        UserPassword,
+      </if>
+      <if test="createDate != null" >
+        CreateDate,
+      </if>
+      <if test="editDate != null" >
+        EditDate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="userAccount != null" >
+        #{userAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="userPassword != null" >
+        #{userPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="editDate != null" >
+        #{editDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="mybatis.entity.AdminUsersExample" resultType="java.lang.Integer" >
+    select count(*) from t_admin_users
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update t_admin_users
+    <set >
+      <if test="record.userId != null" >
+        UserID = #{record.userId,jdbcType=INTEGER},
+      </if>
+      <if test="record.userAccount != null" >
+        UserAccount = #{record.userAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userPassword != null" >
+        UserPassword = #{record.userPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createDate != null" >
+        CreateDate = #{record.createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.editDate != null" >
+        EditDate = #{record.editDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update t_admin_users
+    set UserID = #{record.userId,jdbcType=INTEGER},
+      UserAccount = #{record.userAccount,jdbcType=VARCHAR},
+      UserPassword = #{record.userPassword,jdbcType=VARCHAR},
+      CreateDate = #{record.createDate,jdbcType=TIMESTAMP},
+      EditDate = #{record.editDate,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="mybatis.entity.AdminUsers" >
+    update t_admin_users
+    <set >
+      <if test="userAccount != null" >
+        UserAccount = #{userAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="userPassword != null" >
+        UserPassword = #{userPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        CreateDate = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="editDate != null" >
+        EditDate = #{editDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where UserID = #{userId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="mybatis.entity.AdminUsers" >
+    update t_admin_users
+    set UserAccount = #{userAccount,jdbcType=VARCHAR},
+      UserPassword = #{userPassword,jdbcType=VARCHAR},
+      CreateDate = #{createDate,jdbcType=TIMESTAMP},
+      EditDate = #{editDate,jdbcType=TIMESTAMP}
+    where UserID = #{userId,jdbcType=INTEGER}
+  </update>
+</mapper>

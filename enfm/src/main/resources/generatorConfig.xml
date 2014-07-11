@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration >
+ <classPathEntry location="D:\\maven-repos\\mysql\\mysql-connector-java\\5.1.27\\mysql-connector-java-5.1.27.jar" />
+  <context id="mysqltables" >
+    <commentGenerator>
+    	<property name="suppressAllComments" value="true"/>
+    	<property name="suppressDate" value="true"/>
+    </commentGenerator>
+    
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+     connectionURL="jdbc:mysql://127.0.0.1:3306/enfm?useUnicode=true&amp;characterEncoding=utf8"
+      userId="enfm" 
+      password="enfm" />
+     
+	  <javaTypeResolver >  
+	     <property name="forceBigDecimals" value="false" />  
+	  </javaTypeResolver>
+	    
+    <javaModelGenerator targetPackage="mybatis.entity" targetProject="enfm" >
+       <property name="trimStrings" value="true" />  
+       <property name="enableSubPackages" value="true" />
+    </javaModelGenerator>
+    
+    <sqlMapGenerator targetPackage="mybatis.xml" targetProject="enfm" />
+    
+    
+    <javaClientGenerator targetPackage="mybatis.dao" targetProject="enfm" type="XMLMAPPER" />
+    
+    <table schema="enfm" tableName="t_admin_users" domainObjectName="AdminUsers">
+    	<columnOverride column="UserID" property="userId" />
+    	<columnOverride column="UserAccount" property="userAccount" />
+    	<columnOverride column="UserPassword" property="userPassword" />
+    	<columnOverride column="CreateDate" property="createDate" />
+    	<columnOverride column="EditDate" property="editDate" />
+    </table>
+   <table schema="enfm" tableName="t_admin_role" domainObjectName="AdminRole">
+    	<columnOverride column="roleId" property="roleId" />
+    	<columnOverride column="roleName" property="roleName" />
+    	<columnOverride column="remark" property="remark" />
+    	<columnOverride column="CreateDate" property="createDate" />
+    </table>
+    <table schema="enfm" tableName="t_adminusers_role" domainObjectName="AdminUsersRole">
+    	<columnOverride column="UserRoleID" property="userRoleID" />
+    	<columnOverride column="userId" property="userId" />
+    	<columnOverride column="roleId" property="roleId" />
+    </table>
+    <table schema="enfm" tableName="t_module" domainObjectName="Module">
+    	<columnOverride column="moduleId" property="moduleId" />
+    	<columnOverride column="parentId" property="parentId" />
+    </table>
+    <table schema="enfm" tableName="t_admin_privilege" domainObjectName="AdminPrivilege">
+    	<columnOverride column="privilegeId" property="privilegeId" />
+    	<columnOverride column="roleId" property="roleId" />
+    	<columnOverride column="moduleId" property="moduleId" />
+    </table>
+    
+  </context>
+</generatorConfiguration>

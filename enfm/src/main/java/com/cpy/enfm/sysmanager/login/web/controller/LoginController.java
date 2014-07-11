@@ -2,13 +2,19 @@ package com.cpy.enfm.sysmanager.login.web.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.cpy.enfm.sysmanager.user.service.AdminUserService;
 import com.google.code.kaptcha.Constants;
 
 @Controller
 public class LoginController {
+	
+	
+	@Autowired
+	private AdminUserService adminUserService;
 
 	
 	/**

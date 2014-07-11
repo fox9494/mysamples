@@ -2,6 +2,7 @@ package com.cpy.enfm.common.dao;
 
 import java.util.List;
 
+import com.cpy.enfm.common.entity.MybatisExample;
 import com.cpy.enfm.common.page.PageBean;
 
 public interface BaseMybatisDAO<T> {
@@ -21,6 +22,10 @@ public interface BaseMybatisDAO<T> {
 	 * @param list
 	 */
 	public void batchInsert(List<T> list);
+	
+	
+	public List<T> selectByExample(MybatisExample example);
+	
 	
 	/**
 	 * 分页查询

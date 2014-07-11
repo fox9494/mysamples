@@ -11,13 +11,11 @@ public interface BaseService<T> {
 	public List<T>  findAll();
 	
 	
-	
 	/**
 	 * 保存
 	 * @param entity
 	 */
-	public void save(T entity);
-	
+	public int save(T entity);
 	
 
 	/**
@@ -25,29 +23,21 @@ public interface BaseService<T> {
 	 * @param id
 	 * @return
 	 */
-	public Object findById(Integer id);
+	public T findById(Integer id);
 	
 	
 	/**
 	 * 根据主键更新对象所有属性
 	 * @param entity
 	 */
-	public void update(Object entity);
+	public int update(Object entity);
 	
-	
-	/**
-	 * 根据属性查找
-	 * @param propertyName  属性名
-	 * @param value    属性值
-	 * @return
-	 */
-	public  List<T> findByProperty(String propertyName, Object value) ;
 	
 	/**
 	 * 删除对象
 	 * @param entity
 	 */
-	public void delete(Object entity);
+	public int delete(Object entity);
 	
 
 }

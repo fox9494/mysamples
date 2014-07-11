@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.util.CollectionUtils;
 
 import com.cpy.enfm.common.dao.BaseMybatisDAO;
+import com.cpy.enfm.common.entity.MybatisExample;
 import com.cpy.enfm.common.page.PageBean;
 
 public abstract class BaseMybatisDAOImpl<T> implements  BaseMybatisDAO<T> {
@@ -41,6 +42,10 @@ public abstract class BaseMybatisDAOImpl<T> implements  BaseMybatisDAO<T> {
 	
 	public static final String SELECTPAGE="pagequery";
 	
+	public static final String SELECTBYEXAMPLE="selectByExample";
+	
+	
+	
 	
 	/**
 	 * 获取mybatis执行语句id
@@ -55,6 +60,10 @@ public abstract class BaseMybatisDAOImpl<T> implements  BaseMybatisDAO<T> {
 			result= clazz[0].getName()+"."+mapperId;
 		}
 		return result;
+	}
+	
+	public List<T> selectByExample(MybatisExample example){
+		return sqlSessionTemplate.selectList(this.getStatement(SELECTBYEXAMPLE), example);
 	}
 	
 	/**
@@ -85,6 +94,7 @@ public abstract class BaseMybatisDAOImpl<T> implements  BaseMybatisDAO<T> {
 	public int updateById(Object parameter){
 		return sqlSessionTemplate.update(this.getStatement(UPDATE), parameter);
 	}
+	
 	
 	public List<T> selectAll(){
 		return sqlSessionTemplate.selectList(this.getStatement(SELECTALL), null);
