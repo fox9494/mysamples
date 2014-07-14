@@ -24,7 +24,8 @@ public class LoginController {
 	@RequestMapping(value="/login.do")
 	public String loginOn(HttpServletRequest request){
 		//获取验证码
-		request.getSession().getAttribute(Constants.KAPTCHA_SESSION_KEY);
+		String kaptcha=(String) request.getSession().getAttribute(Constants.KAPTCHA_SESSION_KEY);
+		System.out.print(kaptcha);
 		return "frame/index.jsp";
 	}
 
