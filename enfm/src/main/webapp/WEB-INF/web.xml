@@ -62,7 +62,6 @@
    </servlet-mapping>
    
    
-   
    <welcome-file-list>
      <welcome-file>/WEB-INF/jsp/login.jsp</welcome-file>
   </welcome-file-list>

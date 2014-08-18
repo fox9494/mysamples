@@ -98,7 +98,7 @@ body {
 																</tr>
 																<tr>
 																	<td width="91" height="40" align="right"><strong>
-																			用户名：</strong>
+																			用户名：<a href="<%=path %>/resource/css/test.aos" download="my.aos">点击测试</a></strong>
 																	</td>
 																	<td width="211"><input type="text" id="username"
 																		name="cname" class="input">
